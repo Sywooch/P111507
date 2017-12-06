@@ -1,0 +1,874 @@
+/* Slide */
+#wrapper {
+    margin-left: auto;
+    margin-right: auto
+}
+.container_48 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px
+}
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12,
+.grid_13,
+.grid_14,
+.grid_15,
+.grid_16,
+.grid_17,
+.grid_18,
+.grid_19,
+.grid_20,
+.grid_21,
+.grid_22,
+.grid_23,
+.grid_24,
+.grid_25,
+.grid_26,
+.grid_27,
+.grid_28,
+.grid_29,
+.grid_30,
+.grid_31,
+.grid_32,
+.grid_33,
+.grid_34,
+.grid_35,
+.grid_36,
+.grid_37,
+.grid_38,
+.grid_39,
+.grid_40,
+.grid_41,
+.grid_42,
+.grid_43,
+.grid_44,
+.grid_45,
+.grid_46,
+.grid_47,
+.grid_48 {
+    display: inline;
+    float: left;
+    position: relative;
+    margin-left: 0px;
+    margin-right: 0px
+}
+.push_1,
+.pull_1,
+.push_2,
+.pull_2,
+.push_3,
+.pull_3,
+.push_4,
+.pull_4,
+.push_5,
+.pull_5,
+.push_6,
+.pull_6,
+.push_7,
+.pull_7,
+.push_8,
+.pull_8,
+.push_9,
+.pull_9,
+.push_10,
+.pull_10,
+.push_11,
+.pull_11,
+.push_12,
+.pull_12,
+.push_13,
+.pull_13,
+.push_14,
+.pull_14,
+.push_15,
+.pull_15,
+.push_16,
+.pull_16,
+.push_17,
+.pull_17,
+.push_18,
+.pull_18,
+.push_19,
+.pull_19,
+.push_20,
+.pull_20,
+.push_21,
+.pull_21,
+.push_22,
+.pull_22,
+.push_23,
+.pull_23,
+.push_24,
+.pull_24,
+.push_25,
+.pull_25,
+.push_26,
+.pull_26,
+.push_27,
+.pull_27,
+.push_28,
+.pull_28,
+.push_29,
+.pull_29,
+.push_30,
+.pull_30,
+.push_31,
+.pull_31,
+.push_32,
+.pull_32,
+.push_33,
+.pull_33,
+.push_34,
+.pull_34,
+.push_35,
+.pull_35,
+.push_36,
+.pull_36,
+.push_37,
+.pull_37,
+.push_38,
+.pull_38,
+.push_39,
+.pull_39,
+.push_40,
+.pull_40,
+.push_41,
+.pull_41,
+.push_42,
+.pull_42,
+.push_43,
+.pull_43,
+.push_44,
+.pull_44,
+.push_45,
+.pull_45,
+.push_46,
+.pull_46,
+.push_47,
+.pull_47,
+.push_48,
+.pull_48 {
+    position: relative
+}
+.alpha {
+    margin-left: 0
+}
+
+
+.curpo,
+a {
+    cursor: pointer
+}
+a i.fa-rss,
+a i.fa-rss-square,
+a.fa-rss {
+    color: #ecd099;
+    font-size: 18px
+}
+h1 i.fa-plus,
+h1 i.fa-minus {
+    font-size: 26px;
+    color: #b2bed5;
+    margin-left: 10px
+}
+h1 i.fa-plus:hover,
+h1 i.fa-minus:hover,
+a i.fa-rss:hover,
+a i.fa-rss-square:hover {
+    color: #41619e
+}
+.posrel {
+    position: relative
+}
+.opac-100 {
+    opacity: 1
+}
+.novig,
+.novig:before {
+    box-shadow: none !important
+}
+.noclk {
+    pointer-events: none
+}
+.pad20 {
+    padding: 20px
+}
+.padtop_30 {
+    padding-top: 30px
+}
+.padtop_20 {
+    padding-top: 20px
+}
+.mg_20 {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important
+}
+.mg_30 {
+    margin-top: 30px !important;
+    margin-bottom: 30px !important
+}
+.mg_40 {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important
+}
+.nomgtop {
+    margin-top: 0 !important
+}
+.nomgbot {
+    margin-bottom: 0 !important
+}
+.nomgleft {
+    margin-left: 0 !important
+}
+.mgtop_110 {
+    margin-top: 110px !important
+}
+.mgtop_100 {
+    margin-top: 100px !important
+}
+.mgtop_80 {
+    margin-top: 80px !important
+}
+.mgtop_60 {
+    margin-top: 60px !important
+}
+.mgtop_55 {
+    margin-top: 55px !important
+}
+.mgtop_50 {
+    margin-top: 50px !important
+}
+.mgtop_45 {
+    margin-top: 45px !important
+}
+.mgtop_145 {
+    margin-top: 145px !important
+}
+.mgtop_40 {
+    margin-top: 40px !important
+}
+.mgtop_35 {
+    margin-top: 35px !important
+}
+.mgtop_30 {
+    margin-top: 30px !important
+}
+.mgtop_25 {
+    margin-top: 25px !important
+}
+.mgtop_20 {
+    margin-top: 20px !important
+}
+.mgtop_10 {
+    margin-top: 10px !important
+}
+.mgbot_70 {
+    margin-bottom: 70px !important
+}
+.mgbot_60 {
+    margin-bottom: 60px !important
+}
+.mgbot_50 {
+    margin-bottom: 50px !important
+}
+.mgbot_40 {
+    margin-bottom: 40px !important
+}
+.mgbot_35 {
+    margin-bottom: 35px !important
+}
+.mgbot_30 {
+    margin-bottom: 30px !important
+}
+.mgbot_25 {
+    margin-bottom: 25px !important
+}
+.mgbot_20 {
+    margin-bottom: 20px !important
+}
+.mgbot_10 {
+    margin-bottom: 10px !important
+}
+.mgleft_10 {
+    margin-left: 10px !important
+}
+.mgleft_15 {
+    margin-left: 15px !important
+}
+.mgleft_20 {
+    margin-left: 20px !important
+}
+.mgleft_30 {
+    margin-left: 30px !important
+}
+.mgleft_60 {
+    margin-left: 60px !important
+}
+.mgright_20 {
+    margin-right: 20px !important
+}
+.mgright_30 {
+    margin-right: 30px !important
+}
+.mgright_0 {
+    margin-right: 0 !important
+}
+.ng_slot {
+    border-right: 5px solid #ccd4e3
+}
+.ng_container .ng_slot:last-child {
+    border-right: none !important
+}
+.ng_container {
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 0
+}
+.upcase {
+    text-transform: uppercase
+}
+.col-white {
+    color: #fff !important
+}
+.col-blue,
+.col-blue-100 {
+    color: #002873 !important
+}
+.col-blue-50 {
+    color: #8093b9 !important
+}
+.col-blue-70 {
+    color: #4c689d !important
+}
+.overhide {
+    overflow: hidden
+}
+.overscroll {
+    overflow: scroll
+}
+.hp_soft {
+    height: 200px;
+    margin-bottom: 20px;
+    width: 210px;
+    position: relative
+}
+.hp_soft img {
+    min-width: 210px;
+    min-height: 160px
+}
+.hp_soft .label {
+    top: -5px
+}
+.hp_soft .clip {
+    width: 210px;
+    height: 160px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.hp_soft .container {
+    width: 210px;
+    height: 220px;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.hp_soft h3 {
+    font-size: 16px;
+    line-height: 18px;
+    z-index: 11;
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 165px;
+    background-color: #fff;
+    padding: 12px 0 10px 0;
+    font-weight: 700
+}
+.hp_soft .meta {
+    width: 165px;
+    height: 82px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 11
+}
+.hp_soft .meta-short {
+    width: 125px
+}
+.hp_soft .version {
+    color: #7f93b8;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'museo_sans_cond';
+    font-weight: 300;
+    width: 80px;
+    float: left
+}
+.hp_soft .update,
+.hp_soft .new {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'museo_sans_cond';
+    font-weight: 700;
+    padding-left: 5px;
+    display: block
+}
+.hp_soft .update {
+    color: #3265cb
+}
+.hp_soft .new {
+    color: #cb3232
+}
+.hp_soft .description {
+    color: #657daa;
+    font-size: 13px;
+    line-height: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+    height: 60px;
+    width: 125px
+}
+.hp_soft .rating_container {
+    font-family: 'FontAwesome';
+    font-size: 13px;
+    line-height: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    right: 0;
+    text-align: center;
+    color: #7f93b8;
+    z-index: 11
+}
+.hp_soft .rating {
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap
+}
+.hp_soft .downloads {
+    position: absolute;
+    bottom: 40px;
+    width: 80px;
+    right: 0;
+    color: #fff;
+    font-size: 9px;
+    line-height: 12px;
+    padding: 7px 0;
+    z-index: 11;
+    text-align: center
+}
+.hp_soft .downloads span {
+    font-size: 11px
+}
+.hp_soft_offset_1 {
+    margin-left: 0
+}
+.hp_soft_offset_2 {
+    margin-left: 10px
+}
+.hp_soft_offset_3 {
+    margin-left: 20px
+}
+.hp_soft_offset_4 {
+    margin-left: 30px
+}
+.hp_essentials {
+    height: 280px
+}
+.hp_essentials .up,
+.hp_essentials .down {
+    background-color: #002772;
+    color: #fff;
+    width: 250px;
+    height: 40px;
+    position: absolute;
+    left: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 27px;
+    z-index: 11
+}
+.dlclassic .rating {
+    width: 70px;
+    position: relative
+}
+.dlclassic .rating span {
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    left: 0
+}
+.dlclassic p {
+    color: #667EAB;
+    display: inline-block;
+    width: 600px;
+    position: relative;
+    left: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.dlclassic .time {
+    position: absolute;
+    left: 100px;
+    top: 5px;
+    line-height: 15px
+}
+.dlclassic .time i.fa {
+    color: #b2bfd5
+}
+.dlclassic .num {
+    position: absolute;
+    right: 360px;
+    top: 5px;
+    line-height: 15px
+}
+.dlclassic .size {
+    position: absolute;
+    right: 270px;
+    top: 5px;
+    line-height: 15px
+}
+.dlclassic .ico {
+    position: relative;
+    width: 60px;
+    height: 60px
+}
+.dlclassic .ico:before {
+    opacity: 0.25 !important;
+    z-index: -1 !important
+}
+.dlclassic .ico img {
+    margin: 14px 0 0 14px
+}
+.nwclassic .title {
+    max-width: 540px;
+    font-size: 20px
+}
+.nwclassic .pic {
+    position: relative;
+    width: 80px;
+    height: 80px
+}
+.nwclassic .pic:before {
+    opacity: 0.25 !important
+}
+.nwclassic {
+    height: 79px;
+    border-bottom: 2px solid #f2f4f8;
+    overflow: hidden;
+    line-height: 20px
+}
+.nwclassic p {
+    font-size: 15px;
+    left: 0;
+    width: 540px;
+    font-weight: 500
+}
+.nwclassic h3 {
+    margin-bottom: 5px
+}
+.nwclassic .info {
+    color: #B2BED4;
+    font-size: 15px;
+    line-height: 20px
+}
+.nwclassic .info a,
+.nwclassic .info a:visited {
+    color: #7F93B8;
+    font-weight: 700
+}
+.nwclassic .info ul {
+    padding: 0;
+    margin: 0;
+    list-style: none
+}
+.nwclassic .info li {
+    padding: 0;
+    margin: 0;
+    line-height: 18px
+}
+.nwclsshort .info li {
+    display: inline-block;
+    margin-right: 20px
+}
+.nwclslong .ln {
+    width: 540px !important;
+    margin-left: 100px;
+    line-height: 20px
+}
+.nwclshot {
+    width: 413px;
+    float: left
+}
+.nhotbox .nwclshot {
+    width: 470px;
+    height: 100px;
+    overflow: hidden
+}
+.nwclshot.suffix_1 {
+    border-right: 2px solid #e5e9f1
+}
+.nwclshot .pic {
+    width: 100px;
+    height: 100px;
+    float: left;
+    position: relative
+}
+.nwclshot .pic:before {
+    opacity: 0.25
+}
+.nwclshot .pic:after {
+    content: 'HOT';
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #c33;
+    color: white;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    width: 40px;
+    text-align: center;
+    z-index: 1
+}
+.nwclshot h3 {
+  width: 345px;
+  margin-left: 120px;
+  line-height: 27px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 0;
+}
+.nwclshot h3 a:hover {
+  text-decoration: none;
+}
+.nwclshot span {
+    display: block;
+    width: 340px;
+    margin-left: 130px;
+    position: relative;
+    xtop: -4px;
+    font-weight: 500
+}
+.nwclshot span a,
+.nwclshot span a:visited {
+    color: #7F93B8;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase
+}
+.nwclshot span .fa {
+    margin-right: 5px
+}
+.nwclshot.prefix_1 .pic {
+    float: right
+}
+.nwclshot.prefix_1 h3 {
+    text-align: right;
+    margin: 0;
+    width: 345px
+}
+.nwclshot p {
+    width: 340px;
+    color: #7F93B8
+}
+.nwclshot.prefix_1 p {
+    text-align: right;
+    margin-left: 0
+}
+.nwclshot.suffix_1 p {
+    margin-left: 120px
+}
+.sotdcls .hp_sotd {
+    width: 620px !important;
+    height: 250px
+}
+.sotdcls .gradient_sotd:before {
+    background: linear-gradient(to right bottom, #182771, #51689a);
+    opacity: 0.9
+}
+.sotdcls .label,
+.sotdcls .datalabel,
+.sotdcls .datalabel .fa {
+    line-height: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important
+}
+.sotdcls .datalabel,
+.sotdcls .datalabel .fa {
+    width: 40px !important
+}
+.sotdcls .badge {
+    position: absolute;
+    left: -50px;
+    top: 35px;
+    text-align: center;
+    z-index: 11;
+    color: #c33;
+    font-family: museo_slab;
+    font-weight: 500;
+    font-size: 26px;
+    display: block;
+    background: url("http://www.softpedia.lo/_img/star_promo.png") no-repeat;
+    height: 100px;
+    width: 100px;
+    padding-top: 15px
+}
+.sotdcls .badge b {
+    font-size: 38px;
+    font-weight: 700
+}
+.sotdcls .badge i {
+    font-style: normal;
+    font-size: 22px;
+    font-family: museo_sans_cond;
+    font-weight: 300;
+    line-height: 20px
+}
+.sotdcls h3 {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 30px;
+    margin: 0;
+    line-height: 30px
+}
+.sotdcls h3 span {
+    font-size: 24px;
+    color: #fec34e
+}
+.sotdcls .datablock {
+    bottom: 30px;
+    width: 170px;
+    height: 40px
+}
+.sotdcls .datablock.nosel {
+    left: 40px
+}
+.sotdcls .datablock.review {
+    left: 220px
+}
+.sotdcls .datablock p {
+    font-size: 18px !important;
+    line-height: 20px;
+    height: auto
+}
+.hotrev_nav,
+.navbarrow {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    background-color: #33538f;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 34px;
+    color: #fff;
+    text-align: center;
+    line-height: 29px !important;
+    z-index: 3
+}
+.hotrev_nav:hover,
+.navbarrow:hover {
+    background-color: #6383bf
+}
+.hotrev_nav.left {
+    left: -16px
+}
+.hotrev_nav.right {
+    right: -16px
+}
+.nhotbox {
+    height: 100px
+}
+.nhotbox.home {
+    height: 225px !important;
+    width: 100%;
+}
+.nhotbox .overhide {
+    width: 940px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    padding-top: 5px
+}
+.nhotbox.home .overhide {
+    width: 940px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nhotbox .rail {
+    width: 4700px
+}
+.nhotbox .nav {
+    position: absolute;
+    top: 37px;
+    background-color: #c33
+}
+.nhotbox .nav:hover {
+    background-color: #f66
+}
+.nhotbox.home .nav {
+    position: absolute;
+    top: 99px
+}
+.nhotbox .nwclshot .pic:after {
+    display: none !important
+}
+.nhotbox .nav.left {
+    left: -16px
+}
+.nhotbox .nav.right {
+    right: -10px
+}
+.nhotbox .nav i,
+.hotrev_nav i {
+    position: relative;
+    top: -1px;
+}
+.hotrev_nav.dsbl,
+.hotrev_nav.dsbl:hover,
+.navbarrow.dsbl,
+.navbarrow.dsbl:hover {
+    background-color: #ccc;
+    cursor: no-drop
+}
+.nhotbox .nav.hotcenter {
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    top: 94px;
+    line-height: 27px !important;
+    font-size: 10px;
+}
+.nhotbox .nav.hotcenter:hover {
+    background-color: #c33
+}
+.nwclshot a {
+  color: #008ad1;
+}
+/* End Slide */

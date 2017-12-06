@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quickrep</title>
+
+	<!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+    <!-- jQuery -->    
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="libs/jscroll/jquery.jscroll.min.js"></script>
+    <script type="text/javascript" src="libs/froala/js/froala_editor.js"></script>
+    <!-- orther script -->
+    <script  type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header id="header" class="site-header header-diff">
+			<div class="container">
+				<div class="search-mobile">
+					<div class="m-search-click"><i class="nc-icon-outline ui-1_zoom"></i>Search</div>
+				</div>
+				<div class="site-brand">
+					<a href="index.html"><img src="images/assets/logo.png" alt=""></a>
+				</div><!-- .site-brand -->
+				<div class="search-form">
+					<a href="#" class="search-back"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>
+					<form action="#" method="POST">
+						<input type="text" value="" name="s" placeholder="Tìm kiếm...">
+						<button type="submit" value=""><img src="images/assets/search-icon.png" alt=""></button>
+					</form>
+					<div class="suggest-search">
+						<div class="suggest-title">
+							<p><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm cho:</p>
+						</div>
+						<ul>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Tài khoản:<span>Andrew</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-02.png" alt="">Tài khoản:<span>Sói Ăn Chay</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-01.png" alt="">Chủ đề:<span>Âm nhạc</span></a></li>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Câu hỏi:<span>Ăn kiêng cho người giảm béo</span></a></li>
+						</ul>
+						<div class="suggest-footer"><a href="#" class="today-ask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Đặt câu hỏi</a></div>
+					</div>
+				</div><!-- .search-form -->
+
+				<div class="header-right">
+					<div class="question">
+						<a href="#" class="today-ask"><i class="nc-icon-outline location_bookmark-add"></i>Đặt câu hỏi</a>
+					</div><!-- .question -->
+					<div class="notice">
+						<a href="#"><span class="bell"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="notice-number">5</span></span>Thông báo</a>
+						<div class="notice-popup" tabindex="-1">
+							<div class="np-title">
+								<a class="np-views" href="notifications.html">Xem tất cả thông báo<i class="nc-icon-outline arrows-2_small-right"></i></a>
+								<a class="np-check" href="#"><i class="nc-icon-outline ui-1_check-small"></i>Đánh dấu đã đọc</a>
+							</div>
+							<div class="np-content">
+								<ul>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .notice -->
+					<div class="account">
+						<a class="account-ava" href="#"><img src="images/account-avatar.png" alt=""></a>
+						<div class="account-popup" tabindex="-1">
+							<ul>
+								<li><a href="profile.html">Thông tin cá nhân</a></li>
+								<li><a href="profile-blogs.html">Blogs</a></li>
+								<li><a href="messages.html">Tin nhắn</a></li>
+								<li><a href="content.html">Nội dung của bạn</a></li>
+								<li><a href="stats.html">Thống kê</a></li>
+								<li><a href="settings.html">Cài đặt</a></li>
+								<li><a href="#">Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div><!-- .account -->
+				</div><!-- .header-right -->
+			</div><!-- .container -->
+			<nav class="main-menu">
+				<ul>
+					<li><a href="index.html">Trang chủ</a></li>
+					<li><a href="answer.html">Trả lời</a></li>
+					<li><a href="notifications.html">Thông báo</a></li>
+					<li class="active"><a href="profile.html">Hồ sơ</a></li>
+				</ul>
+			</nav><!-- .main-menu -->
+		</header><!-- .site-header -->
+
+		<main id="main" class="site-main site-content">
+			<div class="container">
+				<div class="m-menu-top">
+					<ul>
+						<li><a href="profile.html">Hồ sơ</a></li>
+						<li><a href="stats.html">Thống kê</a></li>
+						<li><a href="content.html">Nội dung của bạn</a></li>
+						<li class="active"><a href="settings.html">Tài khoản</a></li>
+						<li><a href="messages.html">Tin nhắn</a></li>
+						<li><a href="privacy.html">Riêng tư</a></li>
+						<li><a href="emal&notification.html">Email và thông báo</a></li>
+						<li><a href="language.html">Ngôn ngữ</a></li>
+						<li><a href="blogs.html">Blogs</a></li>
+					</ul>
+				</div>
+				<div class="sidebar-left">
+					<aside class="widget widget-question">
+						<h3 class="widget-title">Cài đặt</h3>
+						<div class="widget-content">
+							<ul>
+								<li class="active"><a href="settings.html">Tài khoản</a></li>
+								<li><a href="privacy.html">Riêng tư</a></li>
+								<li><a href="emal&notification.html">Email và thông báo</a></li>
+								<li><a href="language.html">Ngôn ngữ</a></li>
+								<li><a href="blogs.html">Blogs</a></li>
+							</ul>
+						</div>
+					</aside><!-- .widget-question -->
+				</div><!-- .sidebar-left -->
+				<div class="main-content">
+					<div class="setting-box">
+						<h3>Cài đặt tài khoản</h3>
+						<ul>
+							<li>
+								<div class="label-left">Email chính</div>
+								<div class="label-right">
+									<p>ductrung.7747@gmail.com</p>
+									<a href="#" class="click-add-mail">Thêm một địa chỉ email</a>
+									<div class="add-email">
+										<form action="#">
+											<input type="text" placeholder="name@example.com">
+											<input type="submit" value="Thêm">
+										</form>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="label-left">Mật khẩu</div>
+								<div class="label-right"><a href="#" class="change-pass">Thay đổi mật khẩu</a></div>
+								<div class="change-pass-bg"></div>
+								<div class="change-pass-popup">
+									<div class="popup-title">
+										<h3>Nhập mật khẩu</h3>
+										<div class="pt-desc"><p>Vì mục đích bảo mật, vui lòng nhập mật khẩu của bạn để tiếp tục. Nếu bạn đã đăng ký sử dụng Facebook hoặc Google, vui lòng <a href="#">tạo một mật khẩu tài khoản</a>.</p></div>
+									</div>
+									<div class="popup-content">
+										<form action="#">
+											<input type="text" placeholder="Mật khẩu">
+											<label for="">Quên mật khẩu?</label>
+										</form>
+									</div>
+									<div class="popup-bottom">
+										<div class="btn">
+											<a href="#" class="btn-cancel change-pass-cancel">Hủy</a>
+											<a href="#" class="btn-accept">Xong</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="setting-box">
+						<h3>Kết nối tài khoản</h3>
+						<ul>
+							<li>
+								<div class="label-left">Google</div>
+								<div class="label-right">soianchay@gmail.com <a href="#" class="disconect">Disconect</a></div>
+							</li>
+							<li>
+								<div class="label-left">Twitter</div>
+								<div class="label-right"><a href="#">Connect Twitter Account </a></div>
+							</li>
+							<li>
+								<div class="label-left">Facebook</div>
+								<div class="label-right"><a href="#">Connect Facebook Account </a></div>
+							</li>
+							<li>
+								<div class="label-left">LinkedIn</div>
+								<div class="label-right"><a href="#">Connect LinkedIn Account </a></div>
+							</li>
+						</ul>
+					</div>
+				</div><!-- .sidebar-right -->
+			</div><!-- .container -->
+		</main><!-- .site-main -->
+
+		<footer id="footer" class="site-footer">
+			<div class="container">
+				
+			</div><!-- .container -->
+		</footer><!-- site-footer -->
+	</div><!-- #wrapper -->
+</body>
+</html>

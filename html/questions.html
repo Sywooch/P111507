@@ -1,0 +1,1005 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quickrep</title>
+
+	<!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+    <!-- jQuery -->    
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="libs/jscroll/jquery.jscroll.min.js"></script>
+    <script type="text/javascript" src="libs/froala/js/froala_editor.js"></script>
+    <!-- orther script -->
+    <script  type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header id="header" class="site-header">
+			<div class="container">
+				<div class="search-mobile">
+					<div class="m-search-click"><i class="nc-icon-outline ui-1_zoom"></i>Search</div>
+				</div>
+				<div class="site-brand">
+					<a href="index.html"><img src="images/assets/logo.png" alt=""></a>
+				</div><!-- .site-brand -->
+				<div class="search-form">
+					<a href="#" class="search-back"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>
+					<form action="#" method="POST">
+						<input type="text" value="" name="s" placeholder="Tìm kiếm...">
+						<button type="submit" value=""><img src="images/assets/search-icon.png" alt=""></button>
+					</form>
+					<div class="suggest-search">
+						<div class="suggest-title">
+							<p><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm cho:</p>
+						</div>
+						<ul>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Tài khoản:<span>Andrew</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-02.png" alt="">Tài khoản:<span>Sói Ăn Chay</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-01.png" alt="">Chủ đề:<span>Âm nhạc</span></a></li>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Câu hỏi:<span>Ăn kiêng cho người giảm béo</span></a></li>
+						</ul>
+						<div class="suggest-footer"><a href="#" class="today-ask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Đặt câu hỏi</a></div>
+					</div>
+				</div><!-- .search-form -->
+
+				<div class="header-right">
+					<div class="question">
+						<a href="#" class="today-ask"><i class="nc-icon-outline location_bookmark-add"></i>Đặt câu hỏi</a>
+					</div><!-- .question -->
+					<div class="notice">
+						<a href="#"><span class="bell"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="notice-number">5</span></span>Thông báo</a>
+						<div class="notice-popup" tabindex="-1">
+							<div class="np-title">
+								<a class="np-views" href="notifications.html">Xem tất cả thông báo<i class="nc-icon-outline arrows-2_small-right"></i></a>
+								<a class="np-check" href="#"><i class="nc-icon-outline ui-1_check-small"></i>Đánh dấu đã đọc</a>
+							</div>
+							<div class="np-content">
+								<ul>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .notice -->
+					<div class="account">
+						<a class="account-ava" href="#"><img src="images/account-avatar.png" alt=""></a>
+						<div class="account-popup" tabindex="-1">
+							<ul>
+								<li><a href="profile.html">Thông tin cá nhân</a></li>
+								<li><a href="profile-blogs.html">Blogs</a></li>
+								<li><a href="messages.html">Tin nhắn</a></li>
+								<li><a href="content.html">Nội dung của bạn</a></li>
+								<li><a href="stats.html">Thống kê</a></li>
+								<li><a href="settings.html">Cài đặt</a></li>
+								<li><a href="#">Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div><!-- .account -->
+				</div><!-- .header-right -->
+			</div><!-- .container -->
+			<nav class="main-menu">
+				<ul>
+					<li><a href="index.html">Trang chủ</a></li>
+					<li><a href="answer.html">Trả lời</a></li>
+					<li><a href="notifications.html">Thông báo</a></li>
+					<li><a href="profile.html">Hồ sơ</a></li>
+				</ul>
+			</nav><!-- .main-menu -->
+		</header><!-- .site-header -->
+
+		<main id="main" class="site-main">
+			<div class="container">
+				<div class="sidebar-left">
+					<aside class="widget widget-question">
+						<h3 class="widget-title"><i class="nc-icon-outline files_question"></i>Câu hỏi</h3>
+						<div class="widget-content">
+							<ul>
+								<li class="active"><a href="questions.html">Tất cả câu hỏi</a></li>
+								<li><a href="top-question.html">Theo dõi</a></li>
+								<li><a href="#">Phổ biến</a></li>
+								<li><a href="#">Chưa trả lời</a></li>
+								<li><a href="bookmarked-answers.html">Đã trả lời</a></li>
+							</ul>
+						</div>
+					</aside><!-- .widget-question -->
+					<aside class="widget widget-topic">
+						<h3 class="widget-title"><i class="nc-icon-outline ui-3_signal"></i>Chủ đề<a href="#" class="we-topic">Sửa</a></h3>
+						<div class="widget-content">
+							<ul class="wt-list">
+								<li>
+									<a href="#">Âm nhạc</a>
+									<div class="profile">
+										<div class="profile-content">
+											<div class="profile-title">
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
+												<div class="profile-name"><a href="#">Âm nhạc</a></div>
+											</div>
+											<div class="profile-info">
+												<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+											</div>
+										</div>
+										<div class="profile-track">
+											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a href="#">Công nghệ</a>
+									<div class="profile">
+										<div class="profile-content">
+											<div class="profile-title">
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
+												<div class="profile-name"><a href="#">Công nghệ</a></div>
+											</div>
+											<div class="profile-info">
+												<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+											</div>
+										</div>
+										<div class="profile-track">
+											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a href="#">Du lịch</a>
+									<div class="profile">
+										<div class="profile-content">
+											<div class="profile-title">
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
+												<div class="profile-name"><a href="#">Du lịch</a></div>
+											</div>
+											<div class="profile-info">
+												<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+											</div>
+										</div>
+										<div class="profile-track">
+											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a href="#">Đời sống</a>
+									<div class="profile">
+										<div class="profile-content">
+											<div class="profile-title">
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
+												<div class="profile-name"><a href="#">Đời sống</a></div>
+											</div>
+											<div class="profile-info">
+												<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+											</div>
+										</div>
+										<div class="profile-track">
+											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a href="#">Giới tính</a>
+									<div class="profile">
+										<div class="profile-content">
+											<div class="profile-title">
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
+												<div class="profile-name"><a href="#">Giới tính</a></div>
+											</div>
+											<div class="profile-info">
+												<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+											</div>
+										</div>
+										<div class="profile-track">
+											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a href="#">Sức khỏe</a>
+									<div class="profile">
+										<div class="profile-content">
+											<div class="profile-title">
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
+												<div class="profile-name"><a href="#">Sức khỏe</a></div>
+											</div>
+											<div class="profile-info">
+												<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+											</div>
+										</div>
+										<div class="profile-track">
+											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="we-topic-popup" tabindex="-1">
+							<div class="popup-title">
+								<form class="wtp-form">
+									<input type="text" placeholder="Tìm kiếm một chủ đề">
+								</form>
+							</div>
+							<div class="popup-content">
+								<div class="list-topic">
+									<ul>
+										<li>
+											<a href="#">Âm nhạc <img src="images/profile-cat.png" alt=""></a>
+										</li>
+										<li>
+											<a href="#">Công nghệ <img src="images/profile-cat.png" alt=""></a>
+										</li>
+										<li>
+											<a href="#">Du lịch <img src="images/profile-cat.png" alt=""></a>
+										</li>
+										<li>
+											<a href="#">Đời sống <img src="images/profile-cat.png" alt=""></a>
+										</li>
+										<li>
+											<a href="#">Giới tính <img src="images/profile-cat.png" alt=""></a>
+										</li>
+										<li>
+											<a href="#">Sức khỏe <img src="images/profile-cat.png" alt=""></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</aside><!-- .widget-topic -->
+				</div><!-- .sidebar-left -->
+				<div class="main-content scroll" data-ui="jscroll-default">
+					<div class="m-menu-top">
+						<ul>
+							<li><a href="index.html">Tin tức</a></li>
+							<li><a href="bookmarked-answers.html">Đánh dấu</a></li>
+							<li class="active"><a href="questions.html">Câu hỏi mới</a></li>
+						</ul>
+					</div>
+					<div class="question-form">
+						<div class="ask-popup-bg"></div>
+						<div class="ask-popup">
+							<div class="m-ask-title"><a href="#" class="ask-popup-close"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>Thêm một câu hỏi</div>
+							<div class="ask-popup-content">
+								<div class="ask-popup-close"><i class="nc-icon-mini ui-1_simple-remove"></i></div>
+								<div class="hello-user">
+									<a href="#"><img src="images/ava-user.png" alt=""></a>
+									<span>Xin chào, <a href="#">Nguyễn Xuân Trường</a></span>
+								</div>
+								<textarea name="s" id="" placeholder="Câu hỏi của bạn là gì?"></textarea>
+								<div class="source">
+									<span><i class="nc-icon-outline ui-2_link-69"></i> Tùy chọn:</span>
+									<input type="text" placeholder="Nhập đường dẫn">
+								</div>
+							</div>
+							<div class="ask-bottom">
+								<div class="ask-modal">
+									<a href="#" class="ask-cancel">Hủy bỏ</a>
+									<input type="checkbox" id="subscribeNews"><label for="subscribeNews">Đặt câu hỏi ẩn danh</label>
+									<a href="#" class="ask-btn">Đặt câu hỏi</a>
+								</div>
+							</div>
+						</div>
+					</div><!-- .today-question -->
+					<h2 class="text-header"><i class="nc-icon-mini ui-2_time-clock"></i>New Questions To Follow</h2>
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Sức khỏe</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Hỏi cách xử lý mốc, rêu bám trên máy rửa mặt?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Giáo dục</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Xin địa chỉ trung tâm luyện thi IELTS đảm bảo, uy tín ở TP.HCM?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Ngoại ngữ</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Perception và awareness khác nhau như thế nào ?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Sức khỏe</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Hỏi cách xử lý mốc, rêu bám trên máy rửa mặt?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Giáo dục</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Xin địa chỉ trung tâm luyện thi IELTS đảm bảo, uy tín ở TP.HCM?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Sức khỏe</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Hỏi cách xử lý mốc, rêu bám trên máy rửa mặt?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Giáo dục</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Xin địa chỉ trung tâm luyện thi IELTS đảm bảo, uy tín ở TP.HCM?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Ngoại ngữ</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Perception và awareness khác nhau như thế nào ?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Sức khỏe</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Hỏi cách xử lý mốc, rêu bám trên máy rửa mặt?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+					<div class="question-basic section">
+						<div class="qb-topic">
+							<div class="profile">
+								<div class="profile-content">
+									<div class="profile-title">
+										<a href="#"><img src="images/profile-cat.png" alt=""></a>
+										<div class="profile-name"><a href="#">Giáo dục</a></div>
+									</div>
+									<div class="profile-info">
+										<p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
+									</div>
+								</div>
+								<div class="profile-track">
+									<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+									<a class="on-notice" href="#">Thêm vào yêu thích</a>
+								</div>
+							</div>
+						</div>
+						<h3 class="qb-title"><a href="#">Xin địa chỉ trung tâm luyện thi IELTS đảm bảo, uy tín ở TP.HCM?</a></h3>
+						<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
+						<div class="qb-action">
+							<div class="action-left">
+								<ul>
+									<li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
+									<li><a href="#">Ẩn</a></li>
+									<li class="action-report">
+										<a href="#">Báo cáo</a>
+										<div class="report-bg"></div>
+										<div class="report-popup">
+											<div class="report-title">
+												<h3>Báo cáo vi phạm</h3>
+												<i class="nc-icon-outline ui-2_small-remove"></i>
+											</div>
+											<div class="report-content">
+												<form action="#">
+													<label for="r1">
+														<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
+													</label>
+													<label for="r2">
+														<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
+													</label>
+													<label for="r3">
+														<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
+													</label>
+													<label for="r4">
+														<input type="radio" name="report" id="r4">Đó là nội dung spam
+													</label>
+												</form>
+											</div>
+											<div class="report-bottom">
+												<div class="report-model">
+													<a href="#" class="report-cancel">Hủy bỏ</a>
+													<a href="#" class="report-send">Gửi báo cáo</a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">Theo dõi</a></li>
+								</ul>
+							</div>
+							<div class="action-right">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .question-basic -->
+				</div><!-- .main-content -->
+			</div><!-- .container -->
+		</main><!-- .site-main -->
+
+		<footer id="footer" class="site-footer">
+			<div class="container">
+				
+			</div><!-- .container -->
+		</footer><!-- site-footer -->
+	</div><!-- #wrapper -->
+</body>
+</html>

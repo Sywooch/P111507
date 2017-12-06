@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quickrep</title>
+
+	<!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+    <!-- jQuery -->    
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="libs/jscroll/jquery.jscroll.min.js"></script>
+    <script type="text/javascript" src="libs/froala/js/froala_editor.js"></script>
+    <!-- orther script -->
+    <script  type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header id="header" class="site-header header-diff">
+			<div class="container">
+				<div class="search-mobile">
+					<div class="m-search-click"><i class="nc-icon-outline ui-1_zoom"></i>Search</div>
+				</div>
+				<div class="site-brand">
+					<a href="index.html"><img src="images/assets/logo.png" alt=""></a>
+				</div><!-- .site-brand -->
+				<div class="search-form">
+					<a href="#" class="search-back"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>
+					<form action="#" method="POST">
+						<input type="text" value="" name="s" placeholder="Tìm kiếm...">
+						<button type="submit" value=""><img src="images/assets/search-icon.png" alt=""></button>
+					</form>
+					<div class="suggest-search">
+						<div class="suggest-title">
+							<p><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm cho:</p>
+						</div>
+						<ul>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Tài khoản:<span>Andrew</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-02.png" alt="">Tài khoản:<span>Sói Ăn Chay</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-01.png" alt="">Chủ đề:<span>Âm nhạc</span></a></li>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Câu hỏi:<span>Ăn kiêng cho người giảm béo</span></a></li>
+						</ul>
+						<div class="suggest-footer"><a href="#" class="today-ask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Đặt câu hỏi</a></div>
+					</div>
+				</div><!-- .search-form -->
+
+				<div class="header-right">
+					<div class="question">
+						<a href="#" class="today-ask"><i class="nc-icon-outline location_bookmark-add"></i>Đặt câu hỏi</a>
+					</div><!-- .question -->
+					<div class="notice">
+						<a href="#"><span class="bell"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="notice-number">5</span></span>Thông báo</a>
+						<div class="notice-popup" tabindex="-1">
+							<div class="np-title">
+								<a class="np-views" href="notifications.html">Xem tất cả thông báo<i class="nc-icon-outline arrows-2_small-right"></i></a>
+								<a class="np-check" href="#"><i class="nc-icon-outline ui-1_check-small"></i>Đánh dấu đã đọc</a>
+							</div>
+							<div class="np-content">
+								<ul>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .notice -->
+					<div class="account">
+						<a class="account-ava" href="#"><img src="images/account-avatar.png" alt=""></a>
+						<div class="account-popup" tabindex="-1">
+							<ul>
+								<li><a href="profile.html">Thông tin cá nhân</a></li>
+								<li><a href="profile-blogs.html">Blogs</a></li>
+								<li><a href="messages.html">Tin nhắn</a></li>
+								<li><a href="content.html">Nội dung của bạn</a></li>
+								<li><a href="stats.html">Thống kê</a></li>
+								<li><a href="settings.html">Cài đặt</a></li>
+								<li><a href="#">Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div><!-- .account -->
+				</div><!-- .header-right -->
+			</div><!-- .container -->
+			<nav class="main-menu">
+				<ul>
+					<li><a href="index.html">Trang chủ</a></li>
+					<li><a href="answer.html">Trả lời</a></li>
+					<li><a href="notifications.html">Thông báo</a></li>
+					<li class="active"><a href="profile.html">Hồ sơ</a></li>
+				</ul>
+			</nav><!-- .main-menu -->
+		</header><!-- .site-header -->
+
+		<main id="main" class="site-main site-content">
+			<div class="container">
+				<div class="m-menu-top">
+					<ul>
+						<li><a href="profile.html">Hồ sơ</a></li>
+						<li><a href="stats.html">Thống kê</a></li>
+						<li><a href="content.html">Nội dung của bạn</a></li>
+						<li><a href="settings.html">Tài khoản</a></li>
+						<li><a href="messages.html">Tin nhắn</a></li>
+						<li><a href="privacy.html">Riêng tư</a></li>
+						<li class="active"><a href="emal&notification.html">Email và thông báo</a></li>
+						<li><a href="language.html">Ngôn ngữ</a></li>
+						<li><a href="blogs.html">Blogs</a></li>
+					</ul>
+				</div>
+				<div class="sidebar-left">
+					<aside class="widget widget-question">
+						<h3 class="widget-title">Cài đặt</h3>
+						<div class="widget-content">
+							<ul>
+								<li><a href="settings.html">Tài khoản</a></li>
+								<li><a href="privacy.html">Riêng tư</a></li>
+								<li class="active"><a href="emal&notification.html">Email và thông báo</a></li>
+								<li><a href="language.html">Ngôn ngữ</a></li>
+								<li><a href="blogs.html">Blogs</a></li>
+							</ul>
+						</div>
+					</aside><!-- .widget-question -->
+				</div><!-- .sidebar-left -->
+				<div class="main-content">
+					<div class="setting-box">
+						<h3>Nội dung cho bạn</h3>
+						<form action="#">
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Tiêu đề</label>
+								<span class="mn-desc">Tiêu đề mail bao gồm các Câu chuyện hàng đầu và các nội dung phổ biến khác từ nguồn cấp dữ liệu của bạn.</span>
+								<p class="inline">Email Frequency:</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Up to once a day</label>
+								</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Weekly</label>
+								</p>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Các câu hỏi mà bạn yêu cầu hoặc theo sau</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi có câu trả lời mới cho các câu hỏi mà bạn yêu cầu hoặc theo sau.</span>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Tóm tắt phiên</label>
+								<span class="mn-desc">Email Tóm tắt Phiên bao gồm các câu trả lời tốt nhất</span>
+							</div>
+						</form>
+					</div>
+					<div class="setting-box">
+						<h3>Yêu cầu trả lời</h3>
+						<form action="#">
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Câu hỏi Quickrep nghĩ bạn có thể trả lời</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi câu hỏi trong yêu cầu cần một câu trả lời mà chúng tôi cho rằng bạn có thể cung cấp.</span>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Câu hỏi mọi người muốn bạn Trả lời</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi một người khác yêu cầu câu trả lời của bạn cho một câu hỏi.</span>
+							</div>
+						</form>
+					</div>
+					<div class="setting-box">
+						<h3>Bình chọn và người theo dõi mới</h3>
+						<form action="#">
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Upvotes</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi một người khác trả tiền cho nội dung của bạn.</span>
+								<p class="inline">Thông báo cho tôi về:</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Mọi điều</label>
+								</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Nội dung được Chấp nhận Bộ lọc thông minh <a href="#">Tìm hiểu thêm</a></label>
+								</p>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Người theo dõi mới</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi một người khác trả tiền cho nội dung của bạn.</span>
+								<p class="inline">Thông báo cho tôi về:</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Mọi điều</label>
+								</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Nội dung được Chấp nhận Bộ lọc thông minh <a href="#">Tìm hiểu thêm</a></label>
+								</p>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Những người bạn có thể biết</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi chúng tôi tìm những người mà bạn có thể muốn theo dõi.</span>
+							</div>
+						</form>
+					</div>
+					<div class="setting-box">
+						<h3>Thư, lời đề cập và nhận xét</h3>
+						<form action="#">
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Các tin nhắn mới</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi ai đó gửi cho bạn tin nhắn mới trên Quickrep.</span>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Đề cập</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi ai đó đề cập đến bạn trong câu trả lời, nhận xét hoặc đăng.</span>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Bình luận</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi ai đó nhận xét về câu trả lời, câu hỏi và bài đăng của bạn.</span>
+								<p class="inline">Thông báo cho tôi về:</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Mọi điều</label>
+								</p>
+								<p class="ef-field inline">
+									<input type="radio" name="ef">
+									<label for="">Nội dung được Chấp nhận Bộ lọc thông minh <a href="#">Tìm hiểu thêm</a></label>
+								</p>
+							</div>
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Chỉnh sửa Đề xuất</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi có người đề xuất sửa đổi cho câu trả lời hoặc bài đăng của bạn.</span>
+							</div>
+						</form>
+					</div>
+					<div class="setting-box">
+						<h3>Giám sát Chủ đề</h3>
+						<form action="#">
+							<div class="field">
+								<input type="checkbox">
+								<label for="">Câu hỏi thường gặp</label>
+								<span class="mn-desc">Chúng tôi sẽ gửi email cho bạn khi ai đó chỉnh sửa Câu hỏi thường gặp về Chủ đề bạn theo dõi. <a href="#">Tìm hiểu thêm</a></span>
+							</div>
+						</form>
+					</div>
+				</div><!-- .sidebar-right -->
+			</div><!-- .container -->
+		</main><!-- .site-main -->
+
+		<footer id="footer" class="site-footer">
+			<div class="container">
+				
+			</div><!-- .container -->
+		</footer><!-- site-footer -->
+	</div><!-- #wrapper -->
+</body>
+</html>

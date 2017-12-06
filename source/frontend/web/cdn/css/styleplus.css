@@ -1,0 +1,77 @@
+/*  TAB PAGER */
+.bottom-pagiration .tab {
+  display: none;
+}
+.bottom-pagiration .tab.active {
+  display: block;
+}
+.pagging li.active a{
+  color: #008ad1;
+  background-color: #ffffff;
+}
+#content-body p
+{
+	font-size: 14px;
+    color: #000;
+    line-height: 20px;
+    padding-top: 10px;
+}
+
+#content-body h2
+{
+	color: #1d2129;
+	font-size: 22px;
+	font-family: inherit;
+	font-family: arial;
+    font-weight: 500 !important;
+    line-height: 1.1;
+    color: inherit;
+	margin-top: 20px;
+    margin-bottom: 10px;
+	line-height: 1.1 !important;
+	min-height: 0;
+}
+#content-body ul 
+{
+	margin-top: 0 !important;
+    margin-bottom: 10px;
+	list-style-type: square;
+	display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+#content-body ul li 
+{
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+#content-body h3
+{
+	font-size: 18px;
+    font-weight: 500;
+}
+.show-detail span, .show-detail strong
+{
+	color: #000000;
+}
+.show-detail p
+{
+	font-size: 14px;
+    color: #000;
+    line-height: 20px;
+    padding-top: 10px;
+}
+.detail-one h2 
+{
+    font-style: normal !important;
+	padding-top: 5px;
+}
+.slide-title 
+{
+	min-height:50px;
+}
+/*VIDEO*/

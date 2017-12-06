@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quickrep</title>
+
+	<!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+    <!-- jQuery -->    
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="libs/jscroll/jquery.jscroll.min.js"></script>
+    <script type="text/javascript" src="libs/froala/js/froala_editor.js"></script>
+    <!-- orther script -->
+    <script  type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header id="header" class="site-header header-diff">
+			<div class="container">
+				<div class="search-mobile">
+					<div class="m-search-click"><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm</div>
+				</div>
+				<div class="site-brand">
+					<a href="index.html"><img src="images/assets/logo.png" alt=""></a>
+				</div><!-- .site-brand -->
+				<div class="search-form">
+					<a href="#" class="search-back"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>
+					<form action="#" method="POST">
+						<input type="text" value="" name="s" placeholder="Tìm kiếm...">
+						<button type="submit" value=""><img src="images/assets/search-icon.png" alt=""></button>
+					</form>
+					<div class="suggest-search">
+						<div class="suggest-title">
+							<p><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm cho:</p>
+						</div>
+						<ul>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Tài khoản:<span>Andrew</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-02.png" alt="">Tài khoản:<span>Sói Ăn Chay</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-01.png" alt="">Chủ đề:<span>Âm nhạc</span></a></li>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Câu hỏi:<span>Ăn kiêng cho người giảm béo</span></a></li>
+						</ul>
+						<div class="suggest-footer"><a href="#" class="today-ask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Đặt câu hỏi</a></div>
+					</div>
+				</div><!-- .search-form -->
+
+				<div class="header-right">
+					<div class="question">
+						<a href="#" class="today-ask"><i class="nc-icon-outline location_bookmark-add"></i>Đặt câu hỏi</a>
+					</div><!-- .question -->
+					<div class="notice">
+						<a href="#"><span class="bell"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="notice-number">5</span></span>Thông báo</a>
+						<div class="notice-popup" tabindex="-1">
+							<div class="np-title">
+								<a class="np-views" href="notifications.html">Xem tất cả thông báo<i class="nc-icon-outline arrows-2_small-right"></i></a>
+								<a class="np-check" href="#"><i class="nc-icon-outline ui-1_check-small"></i>Đánh dấu đã đọc</a>
+							</div>
+							<div class="np-content">
+								<ul>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .notice -->
+					<div class="account">
+						<a class="account-ava" href="#"><img src="images/account-avatar.png" alt=""></a>
+						<div class="account-popup" tabindex="-1">
+							<ul>
+								<li><a href="profile.html">Thông tin cá nhân</a></li>
+								<li><a href="profile-blogs.html">Blogs</a></li>
+								<li><a href="messages.html">Tin nhắn</a></li>
+								<li><a href="content.html">Nội dung của bạn</a></li>
+								<li><a href="stats.html">Thống kê</a></li>
+								<li><a href="settings.html">Cài đặt</a></li>
+								<li><a href="#">Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div><!-- .account -->
+				</div><!-- .header-right -->
+			</div><!-- .container -->
+			<nav class="main-menu">
+				<ul>
+					<li><a href="index.html">Trang chủ</a></li>
+					<li><a href="answer.html">Trả lời</a></li>
+					<li><a href="notifications.html">Thông báo</a></li>
+					<li class="active"><a href="profile.html">Hồ sơ</a></li>
+				</ul>
+			</nav><!-- .main-menu -->
+		</header><!-- .site-header -->
+
+		<main id="main" class="site-main site-content">
+			<div class="container">
+				<div class="m-menu-top">
+					<ul>
+						<li><a href="profile.html">Hồ sơ</a></li>
+						<li><a href="stats.html">Thống kê</a></li>
+						<li><a href="content.html">Nội dung của bạn</a></li>
+						<li><a href="settings.html">Tài khoản</a></li>
+						<li><a href="messages.html">Tin nhắn</a></li>
+						<li><a href="privacy.html">Riêng tư</a></li>
+						<li><a href="emal&notification.html">Email và thông báo</a></li>
+						<li><a href="language.html">Ngôn ngữ</a></li>
+						<li class="active"><a href="blogs.html">Blogs</a></li>
+					</ul>
+				</div>
+				<div class="sidebar-left">
+					<aside class="widget widget-question">
+						<h3 class="widget-title">Cài đặt</h3>
+						<div class="widget-content">
+							<ul>
+								<li><a href="settings.html">Tài khoản</a></li>
+								<li><a href="privacy.html">Riêng tư</a></li>
+								<li><a href="emal&notification.html">Email và thông báo</a></li>
+								<li><a href="language.html">Ngôn ngữ</a></li>
+								<li class="active"><a href="blogs.html">Blogs</a></li>
+							</ul>
+						</div>
+					</aside><!-- .widget-question -->
+				</div><!-- .sidebar-left -->
+				<div class="main-content">
+					<div class="setting-box your-blogs">
+						<h3>Blog của bạn</h3>
+						<ul class="list-blogs">
+							<li>
+								<img src="images/ava-comment.png" alt="">
+								<div class="blogs-info">
+									<h4><a href="#">dvd</a></h4>
+									<div class="byline">
+										<span>Owner</span>
+										<a href="#">Write Post</a>
+										<a href="#" class="edit-blog">Edit Blog</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="create-blog">
+							<h3><a href="#" class="create-new-blog">Tạo blog</a></h3>
+							<div class="cb-desc"><p>Tạo blog cho chính bạn hoặc tạo một blog để chia sẻ với người khác.</p></div>
+							<div class="profile-post-bg"></div>
+							<div class="profile-post-popup">
+								<div class="popup-title">
+									<h3>Tạo blog</h3>
+									<p>Các mục được đánh dấu * là bắt buộc.</p>
+								</div>
+								<div class="popup-content">
+									<form action="#" action="POST">
+										<div class="field">
+											<label for="">Tên Blog *</label>
+											<input type="text">
+										</div>
+										<div class="field">
+											<label for="">Blog URL *</label>
+											<div class="capped_input_wrapper">
+												<span class="cap">https://</span>
+												<input type="text">
+												<span class="cap">.quickrep.com</span>
+											</div>
+										</div>
+										<div class="field">
+											<label for="">Mô tả *</label>
+											<textarea name="s" id="" cols="30" rows="10" placeholder="Viết mô tả ngắn ở đây..."></textarea>
+										</div>
+									</form>
+								</div>
+								<div class="popup-bottom">
+									<div class="btn">
+										<a href="#" class="btn-cancel create-profile-cancel">Hủy</a>
+										<a href="#" class="btn-accept">Tạo Blog</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="setting-blogs">
+						<div class="setting-box">
+							<h3>Cài đặt Blog</h3>
+							<ul>
+								<li>
+									<div class="label-left">Hình ảnh</div>
+									<div class="label-right">
+										<p>Thao tác này giống như ảnh tiểu sử của người dùng và xuất hiện bên cạnh nội dung được xuất bản trên blog của bạn. Cần tối thiểu là 150x150px.</p>
+										<a href="#" class="edit-photo ed-photo">Chỉnh sửa hình ảnh</a>
+										<div class="ep-bg"></div>
+										<div class="ep-popup">
+											<h3>Chỉnh sửa Ảnh Hồ sơ<span class="ep-cancel"><i class="nc-icon-mini ui-2_small-remove"></i></span></h3>
+											<div class="ep-content">
+												<div class="drag-photo">Kéo hình ảnh ở đây, hoặc ...</div>
+												<div class="upload"><input type="file" id="file" value="Upload an Image"><label for="file">Chọn hình ảnh</label></div>
+												<div class="image-url">
+													<label for="">Sử dụng một hình ảnh từ Web</label>
+													<input type="text" placeholder="http://">
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="label-left">Tên</div>
+									<div class="label-right edit-name-blog">
+										<p class="name-show">dvd <a href="#">Sửa</a></p>
+										<form action="#">
+											<textarea name="" id="" cols="30" rows="3"></textarea>
+											<div class="btn">
+												<a href="#" class="btn-cancel edit-name-cancel">Hủy</a>
+												<a href="#" class="btn-accept">Cập nhật</a>
+											</div>
+										</form>
+									</div>
+								</li>
+								<li>
+									<div class="label-left">Blog URL *</div>
+									<div class="label-right">
+										<form action="#" action="POST">
+											<div class="capped_input_wrapper">
+												<span class="cap">https://</span>
+												<input type="text">
+												<span class="cap">.quickrep.com</span>
+											</div>
+										</form>
+									</div>
+								</li>
+								<li>
+									<div class="label-left">Mô tả</div>
+									<div class="label-right edit-name-blog">
+										<p class="name-show">wefwef <a href="#">Sửa</a></p>
+										<form action="#">
+											<textarea name="" id="" cols="30" rows="3"></textarea>
+											<div class="btn">
+												<a href="#" class="btn-cancel edit-name-cancel">Hủy</a>
+												<a href="#" class="btn-accept">Cập nhật</a>
+											</div>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="setting-box blog-permissions">
+							<h3>Quyền blog</h3>
+							<ul>
+								<li>
+									<div class="label-left">Bản tin mới</div>
+									<div class="label-right">
+										<form action="#">
+											<legend>Những người dùng sau có thể gửi bài đăng trên blog để phê duyệt:</legend>
+											<p class="field">
+												<input type="radio" name="Inbox Preferences">
+												<label for="">Bất kỳ Người dùng Quickrep</label>
+											</p>
+											<p class="field">
+												<input type="radio" name="Inbox Preferences">
+												<label for="">Chỉ những thành viên của Blog này</label>
+											</p>
+										</form>
+									</div>
+								</li>
+								<li>
+									<div class="label-left">Chỉnh sửa chủ đề</div>
+									<div class="label-right">
+										<form action="#">
+											<legend>Những người dùng sau có thể chỉnh sửa hoặc thêm chủ đề mới vào bài đăng trên blog:</legend>
+											<p class="field">
+												<input type="radio" name="Inbox Preferences">
+												<label for="">Bất kỳ Người dùng Quickrep</label>
+											</p>
+											<p class="field">
+												<input type="radio" name="Inbox Preferences">
+												<label for="">Chỉ những thành viên của Blog này</label>
+											</p>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="setting-box blog-members">
+							<h3>Blog thành viên</h3>
+							<ul>
+								<li>
+									<div class="label-left">Chủ sở hữu</div>
+									<div class="label-right">
+										<p>Chủ sở hữu blog có thể chỉnh sửa và xóa nội dung của họ và nội dung của những người khác đăng lên blog.</p>
+										<input type="text">
+									</div>
+								</li>
+								<li>
+									<div class="label-left">Tác giả</div>
+									<div class="label-right">
+										<p>Các tác giả trên blog có thể đóng góp nội dung phải được chủ sở hữu blog phê duyệt.</p>
+										<input type="text">
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="setting-box delete-blog">
+							<h3>Xóa</h3>
+							<a href="#">Xóa blog</a>
+						</div>
+					</div>
+				</div><!-- .sidebar-right -->
+			</div><!-- .container -->
+		</main><!-- .site-main -->
+
+		<footer id="footer" class="site-footer">
+			<div class="container">
+				
+			</div><!-- .container -->
+		</footer><!-- site-footer -->
+	</div><!-- #wrapper -->
+</body>
+</html>

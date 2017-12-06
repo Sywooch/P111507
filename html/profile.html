@@ -1,0 +1,1002 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quickrep</title>
+
+	<!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="libs/jscroll/jquery.jscroll.min.js"></script>
+    <script type="text/javascript" src="libs/froala/js/froala_editor.js"></script>
+    <!-- orther script -->
+    <script  type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header id="header" class="site-header header-diff">
+			<div class="container">
+				<div class="search-mobile">
+					<div class="m-search-click"><i class="nc-icon-outline ui-1_zoom"></i>Search</div>
+				</div>
+				<div class="site-brand">
+					<a href="index.html"><img src="images/assets/logo.png" alt=""></a>
+				</div><!-- .site-brand -->
+				<div class="search-form">
+					<a href="#" class="search-back"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>
+					<form action="#" method="POST">
+						<input type="text" value="" name="s" placeholder="Tìm kiếm...">
+						<button type="submit" value=""><img src="images/assets/search-icon.png" alt=""></button>
+					</form>
+					<div class="suggest-search">
+						<div class="suggest-title">
+							<p><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm cho:</p>
+						</div>
+						<ul>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Tài khoản:<span>Andrew</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-02.png" alt="">Tài khoản:<span>Sói Ăn Chay</span></a></li>
+							<li><a href="#"><img src="images/ava-comment-01.png" alt="">Chủ đề:<span>Âm nhạc</span></a></li>
+							<li><a href="#"><img src="images/ava-comment.png" alt="">Câu hỏi:<span>Ăn kiêng cho người giảm béo</span></a></li>
+						</ul>
+						<div class="suggest-footer"><a href="#" class="today-ask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Đặt câu hỏi</a></div>
+					</div>
+				</div><!-- .search-form -->
+
+				<div class="header-right">
+					<div class="question">
+						<a href="#" class="today-ask"><i class="nc-icon-outline location_bookmark-add"></i>Đặt câu hỏi</a>
+					</div><!-- .question -->
+					<div class="notice">
+						<a href="#"><span class="bell"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="notice-number">5</span></span>Thông báo</a>
+						<div class="notice-popup" tabindex="-1">
+							<div class="np-title">
+								<a class="np-views" href="notifications.html">Xem tất cả thông báo<i class="nc-icon-outline arrows-2_small-right"></i></a>
+								<a class="np-check" href="#"><i class="nc-icon-outline ui-1_check-small"></i>Đánh dấu đã đọc</a>
+							</div>
+							<div class="np-content">
+								<ul>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+									<li>
+										<img src="images/notice-popup.png" alt="">
+										<div class="np-info">
+											<p>Ken Phạm vừa trả lời câu hỏi: <a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a> của bạn - <span class="time">2 phút trước</span></p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- .notice -->
+					<div class="account">
+						<a class="account-ava" href="#"><img src="images/account-avatar.png" alt=""></a>
+						<div class="account-popup" tabindex="-1">
+							<ul>
+								<li><a href="profile.html">Thông tin cá nhân</a></li>
+								<li><a href="profile-blogs.html">Blogs</a></li>
+								<li><a href="messages.html">Tin nhắn</a></li>
+								<li><a href="content.html">Nội dung của bạn</a></li>
+								<li><a href="stats.html">Thống kê</a></li>
+								<li><a href="settings.html">Cài đặt</a></li>
+								<li><a href="#">Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div><!-- .account -->
+				</div><!-- .header-right -->
+			</div><!-- .container -->
+			<nav class="main-menu">
+				<ul>
+					<li><a href="index.html">Trang chủ</a></li>
+					<li><a href="answer.html">Trả lời</a></li>
+					<li><a href="notifications.html">Thông báo</a></li>
+					<li class="active"><a href="profile.html">Hồ sơ</a></li>
+				</ul>
+			</nav><!-- .main-menu -->
+		</header><!-- .site-header -->
+
+		<main id="main" class="site-main site-profie">
+			<div class="container">
+				<div class="m-menu-top">
+					<ul>
+						<li class="active"><a href="profile.html">Hồ sơ</a></li>
+						<li><a href="stats.html">Thống kê</a></li>
+						<li><a href="content.html">Nội dung của bạn</a></li>
+						<li><a href="settings.html">Tài khoản</a></li>
+						<li><a href="messages.html">Tin nhắn</a></li>
+						<li><a href="privacy.html">Riêng tư</a></li>
+						<li><a href="emal&notification.html">Email và thông báo</a></li>
+						<li><a href="language.html">Ngôn ngữ</a></li>
+						<li><a href="blogs.html">Blogs</a></li>
+					</ul>
+				</div>
+				<div class="profile-wrapper">
+					<div class="pf-top">
+						<div class="pf-avatar">
+							<img src="images/connect-ava-02.png" alt="">
+							<div class="pfa-edit">
+								<a href="#" class="pfa-remove"><i class="nc-icon-mini ui-2_small-remove"></i></a>
+								<div class="pfar-bg"></div>
+								<div class="pfar-popup">
+									<div class="popup-content">
+										<h3>Xóa ảnh hồ sơ</h3>
+										<p>Bạn có chắc chắn muốn xóa ảnh hồ sơ của bạn?</p>
+									</div>
+									<div class="popup-bottom">
+										<div class="btn">
+											<a href="#" class="btn-cancel pfar-cancel">Đóng</a>
+											<a href="#" class="btn-accept">Gỡ bỏ hình</a>
+										</div>
+									</div>
+								</div>
+								<a href="#" class="edit-photo">Chỉnh sửa hình ảnh</a>
+								<div class="ep-bg"></div>
+								<div class="ep-popup">
+									<h3>Chỉnh sửa Ảnh Hồ sơ<span class="ep-cancel"><i class="nc-icon-mini ui-2_small-remove"></i></span></h3>
+									<div class="ep-content">
+										<div class="drag-photo">Kéo hình ảnh ở đây, hoặc ...</div>
+										<div class="upload"><input type="file" id="file" value="Upload an Image"><label for="file">Chọn hình ảnh</label></div>
+										<div class="image-url">
+											<label for="">Sử dụng một hình ảnh từ Web</label>
+											<input type="text" placeholder="http://">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pf-info">
+							<h1>Sói Ăn Chay<a href="#">Sửa</a></h1>
+							<div class="pf-name-edit">
+								<input type="text">
+								<div class="btn">
+									<a href="#" class="btn-cancel en-cancel">Hủy</a>
+									<a href="#" class="btn-accept">Cập nhật</a>
+								</div>
+							</div>
+							<a href="messages.html" class="show-mess">Messages</a>
+							<p class="add-info">Thêm thông tin hồ sơ</p>
+							<div class="ai-bg"></div>
+							<div class="ai-popup">
+								<div class="popup-content">
+									<h3>Chỉnh sửa thông tin đăng nhập</h3>
+									<div class="desc"><p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p></div>
+								</div>
+								<div class="popup-bottom">
+									<div class="pb-title"><i class="nc-icon-mini users_single-01"></i>Thêm thông tin hồ sơ</div>
+									<form action="#" action="POST">
+										<input type="text">
+										<div class="btn">
+											<a href="#" class="btn-cancel ai-cancel">Hủy</a>
+											<a href="#" class="btn-accept">Lưu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+							<p class="add-desc">Viết mô tả về bản thân bạn</p>
+							<div class="qb-textarea">
+								<textarea id="froala-editor"></textarea>
+							</div>
+							<a href="#" class="btn-accept followers">Theo dõi</a>
+						</div>
+					</div><!-- .pf-top -->
+					<div class="pf-content">
+						<div class="pf-left">
+							<aside class="widget widget-question">
+								<h3 class="widget-title"><i class="nc-icon-outline files_question"></i>Nguồn cấp dữ liệu</h3>
+								<div class="widget-content">
+									<ul>
+										<li class="active"><a href="#">Trả lời<span>2</span></a></li>
+										<li><a href="#">Câu hỏi<span>0</span></a></li>
+										<li><a href="#">Hoạt động<span>0</span></a></li>
+										<li><a href="#">Bài viết<span>0</span></a></li>
+										<li><a href="#">Blogs<span>0</span></a></li>
+										<li><a href="#">Người theo dõi<span>0</span></a></li>
+										<li><a href="#">Đang theo dõi<span>0</span></a></li>
+										<li><a href="#">Chủ đề<span>0</span></a></li>
+										<li><a href="#">Chỉnh sửa<span>4</span></a></li>
+									</ul>
+								</div>
+							</aside><!-- .widget-question -->
+						</div><!-- .pf-left -->
+						<div class="pf-right">
+							<div class="list-answers">
+								<div class="answers-title">
+									<p>2 câu trả lời</p>
+									<ul>
+										<li class="active"><a href="#">Gần đây</a><span>/</span></li>
+										<li><a href="#">Lượt xem 30 ngày</a></li>
+									</ul>
+								</div>
+								<div class="m-profile">
+									<aside class="widget widget-credentials">
+										<h3 class="widget-title">Công việc & Học vấn<a href="#">Sửa</a></h3>
+										<div class="widget-content">
+											<ul>
+												<li class="widget-employment"><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>Nhặt bóng tại Stamford Bridge</a></li>
+												<li class="widget-education"><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Từng học Graphic Design tại FPT University</a></li>
+												<li class="widget-location"><a href="#"><i class="nc-icon-mini location_pin"></i>Sống tại Vinh</a></li>
+											</ul>
+											<div class="popup-employment-bg"></div>
+											<div class="popup-employment">
+												<div class="employment-title">
+													<h3>Chỉnh sửa thông tin đăng nhập</h3>
+													<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
+												</div>
+												<div class="item-credential item-employment">
+													<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin việc làm</h3>
+													<form action="#">
+														<p>
+															<label for="">Chức vụ</label>
+															<input type="text" placeholder="Software Engineer">
+														</p>
+														<p>
+															<label for="">Công ty / Tổ chức</label>
+															<input type="text" placeholder="Software Engineer">
+														</p>
+														<p>
+															<label for="">Năm bắt đầu</label>
+															<select name="s" id="">
+																<option value=""></option>
+																<option value="">2017</option>
+																<option value="">2016</option>
+																<option value="">2015</option>
+																<option value="">2014</option>
+																<option value="">2013</option>
+															</select>
+														</p>
+														<p>
+															<label for="">Năm kết thúc</label>
+															<select name="s" id="">
+																<option value=""></option>
+																<option value="">2017</option>
+																<option value="">2016</option>
+																<option value="">2015</option>
+																<option value="">2014</option>
+																<option value="">2013</option>
+															</select>
+														</p>
+														<p>
+															<label for="">Tôi hiện đang làm việc tại đây</label>
+															<input type="checkbox">
+														</p>
+														<p class="credential-btn">
+															<span class="btn">
+																<a href="#" class="btn-cancel btn-widget-employment">Hủy</a>
+																<a href="#" class="btn-accept">Lưu</a>
+															</span>
+														</p>
+													</form>
+												</div>
+											</div>
+											<div class="popup-education-bg"></div>
+											<div class="popup-education">
+												<div class="education-title">
+													<h3>Chỉnh sửa thông tin đăng nhập</h3>
+													<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
+												</div>
+												<div class="item-credential item-education">
+													<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin giáo dục</h3>
+													<form action="#">
+														<p>
+															<label for="">Trường học</label>
+															<input type="text">
+														</p>
+														<p>
+															<label for="">Sự tập trung</label>
+															<input type="text">
+														</p>
+														<p>
+															<label for="">Nồng độ trung học</label>
+															<input type="text">
+														</p>
+														<p>
+															<label for="">Loại bằng cấp</label>
+															<input type="text">
+														</p>
+														<p>
+															<label for="">Năm tốt nghiệp</label>
+															<select name="s" id="">
+																<option value=""></option>
+																<option value="">2017</option>
+																<option value="">2016</option>
+																<option value="">2015</option>
+																<option value="">2014</option>
+																<option value="">2013</option>
+															</select>
+														</p>
+														<p class="credential-btn">
+															<span class="btn">
+																<a href="#" class="btn-cancel btn-widget-education">Hủy</a>
+																<a href="#" class="btn-accept">Lưu</a>
+															</span>
+														</p>
+													</form>
+												</div>
+											</div>
+											<div class="popup-location-bg"></div>
+											<div class="popup-location">
+												<div class="location-title">
+													<h3>Chỉnh sửa thông tin đăng nhập</h3>
+													<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
+												</div>
+												<div class="item-credential item-location">
+													<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm chứng chỉ vị trí</h3>
+													<form action="#">
+														<p>
+															<label for="">Địa điểm (yêu cầu)</label>
+															<input type="text" placeholder="Địa điểm">
+														</p>
+														<p>
+															<label for="">Năm bắt đầu</label>
+															<select name="s" id="">
+																<option value=""></option>
+																<option value="">2017</option>
+																<option value="">2016</option>
+																<option value="">2015</option>
+																<option value="">2014</option>
+																<option value="">2013</option>
+															</select>
+														</p>
+														<p>
+															<label for="">Năm kết thúc</label>
+															<select name="s" id="">
+																<option value=""></option>
+																<option value="">2017</option>
+																<option value="">2016</option>
+																<option value="">2015</option>
+																<option value="">2014</option>
+																<option value="">2013</option>
+															</select>
+														</p>
+														<p>
+															<label for="">Tôi hiện đang làm việc tại đây</label>
+															<input type="checkbox">
+														</p>
+														<p class="credential-btn">
+															<span class="btn">
+																<a href="#" class="btn-cancel btn-widget-location">Hủy</a>
+																<a href="#" class="btn-accept">Lưu</a>
+															</span>
+														</p>
+													</form>
+												</div>
+											</div>
+										</div>
+									</aside><!-- .widget-question -->
+								</div>
+								<div class="question-premium section">
+									<h3 class="qp-title"><a href="#">Xin địa điểm hẹn hò lãng mạn ở TP Hồ Chí Minh?</a></h3>
+									<div class="qp-author">
+										<a href="#" class="qp-ava"><img src="images/ava-qp.png" alt=""></a>
+										<div class="author-info">
+											<p class="info-top"><a href="#">soianchay</a><a href="#" class="add-credential">Thêm thông tin xác thực</a></p>
+											<div class="ac-bg"></div>
+											<div class="ac-popup">
+												<div class="popup-title">
+													<h3>Thêm chứng chỉ cho câu trả lời này</h3>
+													<p>Giúp độc giả hiểu kinh nghiệm của bạn với câu hỏi này.</p>
+												</div>
+												<div class="ac-content">
+													<a href="#" class="add-a-credential"><i class="nc-icon-mini ui-1_bold-add"></i>Thêm chứng chỉ</a>
+													<ul class="list-credential" tabindex="-1">
+														<li class="employment"><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>Công việc</a></li>
+														<li class="education"><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Học vấn</a></li>
+														<li class="location"><a href="#"><i class="nc-icon-mini location_pin"></i>Vị trí</a></li>
+														<li class="topic"><a href="#"><i class="nc-icon-mini sport_user-run"></i>Đề tài</a></li>
+														<li class="language"><a href="#"><i class="nc-icon-mini business_globe"></i>Ngôn ngữ</a></li>
+													</ul>
+													<div class="item-credential item-employment">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin việc làm</h3>
+														<form action="#">
+															<p>
+																<label for="">Chức vụ</label>
+																<input type="text" placeholder="Software Engineer">
+															</p>
+															<p>
+																<label for="">Công ty / Tổ chức</label>
+																<input type="text" placeholder="Software Engineer">
+															</p>
+															<p>
+																<label for="">Năm bắt đầu</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Năm kết thúc</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Tôi hiện đang làm việc tại đây</label>
+																<input type="checkbox">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-education">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin giáo dục</h3>
+														<form action="#">
+															<p>
+																<label for="">Trường học</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Sự tập trung</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Nồng độ trung học</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Loại bằng cấp</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Năm tốt nghiệp</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-location">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm chứng chỉ vị trí</h3>
+														<form action="#">
+															<p>
+																<label for="">Địa điểm (yêu cầu)</label>
+																<input type="text" placeholder="Địa điểm">
+															</p>
+															<p>
+																<label for="">Năm bắt đầu</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Năm kết thúc</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Tôi hiện đang làm việc tại đây</label>
+																<input type="checkbox">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-topic">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin về chủ đề</h3>
+														<form action="#">
+															<p>
+																<label for="">Chọn một chủ đề</label>
+																<input type="text" placeholder="">
+															</p>
+															<p>
+																<label for="">Mô tả một trải nghiệm</label>
+																<input type="text" placeholder="">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-language">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm chứng chỉ ngôn ngữ</h3>
+														<form action="#">
+															<p>
+																<input type="text" placeholder="Tìm kiếm một chủ đề">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+												</div>
+												<div class="popup-bottom">
+													<a href="#" class="qp-ava"><img src="images/ava-qp.png" alt=""></a>
+													<h4><a href="#">soianchay</a></h4>
+												</div>
+											</div>
+											<p class="info-bottom"><a href="#" class="answers-time">Answered 2h ago</a></p>
+										</div>
+									</div>
+									<div class="qp-content">
+										<div class="qp-text">
+											<p>Các bạn có thể screenshot màn hình lại để dành trong điện thoại, rãnh rỗi cùng người yêu hẹn hò 2 người nè</p>
+										</div>
+									</div>
+									<div class="qp-view">1 lượt xem</div>
+									<div class="qp-action">
+										<div class="action-left">
+											<ul>
+												<li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Yêu thích | <span class="like-number">16</span></a></li>
+											</ul>
+										</div>
+										<div class="action-right">
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+												<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="qp-comment">
+										<img src="images/ava-comment.png" alt="">
+										<form action="#">
+											<input type="text" placeholder="Thêm một bình luận...">
+											<input type="submit" value="Bình luận">
+										</form>
+									</div>
+								</div><!-- .question-premium -->
+								<div class="question-premium section">
+									<h3 class="qp-title"><a href="#">Xin địa điểm hẹn hò lãng mạn ở TP Hồ Chí Minh?</a></h3>
+									<div class="qp-author">
+										<a href="#" class="qp-ava"><img src="images/ava-qp.png" alt=""></a>
+										<div class="author-info">
+											<p class="info-top"><a href="#">soianchay</a><a href="#" class="add-credential">Thêm thông tin xác thực</a></p>
+											<div class="ac-bg"></div>
+											<div class="ac-popup">
+												<div class="popup-title">
+													<h3>Thêm chứng chỉ cho câu trả lời này</h3>
+													<p>Giúp độc giả hiểu kinh nghiệm của bạn với câu hỏi này.</p>
+												</div>
+												<div class="ac-content">
+													<a href="#" class="add-a-credential"><i class="nc-icon-mini ui-1_bold-add"></i>Thêm chứng chỉ</a>
+													<ul class="list-credential" tabindex="-1">
+														<li class="employment"><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>Việc làm</a></li>
+														<li class="education"><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Giáo dục</a></li>
+														<li class="location"><a href="#"><i class="nc-icon-mini location_pin"></i>Vị trí</a></li>
+														<li class="topic"><a href="#"><i class="nc-icon-mini sport_user-run"></i>Đề tài</a></li>
+														<li class="language"><a href="#"><i class="nc-icon-mini business_globe"></i>Ngôn ngữ</a></li>
+													</ul>
+													<div class="item-credential item-employment">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin việc làm</h3>
+														<form action="#">
+															<p>
+																<label for="">Chức vụ</label>
+																<input type="text" placeholder="Software Engineer">
+															</p>
+															<p>
+																<label for="">Công ty / Tổ chức</label>
+																<input type="text" placeholder="Software Engineer">
+															</p>
+															<p>
+																<label for="">Năm bắt đầu</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Năm kết thúc</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Tôi hiện đang làm việc tại đây</label>
+																<input type="checkbox">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-education">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin giáo dục</h3>
+														<form action="#">
+															<p>
+																<label for="">Trường học</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Sự tập trung</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Nồng độ trung học</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Loại bằng cấp</label>
+																<input type="text">
+															</p>
+															<p>
+																<label for="">Năm tốt nghiệp</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-location">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm chứng chỉ vị trí</h3>
+														<form action="#">
+															<p>
+																<label for="">Địa điểm (yêu cầu)</label>
+																<input type="text" placeholder="Địa điểm">
+															</p>
+															<p>
+																<label for="">Năm bắt đầu</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Năm kết thúc</label>
+																<select name="s" id="">
+																	<option value=""></option>
+																	<option value="">2017</option>
+																	<option value="">2016</option>
+																	<option value="">2015</option>
+																	<option value="">2014</option>
+																	<option value="">2013</option>
+																</select>
+															</p>
+															<p>
+																<label for="">Tôi hiện đang làm việc tại đây</label>
+																<input type="checkbox">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-topic">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin về chủ đề</h3>
+														<form action="#">
+															<p>
+																<label for="">Chọn một chủ đề</label>
+																<input type="text" placeholder="">
+															</p>
+															<p>
+																<label for="">Mô tả một trải nghiệm</label>
+																<input type="text" placeholder="">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+													<div class="item-credential item-language">
+														<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm chứng chỉ ngôn ngữ</h3>
+														<form action="#">
+															<p>
+																<input type="text" placeholder="Tìm kiếm một chủ đề">
+															</p>
+															<p class="credential-btn">
+																<span class="btn">
+																	<a href="#" class="btn-cancel btn-credential">Hủy</a>
+																	<a href="#" class="btn-accept">Lưu</a>
+																</span>
+															</p>
+														</form>
+													</div>
+												</div>
+												<div class="popup-bottom">
+													<a href="#" class="qp-ava"><img src="images/ava-qp.png" alt=""></a>
+													<h4><a href="#">soianchay</a></h4>
+												</div>
+											</div>
+											<p class="info-bottom"><a href="#" class="answers-time">Answered 2h ago</a></p>
+										</div>
+									</div>
+									<div class="qp-content">
+										<div class="qp-text">
+											<p>Các bạn có thể screenshot màn hình lại để dành trong điện thoại, rãnh rỗi cùng người yêu hẹn hò 2 người nè</p>
+										</div>
+									</div>
+									<div class="qp-view">1 lượt xem</div>
+									<div class="qp-action">
+										<div class="action-left">
+											<ul>
+												<li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Yêu thích | <span class="like-number">16</span></a></li>
+											</ul>
+										</div>
+										<div class="action-right">
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+												<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="qp-comment">
+										<img src="images/ava-comment.png" alt="">
+										<form action="#">
+											<input type="text" placeholder="Thêm một bình luận...">
+											<input type="submit" value="Bình luận">
+										</form>
+									</div>
+								</div><!-- .question-premium -->
+							</div>
+						</div><!-- .pf-right -->
+					</div><!-- .pf-content -->
+				</div><!-- .profile-content -->
+				<div class="profile-sidebar">
+					<aside class="widget widget-credentials">
+						<h3 class="widget-title">Công việc & Học vấn<a href="#">Sửa</a></h3>
+						<div class="widget-content">
+							<ul>
+								<li class="widget-employment"><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>Nhặt bóng tại Stamford Bridge</a></li>
+								<li class="widget-education"><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Từng học Graphic Design tại FPT University</a></li>
+								<li class="widget-location"><a href="#"><i class="nc-icon-mini location_pin"></i>Sống tại Vinh</a></li>
+							</ul>
+							<div class="popup-employment-bg"></div>
+							<div class="popup-employment">
+								<div class="employment-title">
+									<h3>Chỉnh sửa thông tin đăng nhập</h3>
+									<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
+								</div>
+								<div class="item-credential item-employment">
+									<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin việc làm</h3>
+									<form action="#">
+										<p>
+											<label for="">Chức vụ</label>
+											<input type="text" placeholder="Software Engineer">
+										</p>
+										<p>
+											<label for="">Công ty / Tổ chức</label>
+											<input type="text" placeholder="Software Engineer">
+										</p>
+										<p>
+											<label for="">Năm bắt đầu</label>
+											<select name="s" id="">
+												<option value=""></option>
+												<option value="">2017</option>
+												<option value="">2016</option>
+												<option value="">2015</option>
+												<option value="">2014</option>
+												<option value="">2013</option>
+											</select>
+										</p>
+										<p>
+											<label for="">Năm kết thúc</label>
+											<select name="s" id="">
+												<option value=""></option>
+												<option value="">2017</option>
+												<option value="">2016</option>
+												<option value="">2015</option>
+												<option value="">2014</option>
+												<option value="">2013</option>
+											</select>
+										</p>
+										<p>
+											<label for="">Tôi hiện đang làm việc tại đây</label>
+											<input type="checkbox">
+										</p>
+										<p class="credential-btn">
+											<span class="btn">
+												<a href="#" class="btn-cancel btn-widget-employment">Hủy</a>
+												<a href="#" class="btn-accept">Lưu</a>
+											</span>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="popup-education-bg"></div>
+							<div class="popup-education">
+								<div class="education-title">
+									<h3>Chỉnh sửa thông tin đăng nhập</h3>
+									<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
+								</div>
+								<div class="item-credential item-education">
+									<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin giáo dục</h3>
+									<form action="#">
+										<p>
+											<label for="">Trường học</label>
+											<input type="text">
+										</p>
+										<p>
+											<label for="">Sự tập trung</label>
+											<input type="text">
+										</p>
+										<p>
+											<label for="">Nồng độ trung học</label>
+											<input type="text">
+										</p>
+										<p>
+											<label for="">Loại bằng cấp</label>
+											<input type="text">
+										</p>
+										<p>
+											<label for="">Năm tốt nghiệp</label>
+											<select name="s" id="">
+												<option value=""></option>
+												<option value="">2017</option>
+												<option value="">2016</option>
+												<option value="">2015</option>
+												<option value="">2014</option>
+												<option value="">2013</option>
+											</select>
+										</p>
+										<p class="credential-btn">
+											<span class="btn">
+												<a href="#" class="btn-cancel btn-widget-education">Hủy</a>
+												<a href="#" class="btn-accept">Lưu</a>
+											</span>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="popup-location-bg"></div>
+							<div class="popup-location">
+								<div class="location-title">
+									<h3>Chỉnh sửa thông tin đăng nhập</h3>
+									<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
+								</div>
+								<div class="item-credential item-location">
+									<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm chứng chỉ vị trí</h3>
+									<form action="#">
+										<p>
+											<label for="">Địa điểm (yêu cầu)</label>
+											<input type="text" placeholder="Địa điểm">
+										</p>
+										<p>
+											<label for="">Năm bắt đầu</label>
+											<select name="s" id="">
+												<option value=""></option>
+												<option value="">2017</option>
+												<option value="">2016</option>
+												<option value="">2015</option>
+												<option value="">2014</option>
+												<option value="">2013</option>
+											</select>
+										</p>
+										<p>
+											<label for="">Năm kết thúc</label>
+											<select name="s" id="">
+												<option value=""></option>
+												<option value="">2017</option>
+												<option value="">2016</option>
+												<option value="">2015</option>
+												<option value="">2014</option>
+												<option value="">2013</option>
+											</select>
+										</p>
+										<p>
+											<label for="">Tôi hiện đang làm việc tại đây</label>
+											<input type="checkbox">
+										</p>
+										<p class="credential-btn">
+											<span class="btn">
+												<a href="#" class="btn-cancel btn-widget-location">Hủy</a>
+												<a href="#" class="btn-accept">Lưu</a>
+											</span>
+										</p>
+									</form>
+								</div>
+							</div>
+						</div>
+					</aside><!-- .widget-question -->
+					<aside class="widget widget-credentials">
+						<h3 class="widget-title">Chủ đề bạn biết<a href="#">Sửa</a></h3>
+						<div class="widget-content">
+							<div class="what-topic">
+								<i class="nc-icon-mini ui-1_circle-add"></i>
+								<p>Bạn biết những chủ đề nào?</p>
+							</div>
+							<div class="what-topic-bg"></div>
+							<div class="what-topic-popup">
+								<div class="popup-title">
+									<h3>Edit Knows About Topics</h3>
+									<p>Add and remove topics</p>
+								</div>
+								<div class="popup-content">
+									<input type="text" placeholder="Bạn biết những chủ đề nào?">
+								</div>
+								<div class="popup-bottom">
+									<div class="btn">
+										<a href="#" class="btn-accept">Xong</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</aside><!-- .widget-question -->
+				</div><!-- .profile-sidebar -->
+			</div><!-- .container -->
+		</main><!-- .site-main -->
+
+		<footer id="footer" class="site-footer">
+			<div class="container">
+
+			</div><!-- .container -->
+		</footer><!-- site-footer -->
+	</div><!-- #wrapper -->
+</body>
+</html>

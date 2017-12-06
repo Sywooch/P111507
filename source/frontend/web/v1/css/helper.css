@@ -1,0 +1,21 @@
+.no-padding {
+    padding: 0px !important;
+}
+.no-border {
+    border:none !important;
+}
+.color-black {
+    color: black !important;
+}
+.margin-top-5 {
+    margin-top: 5px !important;
+}
+.margin-top-10 {
+    margin-top: 10px !important;
+}
+.margin-bottom-5 {
+    margin-bottom: : 5px !important;
+}
+.margin-bottom-10 {
+    margin-bottom: : 10px !important;
+}
