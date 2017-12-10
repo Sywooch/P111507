@@ -2,7 +2,7 @@
 return [
     'language' => 'vi-Vi',
     'timeZone' => 'Asia/Ho_Chi_Minh',
-	'homeUrl' => 'https://quickrep.vn',
+	'homeUrl' => 'http://hoidap.dev',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'extensions' => require(__DIR__ . '/../../vendor/yiisoft/extensions.php'),
     'components' => [
