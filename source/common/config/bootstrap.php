@@ -14,5 +14,5 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
 } else {
     $htp = "http://";
 }
-Yii::setAlias('webDomain', "http://hoidap.dev");
-Yii::setAlias('baseDomain', "http://hoidap.dev");
+Yii::setAlias('webDomain', "$htp$_SERVER[HTTP_HOST]");
+Yii::setAlias('baseDomain', "http://quickrep.dev");
