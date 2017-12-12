@@ -21,6 +21,7 @@ use yii\helpers\Url;
         AppAsset::register($this);
         $theme = $this->theme;
         $base_url = $theme->baseUrl;
+		$home_url = Yii::$app->homeUrl;
     ?>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
