@@ -40,7 +40,7 @@ IMPORTANT : If you write your CSS code below, it will be deleted when you'll upd
 @import url(libs/nucleo-webfonts/glyph/css/nucleo-glyph.css);
 @import url(libs/nucleo-webfonts/outline/css/nucleo-outline.css);
 @import url(libs/froala/css/froala-editor.min.css);
-@import url(libs/froala/css/froala-style.min.css);
+@import url(libs/froala/css/froala_style.min.css);
 
 /*==========================================================
 	2. GENERAL

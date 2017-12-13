@@ -92,7 +92,7 @@ class SiteController extends FrontendController
      */
     public function actionIndex()
     {
-        
+       /* 
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['/site/login']);
         }
@@ -114,9 +114,10 @@ class SiteController extends FrontendController
         }
         
         $query->where(['status' => 1]);
-
+		
         /*debug($query->createCommand()->getRawSql());*/
-        $dataProvider = new ActiveDataProvider([
+        /*
+		$dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
                 'pageSize' => 5,
@@ -125,8 +126,8 @@ class SiteController extends FrontendController
                 'defaultOrder' => ['id' => SORT_DESC]
             ]
         ]);
-		
-		
+		*/
+		$dataProvider = array();
 		/** SEO META **/
 		$metaTitle			= "";
 		$metaDescription 	= "";
