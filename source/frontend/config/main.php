@@ -31,10 +31,10 @@ return [
     'components' => [
         'view' => [
             'theme' => [
-                'basePath' => '@frontend/themes/v1',
-                'baseUrl' => '@web/v1',
+                'basePath' => '@frontend/themes/v2',
+                'baseUrl' => '@web/v2',
                 'pathMap' => [
-                    '@frontend/views' => '@frontend/themes/v1/views',
+                    '@frontend/views' => '@frontend/themes/v2/views',
                 ],
             ],
         ],
