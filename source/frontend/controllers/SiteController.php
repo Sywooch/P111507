@@ -135,6 +135,7 @@ class SiteController extends FrontendController
 		
 		$metaDescription 	= "Quickrep.vn - Một nền tảng Hỏi & Đáp được tạo ra kết nối mọi người chia sẻ và tìm kiếm thông tin về bất kỳ chủ đề nào,
  Đem những kiến thức được cá nhân hóa có chất lượng cao đến cho cộng đồng.";
+ 
 		\Yii::$app->view->registerMetaTag([
 			'name' 		=> 'description',
 			'content' 	=> $metaDescription
