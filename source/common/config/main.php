@@ -2,7 +2,7 @@
 return [
     'language' => 'vi-Vi',
     'timeZone' => 'Asia/Ho_Chi_Minh',
-	'homeUrl' => 'http://quickrep.dev',
+	'homeUrl' => 'http://quickrep.zing:8080',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'extensions' => require(__DIR__ . '/../../vendor/yiisoft/extensions.php'),
     'components' => [

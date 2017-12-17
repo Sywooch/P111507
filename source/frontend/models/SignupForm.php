@@ -29,20 +29,20 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-           /* ['fullname', 'filter', 'filter' => 'trim'],
+            ['fullname', 'filter', 'filter' => 'trim'],
             ['fullname', 'filter', 'filter' => 'strip_tags'],
             ['fullname', 'required', 'message' => 'Vui lòng nhập Họ và tên'],
-            ['fullname', 'string', 'max' => 255, 'message' => 'Họ và tên không quá 255 ký tự'],*/
+            ['fullname', 'string', 'max' => 255, 'message' => 'Họ và tên không quá 255 ký tự'],
 
-            ['firstname', 'filter', 'filter' => 'trim'],
-            ['firstname', 'filter', 'filter' => 'strip_tags'],
-            ['firstname', 'required', 'message' => 'Vui lòng nhập Tên'],
-            ['firstname', 'string', 'max' => 255, 'message' => 'Tên không quá 255 ký tự'],
+            // ['firstname', 'filter', 'filter' => 'trim'],
+            // ['firstname', 'filter', 'filter' => 'strip_tags'],
+            // ['firstname', 'required', 'message' => 'Vui lòng nhập Tên'],
+            // ['firstname', 'string', 'max' => 255, 'message' => 'Tên không quá 255 ký tự'],
 
-            ['lastname', 'filter', 'filter' => 'trim'],
-            ['lastname', 'filter', 'filter' => 'strip_tags'],
-            ['lastname', 'required', 'message' => 'Vui lòng nhập Họ'],
-            ['lastname', 'string', 'max' => 255, 'message' => 'Họ không quá 255 ký tự'],
+            // ['lastname', 'filter', 'filter' => 'trim'],
+            // ['lastname', 'filter', 'filter' => 'strip_tags'],
+            // ['lastname', 'required', 'message' => 'Vui lòng nhập Họ'],
+            // ['lastname', 'string', 'max' => 255, 'message' => 'Họ không quá 255 ký tự'],
             
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'filter', 'filter' => 'strip_tags'],
@@ -75,7 +75,7 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => 'Email',
+            'email' => 'Địa Chỉ Email',
             'password' => 'Mật khẩu',
             'repassword' => 'Nhập lại Mật khẩu',
             'fullname' => 'Họ và tên',
@@ -125,7 +125,7 @@ class SignupForm extends Model
                 }
             }
         }*/
-        if(!empty($this->google_id) && !empty($this->google_token)){
+        if (!empty($this->google_id) && !empty($this->google_token)) {
             $user = User::find()->where(['email' => $this->email])->one();
             if(!empty($user)){
                 return $user;
@@ -134,7 +134,7 @@ class SignupForm extends Model
             }
         }
 
-        if(!empty($this->fbid) && !empty($this->fbtoken)){
+        if (!empty($this->fbid) && !empty($this->fbtoken)) {
             $user = User::find()->where(['email' => $this->email])->one();
             if(!empty($user)){
                 return $user;
@@ -142,15 +142,18 @@ class SignupForm extends Model
                  $this->password = 'fb_'.$this->email;
             }
         }
-        if($this->validate()){
+        // MANUAL REGISTER
+        if ($this->validate()) {
             $user = new User();
             $user->register_status = User::REGISTER_STATUS_STEP1;
-            $user->username 	= $this->firstname.' '.$this->lastname;
+            // $user->username 	= $this->firstname.' '.$this->lastname;
+            $user->username     = $this->fullname;
             $user->email 		= $this->email;
-            $user->first_name 	= $this->firstname;
-            $user->last_name 	= $this->lastname;
+            // $user->first_name 	= $this->firstname;
+            // $user->last_name 	= $this->lastname;
             $user->type 		= User::IS_REGISTER;
-			$user->slug			= slug($this->firstname.' '.$this->lastname);
+            // $user->slug         = slug($this->firstname.' '.$this->lastname);
+			$user->slug			= slug($this->fullname);
             $user->created_at 	= date("Y-m-d H:i:s", time());
             $user->updated_at 	= date("Y-m-d H:i:s", time());
             $user->setPassword($this->password);
@@ -177,8 +180,13 @@ class SignupForm extends Model
 			/** UPDATE AVATAR **/
             if ($user->save()) {
                 return $user;
+            } else {
+                throw new \Exception("Lỗi Máy Chủ. Không thể đăng kí.", 1);
             }
         }
+        //  else {
+        //     $error = $this->getErrors();
+        // }
         return null;
     }
 }

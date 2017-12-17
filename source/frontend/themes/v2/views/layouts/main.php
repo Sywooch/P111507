@@ -36,6 +36,7 @@ use yii\helpers\Url;
 	
 	<!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/style.css" />
+    <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/style-dev.css" />
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/responsive.css" />
 
     <!-- jQuery -->    

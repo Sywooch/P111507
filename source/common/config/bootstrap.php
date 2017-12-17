@@ -15,4 +15,4 @@ if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
     $htp = "http://";
 }
 Yii::setAlias('webDomain', "$htp$_SERVER[HTTP_HOST]");
-Yii::setAlias('baseDomain', "http://quickrep.dev");
+Yii::setAlias('baseDomain', "http://quickrep.zing");
