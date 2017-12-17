@@ -65,6 +65,7 @@ return [
                 'dang-nhap' => 'site/login',
 				'dang-xuat' => 'site/logout',
 				'dang-ki' => 'site/signup',
+				'facebook-dang-ki' => 'site/facebook-signup',
 				'cau-hoi' => 'answer/index',
 				'cau-hoi/<page:\d+>' => 'answer/index',
 

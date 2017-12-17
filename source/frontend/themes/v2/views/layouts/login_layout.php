@@ -44,6 +44,7 @@ use yii\helpers\Url;
     <script type="text/javascript" src="<?=$base_url?>/libs/froala/js/froala_editor.js"></script>
     <!-- orther script -->
     <script  type="text/javascript" src="<?=$base_url?>/js/main.js"></script>
+    <script  type="text/javascript" src="<?=$base_url?>/js/ajax.js"></script>
 </head>
 
 <body>

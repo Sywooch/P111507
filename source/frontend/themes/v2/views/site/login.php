@@ -31,6 +31,11 @@
                         ]);
                     ?>
                     <legend>Đăng nhập</legend>
+                    <?php if(Yii::$app->session->hasFlash('error')): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= Yii::$app->session->getFlash('error') ?>
+                        </div>
+                    <?php endif; ?>
                     <!-- <p>
                         <label for="mail">Địa chỉ Email</label>
                         <input type="text" id="mail">
@@ -47,7 +52,7 @@
                 <a href="#" class="form-cancel">Hủy bỏ</a>
                 <div class="orther-account">
                     <p>Hoặc đăng nhập bằng tài khoản</p>
-                    <div class="account-fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a></div>
+                    <div class="account-fb"><a href="<?=$fb_login_url?>"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a></div>
                     <div class="account-gg"><a href="#"><i class="fa fa-google" aria-hidden="true"></i>Google</a></div>
                 </div>
                 <p class="meta">Bằng cách nhấp vào "Đăng ký", bạn cho biết rằng bạn đã đọc và đồng ý với Điều khoản Dịch vụ và Chính sách Bảo mật của chúng tôi.</p>

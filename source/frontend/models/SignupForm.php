@@ -34,15 +34,15 @@ class SignupForm extends Model
             ['fullname', 'required', 'message' => 'Vui lòng nhập Họ và tên'],
             ['fullname', 'string', 'max' => 255, 'message' => 'Họ và tên không quá 255 ký tự'],
 
-            // ['firstname', 'filter', 'filter' => 'trim'],
-            // ['firstname', 'filter', 'filter' => 'strip_tags'],
+            ['firstname', 'filter', 'filter' => 'trim'],
+            ['firstname', 'filter', 'filter' => 'strip_tags'],
             // ['firstname', 'required', 'message' => 'Vui lòng nhập Tên'],
-            // ['firstname', 'string', 'max' => 255, 'message' => 'Tên không quá 255 ký tự'],
+            ['firstname', 'string', 'max' => 255, 'message' => 'Tên không quá 255 ký tự'],
 
-            // ['lastname', 'filter', 'filter' => 'trim'],
-            // ['lastname', 'filter', 'filter' => 'strip_tags'],
+            ['lastname', 'filter', 'filter' => 'trim'],
+            ['lastname', 'filter', 'filter' => 'strip_tags'],
             // ['lastname', 'required', 'message' => 'Vui lòng nhập Họ'],
-            // ['lastname', 'string', 'max' => 255, 'message' => 'Họ không quá 255 ký tự'],
+            ['lastname', 'string', 'max' => 255, 'message' => 'Họ không quá 255 ký tự'],
             
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'filter', 'filter' => 'strip_tags'],
@@ -127,19 +127,20 @@ class SignupForm extends Model
         }*/
         if (!empty($this->google_id) && !empty($this->google_token)) {
             $user = User::find()->where(['email' => $this->email])->one();
-            if(!empty($user)){
+            if (!empty($user)) {
                 return $user;
-            }else{
-                 $this->password = 'gg_'.$this->email;
+            } else {
+                $this->password = 'gg_'.$this->email;
             }
         }
-
         if (!empty($this->fbid) && !empty($this->fbtoken)) {
-            $user = User::find()->where(['email' => $this->email])->one();
-            if(!empty($user)){
+            // Kiểm tra user đã tồn tại chưa niếu có rồi thì login.
+            $user = User::find()->where(['fbid' => $this->fbid])->one();
+            if (!empty($user)) {
                 return $user;
-            }else{
-                 $this->password = 'fb_'.$this->email;
+            } else {
+                $this->password = 'fb_'.$this->fbid;
+                $this->email = !empty($this->email) ? $this->email : 'qr.'.$this->fbid.'@quickrep.vn';
             }
         }
         // MANUAL REGISTER
@@ -149,8 +150,8 @@ class SignupForm extends Model
             // $user->username 	= $this->firstname.' '.$this->lastname;
             $user->username     = $this->fullname;
             $user->email 		= $this->email;
-            // $user->first_name 	= $this->firstname;
-            // $user->last_name 	= $this->lastname;
+            $user->first_name 	= $this->firstname;
+            $user->last_name 	= $this->lastname;
             $user->type 		= User::IS_REGISTER;
             // $user->slug         = slug($this->firstname.' '.$this->lastname);
 			$user->slug			= slug($this->fullname);
@@ -184,9 +185,12 @@ class SignupForm extends Model
                 throw new \Exception("Lỗi Máy Chủ. Không thể đăng kí.", 1);
             }
         }
-        //  else {
-        //     $error = $this->getErrors();
-        // }
+         else {
+            dd($this->email);
+            $error = $this->getErrors();
+            dd($error);
+        }
+        dd(1);
         return null;
     }
 }

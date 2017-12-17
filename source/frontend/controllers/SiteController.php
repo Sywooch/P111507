@@ -113,7 +113,8 @@ class SiteController extends FrontendController {
 			        ]);
 		*/
         if (cuser()) {
-            echo cuser()->email;
+            echo "<a href='/dang-xuat'>Đăng xuất</a>";
+            echo cuser()->username;die;
         }
 		$dataProvider = array();
 		/** SEO META **/
@@ -196,18 +197,19 @@ class SiteController extends FrontendController {
         //     $post = Yii::$app->request->post();
         //     debug($post);
         // }
+        // Normal register
         if ($model->load(Yii::$app->request->post())) {
-            // try {
-       //          $res = $this->verifyReCaptcha($_POST['g-recaptcha-response']);
-    			// if (!$res) {
-       //              Yii::$app->session->setFlash(
-       //                  'error',
-       //                  'Captcha không hợp lệ.'
-       //              );
-       //              return $this->render('signup', [
-       //                  'model' => $model,
-       //              ]);
-       //          }
+            try {
+                $res = $this->verifyReCaptcha($_POST['g-recaptcha-response']);
+    			if (!$res) {
+                    Yii::$app->session->setFlash(
+                        'error',
+                        'Captcha không hợp lệ.'
+                    );
+                    return $this->render('signup', [
+                        'model' => $model,
+                    ]);
+                }
                 if ($user = $model->signup()) {
                     Yii::$app->user->login($user, true);
     				Yii::$app->session->setFlash(
@@ -218,21 +220,64 @@ class SiteController extends FrontendController {
     				);
     				return $this->goHome();
     			}
-            // } catch (\Exception $e) {
-            //     Yii::$app->session->setFlash($e->getMessage());
-            // }
+            } catch (\Exception $e) {
+                Yii::$app->session->setFlash($e->getMessage());
+            }
 		}
-
+        $fb_login_url = $this->getFacebookUrl();
 		/** SEO META **/
         $this->setMetaSignup();
 		/** END SEO META **/
 
 		return $this->render('signup', [
 			'model' => $model,
+            'fb_login_url' => $fb_login_url
 		]);
 	}
 
-    private function verifyReCaptcha($recaptcha) {
+    private function getFacebookUrl() 
+    {
+        $fb_helper = $this->fb->getRedirectLoginHelper();
+        return $fb_helper->getLoginUrl(Yii::$app->params['facebook_redirect_url'], $this->permissions);
+    }
+
+    private function loginFacebook()
+    {
+        $session = Yii::$app->session;
+        $fb_helper = $this->fb->getRedirectLoginHelper();
+        $session->set('FBRLH_state', $_REQUEST['state']);
+        $accessToken = $fb_helper->getAccessToken();
+        $response = $this->fb->get('/me?fields=id,name,email,picture,first_name,last_name', $accessToken);
+        $user_fb = $response->getGraphUser();
+        $user_fb_id = User::findByFbId($user_fb['id']);
+        if (!empty($user_fb_id)) {
+            Yii::$app->user->login($user_fb_id, cparams('loginExpire'));
+            if (isset($_GET['go'])) {
+                return $this->redirect(urldecode($_GET['go']));
+            } else {
+                return $this->redirect(Yii::$app->request->referrer);
+            }
+        } else {
+            // register new 
+            $model = new SignupForm();
+            $model->fbid = $user_fb['id'];
+            $model->avatar = $user_fb['picture']['url'];
+            $model->fullname = $user_fb['last_name'] . ' ' . $user_fb['first_name'];
+            $model->firstname = $user_fb['first_name'];
+            $model->lastname = $user_fb['last_name'];
+            $model->fbtoken = $accessToken->getValue();
+            $model->email = isset($user_fb['email']) ? $user_fb['email'] : '';
+            if ($user = $model->signup()) {
+                Yii::$app->user->login($user, cparams('loginExpire'));
+                $this->goHome();
+            } else {
+                throw new \Exception("Không thể đăng nhập bằng facebook vui long thử lại", 1);
+            }
+        }
+    }
+
+    private function verifyReCaptcha($recaptcha)
+    {
         $google_url = Yii::$app->params["google_captcha_url"];
         $secret = Yii::$app->params["google_captcha_secret"];
         $ip = $_SERVER['REMOTE_ADDR'];
@@ -411,208 +456,6 @@ class SiteController extends FrontendController {
 		        ]);
 	*/
 
-	/**
-	 * Logs in a user.
-	 *
-	 * @return mixed
-	 */
-	public function actionLogin1() {
-
-		/** SEO META **/
-        $this->setSeoMetaLogin();
-		/** END SEO META **/
-
-		try {
-			$session = Yii::$app->session;
-			$session->open();
-			$this->layout = 'login_layout';
-			$siteKey = Yii::$app->params['google_sitekey'];
-			$secret = Yii::$app->params['google_secret'];
-			$lang = Yii::$app->language;
-			$gg_login_url = null;
-			$fb_login_url = null;
-			if (!\Yii::$app->user->isGuest) {
-				return $this->goHome();
-			}
-			$model = new LoginForm();
-			$signup_model = new SignupForm();
-
-			// google login
-			$redirect_uri = Yii::$app->params['google_redirect_url'];
-			$gClient = new \Google_Client();
-			$gClient->setApplicationName('Login to quickrep.dev');
-			$gClient->setClientId(Yii::$app->params['google_clientid']);
-			$gClient->setClientSecret(Yii::$app->params['google_client_secret']);
-			$gClient->setRedirectUri($redirect_uri);
-			$gClient->addScope("email");
-			$gClient->addScope("profile");
-			$gg_login_url = $gClient->createAuthUrl();
-			$google_oauthV2 = new \Google_Service_Oauth2($gClient);
-			if (isset($_GET['code']) && isset($_GET['type']) && $_GET['type'] == 'gg') {
-				$gClient->authenticate($_GET['code']);
-				$session->set('gg_access_token', $gClient->getAccessToken());
-				// header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-			}
-			if ($session->has('gg_access_token')) {
-				$gClient->setAccessToken($session->get('gg_access_token'));
-			}
-			if ($gClient->getAccessToken()) {
-				$session->get('gg_access_token', $gClient->getAccessToken());
-				$userData = $google_oauthV2->userinfo->get();
-				if (!empty($userData)) {
-					$model = new SignupForm();
-					$model->email = $userData->email;
-					$model->firstname = $userData->givenName;
-					$model->lastname = $userData->familyName;
-					$model->avatar = $userData->picture;
-					$model->google_id = $userData->id;
-					$access_token = $gClient->getAccessToken();
-					$model->google_token = $access_token;
-					if ($user = $model->signup()) {
-						Yii::$app->user->login($user, cparams('loginExpire'));
-						return $this->redirect(['site/index']);
-					}
-				}
-			}
-
-			//facebook login
-			$fb = new Facebook([
-				'app_id' => Yii::$app->params['facebook_appid'],
-				'app_secret' => Yii::$app->params['facebook_secret'],
-				'default_graph_version' => 'v2.2',
-			]);
-			$permissions = ['email, public_profile'];
-			$fb_helper = $fb->getRedirectLoginHelper();
-			$fb_login_url = $fb_helper->getLoginUrl(Yii::$app->params['facebook_redirect_url'], $permissions);
-			if (Yii::$app->request->get('type') == 'fb'
-				&& !empty(Yii::$app->request->get('code'))
-				&& !empty(Yii::$app->request->get('state'))) {
-				$session->set('FBRLH_state', $_REQUEST['state']);
-				$accessToken = $fb_helper->getAccessToken();
-				$oAuth2Client = $fb->getOAuth2Client();
-				$tokenMetadata = $oAuth2Client->debugToken($accessToken);
-				$tokenMetadata->validateAppId(Yii::$app->params['facebook_appid']);
-				$tokenMetadata->validateExpiration();
-
-				$session->set('fb_access_token', $accessToken->getValue());
-				$response = $fb->get('/me?fields=id,name,email,picture,first_name,last_name', $accessToken);
-				$user_fb = $response->getGraphUser();
-
-				$user_fb_id = User::findByFbId($user_fb['id']);
-				if (!empty($user_fb_id)) {
-					Yii::$app->user->login($user_fb_id, cparams('loginExpire'));
-					if (isset($_GET['go'])) {
-						return $this->redirect(urldecode($_GET['go']));
-					} else {
-						return $this->redirect(Yii::$app->request->referrer);
-					}
-				} else {
-					if (isset($user_fb['email'])) {
-						$model = new SignupForm();
-						$model->email = $user_fb['email'];
-						$model->firstname = $user_fb['first_name'];
-						$model->lastname = $user_fb['last_name'];
-						$model->avatar = $user_fb['picture']['url'];
-						$model->fbid = $user_fb['id'];
-						$model->fbtoken = $session->get('fb_access_token');
-						if ($user = $model->signup()) {
-							Yii::$app->user->login($user, cparams('loginExpire'));
-							return $this->redirect(['site/index']);
-						}
-					} else {
-						$session->set('user_fb', $user_fb);
-						$signup_model->firstname = $user_fb['first_name'];
-						$signup_model->lastname = $user_fb['last_name'];
-						return $this->render('login', [
-							'model' => $model,
-							'gg_login_url' => $gg_login_url,
-							'fb_login_url' => $fb_login_url,
-							'siteKey' => $siteKey,
-							'secret' => $secret,
-							'lang' => $lang,
-							'signup_model' => $signup_model,
-							'error' => 'signup',
-						]);
-					}
-				}
-			}
-
-			if ($model->load(Yii::$app->request->post()) && $model->login()) {
-				if (isset($_GET['go'])) {
-					return $this->redirect(urldecode($_GET['go']));
-				} else {
-					return $this->redirect(Yii::$app->request->referrer);
-				}
-			} elseif ($signup_model->load(Yii::$app->request->post())) {
-				$recaptcha = $_POST['g-recaptcha-response'];
-				if (!empty($recaptcha)) {
-					$google_url = Yii::$app->params["google_captcha_url"];
-					$secret = Yii::$app->params["google_captcha_secret"];
-					$ip = $_SERVER['REMOTE_ADDR'];
-					$url = $google_url . "?secret=" . $secret . "&response=" . $recaptcha . "&remoteip=" . $ip;
-					$res = CRestFull::get($url)->getResponse();
-					$res = json_decode($res, true);
-					// reCaptcha success check
-					if ($res['success']) {
-						if (!empty($session['user_fb'])) {
-							$signup_model->fbtoken = $session['fb_access_token'];
-							$signup_model->fbid = $session['user_fb']['id'];
-							$signup_model->avatar = $session['user_fb']['picture']['url'];
-							$session->remove('user_fb');
-							$session->remove('fb_access_token');
-						}
-						if ($user = $signup_model->signup()) {
-							Yii::$app->user->login($user, cparams('loginExpire'));
-							return $this->redirect(['site/index']);
-						} else {
-							return $this->render('login', [
-								'model' => $model,
-								'gg_login_url' => $gg_login_url,
-								'fb_login_url' => $fb_login_url,
-								'siteKey' => $siteKey,
-								'secret' => $secret,
-								'lang' => $lang,
-								'signup_model' => $signup_model,
-								'error' => 'signup',
-							]);
-						}
-					}
-				}
-				Yii::$app->session->setFlash('error', "Please re-enter your reCAPTCHA.");
-				return $this->render('login', [
-					'model' => $model,
-					'gg_login_url' => $gg_login_url,
-					'fb_login_url' => $fb_login_url,
-					'siteKey' => $siteKey,
-					'secret' => $secret,
-					'lang' => $lang,
-					'signup_model' => $signup_model,
-					'error' => 'signup',
-				]);
-			} else {
-				return $this->render('login', [
-					'model' => $model,
-					'gg_login_url' => $gg_login_url,
-					'fb_login_url' => $fb_login_url,
-					'siteKey' => $siteKey,
-					'secret' => $secret,
-					'lang' => $lang,
-					'signup_model' => $signup_model,
-				]);
-			}
-		} catch (Exception $e) {
-			return $this->render('login', [
-				'model' => $model,
-				'gg_login_url' => $gg_login_url,
-				'fb_login_url' => $fb_login_url,
-				'siteKey' => $siteKey,
-				'secret' => $secret,
-				'lang' => $lang,
-				'signup_model' => $signup_model,
-				'error' => $e->getMessage(),
-			]);
-		}
-	}
 
     public function actionLogin() {
         if (!\Yii::$app->user->isGuest) {
@@ -630,8 +473,23 @@ class SiteController extends FrontendController {
             //     Yii::$app->session->setFlash($e->getMessage());
             // }
         }
+
+
+        //facebook login
+        if (!empty(Yii::$app->request->get('code')) && !empty(Yii::$app->request->get('state'))) {
+            try {
+                return $this->loginFacebook();
+            } catch (\Exception $e) {
+                Yii::$app->session->setFlash(
+                    'error',
+                    $e->getMessage()
+                );
+            }
+        } 
+        
         return $this->render('login', [
-            'model' => $model
+            'model' => $model,
+            'fb_login_url' => $this->getFacebookUrl()
         ]);
     }
 
