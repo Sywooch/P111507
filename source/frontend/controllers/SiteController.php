@@ -30,7 +30,8 @@ class SiteController extends FrontendController {
 	/**
 	 * @inheritdoc
 	 */
-	public function behaviors() {
+	public function behaviors()
+    {
 		return [
 			// 'access' => [
 			// 	'class' => AccessControl::className(),
@@ -57,7 +58,8 @@ class SiteController extends FrontendController {
 	/**
 	 * @inheritdoc
 	 */
-	public function actions() {
+	public function actions()
+    {
 		return [
 			// 'captcha' => [
 			// 	'class' => 'yii\captcha\CaptchaAction',
@@ -78,7 +80,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionIndex() {
+	public function actionIndex()
+    {
 		/*
 			        if (Yii::$app->user->isGuest) {
 			            return $this->redirect(['/site/login']);
@@ -171,12 +174,9 @@ class SiteController extends FrontendController {
 	 * @return mixed
 	 */
 	public function actionSearch() {
-		//$url = Yii::$app->urlManager->createUrl(['site/index']);
-		// $this->redirect($url);
 		$model = new SearchForm();
 		$model->search = Yii::$app->session->get('search');
 		$model->catalog = Yii::$app->session->get('catalog');
-
 		return $this->render('search', ['model' => $model]);
 	}
 
@@ -185,19 +185,14 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionSignup() {
+	public function actionSignup()
+    {
 		// TODO config on behavior function
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
         $this->layout = 'login_layout';
-
 		$model = new SignupForm();
-        // if (Yii::$app->request->post()) {
-        //     $post = Yii::$app->request->post();
-        //     debug($post);
-        // }
-        // Normal register
         if ($model->load(Yii::$app->request->post())) {
             try {
                 $res = $this->verifyReCaptcha($_POST['g-recaptcha-response']);
@@ -224,23 +219,31 @@ class SiteController extends FrontendController {
                 Yii::$app->session->setFlash($e->getMessage());
             }
 		}
-        $fb_login_url = $this->getFacebookUrl();
 		/** SEO META **/
         $this->setMetaSignup();
 		/** END SEO META **/
 
 		return $this->render('signup', [
 			'model' => $model,
-            'fb_login_url' => $fb_login_url
+            'fb_login_url' => $this->getFacebookUrl(),
+            'gg_login_url' => $this->gg->createAuthUrl()
 		]);
 	}
 
+    /**
+     * get Facebook login url.
+     * @return string
+     */
     private function getFacebookUrl() 
     {
         $fb_helper = $this->fb->getRedirectLoginHelper();
         return $fb_helper->getLoginUrl(Yii::$app->params['facebook_redirect_url'], $this->permissions);
     }
 
+    /**
+     * Login user by facebook.
+     * @return boolean|yii\web\Response
+     */
     private function loginFacebook()
     {
         $session = Yii::$app->session;
@@ -272,6 +275,32 @@ class SiteController extends FrontendController {
                 $this->goHome();
             } else {
                 throw new \Exception("Không thể đăng nhập bằng facebook vui long thử lại", 1);
+            }
+        }
+    }
+
+    /**
+     * Login user by google.
+     * @return boolean|yii\web\Response
+     */
+    private function loginGoogle() {
+        $this->gg->authenticate(crequest()->get('code'));
+        $google_oauthV2 = new \Google_Service_Oauth2($this->gg);
+        $userData = $google_oauthV2->userinfo->get();
+        if (!empty($userData)) {
+            $model = new SignupForm();
+            $model->email = $userData->email;
+            $model->fullname = $userData->familyName . ' ' . $userData->givenName;
+            $model->firstname = $userData->givenName;
+            $model->lastname = $userData->familyName;
+            $model->avatar = $userData->picture;
+            $model->google_id = $userData->id;
+            $model->google_token = $this->gg->getAccessToken();
+            if ($user = $model->signup()) {
+                Yii::$app->user->login($user, cparams('loginExpire'));
+                return $this->goHome();
+            } else {
+                throw new \Exception("Lỗi máy chủ, Không thể đăng nhập bằng google.", 1);
             }
         }
     }
@@ -343,7 +372,8 @@ class SiteController extends FrontendController {
 	 * @param string $token
 	 * @return mixed
 	 */
-	public function actionActiveaccount($email, $token) {
+	public function actionActiveaccount($email, $token)
+    {
 		$email = trim($email);
 		$email = base64_decode($email);
 		$token = trim($token);
@@ -378,118 +408,41 @@ class SiteController extends FrontendController {
 		]);
 	}
 
-	/**
-	 * This function will be triggered when user is successfuly authenticated using some oAuth client.
-	 *
-	 * @param yii\authclient\ClientInterface $client
-	 * @return boolean|yii\web\Response
-	 */
-	public function oAuthSuccess($client) {
-		// get user data from client
-		$userAttributes = $client->getUserAttributes();
-		$email = '';
-		$fullname = '';
-		$social = $client->getName();
-		if ($social == 'facebook') {
-			$email = isset($userAttributes['email']) ? $userAttributes['email'] : '';
-			$fullname = isset($userAttributes['name']) ? $userAttributes['name'] : '';
-		} elseif ($social == 'google') {
-			$email = isset($userAttributes['emails'][0]['value']) ? $userAttributes['emails'][0]['value'] : '';
-			$fullname = isset($userAttributes['displayName']) ? $userAttributes['displayName'] : '';
-		} elseif ($social == 'linkedin') {
-			$email = isset($userAttributes['email']) ? $userAttributes['email'] : '';
-			$lastname = isset($userAttributes['last-name'])
-			? $userAttributes['last-name']
-			: $userAttributes['last_name'];
-			$firstname = isset($userAttributes['first-name'])
-			? $userAttributes['first-name']
-			: $userAttributes['first_name'];
-			$fullname = $firstname . ' ' . $lastname;
-		}
-		if (!empty($email)) {
-			if (empty($fullname)) {
-				$tmp = explode('@', $email);
-				$fullname = isset($tmp[0]) ? $tmp[0] : '';
-			}
-			// check email exits
-			$user = \common\models\User::findByEmail($email, 0);
-
-			if ($user) {
-				// login
-				Yii::$app->user->login($user, true ? cparams('loginExpire') : 0);
-			} else {
-				// singup
-				Yii::$app->response->redirect(
-					Url::to([
-						'signupoauth',
-						'email' => base64_encode($email),
-						'fullname' => base64_encode($fullname),
-					])
-				);
-			}
-		}
-	}
-
-	/**
-	 * Signs user up by social.
-	 *
-	 * @param string $email
-	 * @return mixed
-	 */
-	/*public function actionSignupoauth($email, $fullname)
-		    {
-		        $this->layout = false;
-
-		        $model = new SignupSocialForm();
-		        $model->email = base64_decode($email);
-
-		        if ($model->load(Yii::$app->request->post())) {
-		            if ($user = $model->signup($fullname)) {
-		                if (Yii::$app->getUser()->login($user)) {
-		                    echo 'T';
-		                }
-		            }
-		        }
-
-		        return $this->render('signupOauth', [
-		            'model' => $model,
-		        ]);
-	*/
-
-
-    public function actionLogin() {
+    /**
+     * Login user.
+     * @return boolean|yii\web\Response
+     */
+    public function actionLogin()
+    {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
         $this->layout = 'login_layout';
         $model = new LoginForm();
-        $post = Yii::$app->request->post();
-        if ($model->load(Yii::$app->request->post())) {
-            // try {
+        try {
+            // our system login
+            if ($model->load(Yii::$app->request->post())) {
                 if ($user = $model->login()) {
                     return $this->goHome();
                 }
-            // } catch (\Exception $e) {
-            //     Yii::$app->session->setFlash($e->getMessage());
-            // }
-        }
-
-
-        //facebook login
-        if (!empty(Yii::$app->request->get('code')) && !empty(Yii::$app->request->get('state'))) {
-            try {
-                return $this->loginFacebook();
-            } catch (\Exception $e) {
-                Yii::$app->session->setFlash(
-                    'error',
-                    $e->getMessage()
-                );
             }
-        } 
-        
+            // social login
+            if (!empty(Yii::$app->request->get('code')) && !empty(Yii::$app->request->get('state'))) {
+                return $this->loginFacebook();
+            } 
+            if (isset($_GET['code']) && isset($_GET['type']) && $_GET['type'] == 'gg') {
+                return $this->loginGoogle();
+            }
+        } catch (\Exception $e) {
+            Yii::$app->session->setFlash(
+                'error',
+                $e->getMessage()
+            );
+        }
         return $this->render('login', [
             'model' => $model,
-            'fb_login_url' => $this->getFacebookUrl()
+            'fb_login_url' => $this->getFacebookUrl(),
+            'gg_login_url' => $this->gg->createAuthUrl()
         ]);
     }
 
@@ -546,7 +499,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionLogout() {
+	public function actionLogout()
+    {
 		$a = Yii::$app->user->logout();
 		return $this->redirect(['/dang-nhap']);
 	}
@@ -556,7 +510,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionContact() {
+	public function actionContact()
+    {
 		$model = new ContactForm();
 		if (!empty(Yii::$app->user->identity->email)) {
 			$model->email = Yii::$app->user->identity->email;
@@ -585,7 +540,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionAbout() {
+	public function actionAbout()
+    {
 		$about = Post::findOne(2);
 		return $this->render('about', ['about' => $about]);
 	}
@@ -595,7 +551,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionPolicy() {
+	public function actionPolicy()
+    {
 		$policy = Post::findOne(3);
 		return $this->render('policy', ['policy' => $policy]);
 	}
@@ -605,7 +562,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionAds() {
+	public function actionAds()
+    {
 		$ads = Post::findOne(4);
 		return $this->render('ads', ['ads' => $ads]);
 	}
@@ -615,7 +573,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionGetmoney() {
+	public function actionGetmoney()
+    {
 		$getmoney = Post::findOne(17);
 		return $this->render('getmoney', ['getmoney' => $getmoney]);
 	}
@@ -625,7 +584,8 @@ class SiteController extends FrontendController {
 	 *
 	 * @return mixed
 	 */
-	public function actionRequestPasswordReset() {
+	public function actionRequestPasswordReset()
+    {
 		$model = new PasswordResetRequestForm();
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 			if ($model->sendEmail()) {
@@ -655,7 +615,8 @@ class SiteController extends FrontendController {
 	 * @return mixed
 	 * @throws BadRequestHttpException
 	 */
-	public function actionResetPassword($token) {
+	public function actionResetPassword($token)
+    {
 		try {
 			$model = new ResetPasswordForm($token);
 		} catch (InvalidParamException $e) {
@@ -682,37 +643,5 @@ class SiteController extends FrontendController {
 			return $this->render('error', ['exception' => $exception]);
 		}
 		return $this->render('error', ['exception' => $exception]);
-	}
-
-	public function actionGenData() {
-		$faker = \Faker\Factory::create('en_EN');
-		$query = User::find()
-			->orderBy(new Expression('rand()'))
-			->one();
-		for ($i = 0; $i < 100; $i++) {
-			$model = new Questions;
-			$model->link('user', cuser());
-			$model->title = $faker->text(255);
-			$model->body = $faker->text;
-			$model->save();
-			for ($i = 0; $i < 10; $i++) {
-				$question = Questions::find()
-					->orderBy(new Expression('rand()'))
-					->one();
-				$answer = new Answers;
-				$answer->link('user', cuser());
-				$answer->link('question', $question);
-				$answer->answers_text = $faker->text;
-				$answer->status = 1;
-				$answer->save();
-
-				$comment = new Comments;
-				$comment->link('user', cuser());
-				$comment->link('question', $question);
-				$comment->comment_type = Comments::TYPE_QUESTIONS;
-				$comment->comment = $faker->text;
-				$comment->save();
-			}
-		}
 	}
 }

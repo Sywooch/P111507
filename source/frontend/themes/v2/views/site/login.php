@@ -53,7 +53,7 @@
                 <div class="orther-account">
                     <p>Hoặc đăng nhập bằng tài khoản</p>
                     <div class="account-fb"><a href="<?=$fb_login_url?>"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a></div>
-                    <div class="account-gg"><a href="#"><i class="fa fa-google" aria-hidden="true"></i>Google</a></div>
+                    <div class="account-gg"><a href="<?=$gg_login_url?>"><i class="fa fa-google" aria-hidden="true"></i>Google</a></div>
                 </div>
                 <p class="meta">Bằng cách nhấp vào "Đăng ký", bạn cho biết rằng bạn đã đọc và đồng ý với Điều khoản Dịch vụ và Chính sách Bảo mật của chúng tôi.</p>
             </div>

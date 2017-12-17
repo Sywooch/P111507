@@ -9,11 +9,12 @@ return [
 
 	'facebook_appid' => '489263334590783',
 	'facebook_secret' => '287899791ad8149c727f21848faa8f61',
-	'facebook_redirect_url' => 'http://quickrep.zing/dang-nhap?type=fb',
+	'facebook_redirect_url' => 'http://quickrep.com/dang-nhap?type=fb',
 
-	'google_clientid' => '42437740205-246n46qpnqcpb8amr820djhdmek26mht.apps.googleusercontent.com',
-	'google_client_secret' => 'lbeAWV3RuJL9MVWh3uXY3dG0',
-	'google_redirect_url' => 'http://quickrep.zing/dang-nhap?type=gg',
+	//tdt.smile1@gmail.com keep it.
+	'google_clientid' => '250285195778-j41tfb7bctvue0dhnu60ghon7fbkcnm9.apps.googleusercontent.com',
+	'google_client_secret' => 'nVSCCg8rXbFhJ4t1EzrNvVQn',
+	'google_redirect_url' => 'http://quickrep.com/dang-nhap?type=gg',
 	//tdt.smile2-quickrep
 
 	'google_captcha_url' => 'https://www.google.com/recaptcha/api/siteverify',

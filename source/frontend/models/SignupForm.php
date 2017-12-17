@@ -185,12 +185,10 @@ class SignupForm extends Model
                 throw new \Exception("Lỗi Máy Chủ. Không thể đăng kí.", 1);
             }
         }
-         else {
-            dd($this->email);
+        else {
             $error = $this->getErrors();
             dd($error);
         }
-        dd(1);
         return null;
     }
 }
