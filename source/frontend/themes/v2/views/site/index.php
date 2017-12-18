@@ -41,7 +41,7 @@
 									<div class="profile">
 										<div class="profile-content">
 											<div class="profile-title">
-												<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
 												<div class="profile-name"><a href="#">Âm nhạc</a></div>
 											</div>
 											<div class="profile-info">
@@ -50,7 +50,7 @@
 										</div>
 										<div class="profile-track">
 											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+											<a class="on-notice" href="#">Bỏ theo dõi</a>
 										</div>
 									</div>
 								</li>
@@ -59,7 +59,7 @@
 									<div class="profile">
 										<div class="profile-content">
 											<div class="profile-title">
-												<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
 												<div class="profile-name"><a href="#">Công nghệ</a></div>
 											</div>
 											<div class="profile-info">
@@ -68,7 +68,7 @@
 										</div>
 										<div class="profile-track">
 											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+											<a class="on-notice" href="#">Bỏ theo dõi</a>
 										</div>
 									</div>
 								</li>
@@ -77,7 +77,7 @@
 									<div class="profile">
 										<div class="profile-content">
 											<div class="profile-title">
-												<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
 												<div class="profile-name"><a href="#">Du lịch</a></div>
 											</div>
 											<div class="profile-info">
@@ -86,7 +86,7 @@
 										</div>
 										<div class="profile-track">
 											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+											<a class="on-notice" href="#">Bỏ theo dõi</a>
 										</div>
 									</div>
 								</li>
@@ -95,7 +95,7 @@
 									<div class="profile">
 										<div class="profile-content">
 											<div class="profile-title">
-												<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
 												<div class="profile-name"><a href="#">Đời sống</a></div>
 											</div>
 											<div class="profile-info">
@@ -104,7 +104,7 @@
 										</div>
 										<div class="profile-track">
 											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+											<a class="on-notice" href="#">Bỏ theo dõi</a>
 										</div>
 									</div>
 								</li>
@@ -113,7 +113,7 @@
 									<div class="profile">
 										<div class="profile-content">
 											<div class="profile-title">
-												<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
 												<div class="profile-name"><a href="#">Giới tính</a></div>
 											</div>
 											<div class="profile-info">
@@ -122,7 +122,7 @@
 										</div>
 										<div class="profile-track">
 											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+											<a class="on-notice" href="#">Bỏ theo dõi</a>
 										</div>
 									</div>
 								</li>
@@ -131,7 +131,7 @@
 									<div class="profile">
 										<div class="profile-content">
 											<div class="profile-title">
-												<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
+												<a href="#"><img src="images/profile-cat.png" alt=""></a>
 												<div class="profile-name"><a href="#">Sức khỏe</a></div>
 											</div>
 											<div class="profile-info">
@@ -140,7 +140,7 @@
 										</div>
 										<div class="profile-track">
 											<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-											<a class="on-notice" href="#">Thêm vào yêu thích</a>
+											<a class="on-notice" href="#">Bỏ theo dõi</a>
 										</div>
 									</div>
 								</li>

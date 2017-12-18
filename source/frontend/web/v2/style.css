@@ -680,6 +680,11 @@ textarea:focus {
 .header-right .account{
 	position: relative;
 }
+.header-right .account-ava
+{
+	font-weight: 500;
+	font-size: 15px;
+}
 .notice-popup-bg,
 .account-popup-bg,
 .ask-popup-bg,
