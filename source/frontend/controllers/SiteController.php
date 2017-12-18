@@ -115,10 +115,10 @@ class SiteController extends FrontendController {
 			            ]
 			        ]);
 		*/
-        if (cuser()) {
-            echo "<a href='/dang-xuat'>Đăng xuất</a>";
-            echo cuser()->username;die;
-        }
+        // if (cuser()) {
+        //     echo "<a href='/dang-xuat'>Đăng xuất</a>";
+        //     echo cuser()->username;die;
+        // }
 		$dataProvider = array();
 		/** SEO META **/
 		$metaTitle = "";
