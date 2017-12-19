@@ -4,6 +4,7 @@ namespace frontend\models;
 use common\models\User;
 use yii\base\Model;
 use Yii;
+use yii\helpers\FileHelper;
 
 /**
  * Signup form
@@ -92,39 +93,6 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        /*if ($this->validate()) {
-            $user = new User();
-            $user->status = Member::STATUS_DELETED; // not active
-            $auth_token = md5(uniqid(rand()) . time());
-            $user->auth_token = $auth_token;
-            $user->authentication = 0;
-            $user->username = $this->email;
-            $user->email = $this->email;
-            $user->fullname = $this->fullname;
-            $user->type = 0; // is member register
-            $user->created_at = date("Y-m-d H:i:s", time());
-            $user->updated_at = date("Y-m-d H:i:s", time());
-            $user->setPassword($this->password);
-            $user->generateAuthKey();
-            
-            $body = 'Chào bạn,<br>'
-                    . 'Chúc mừng bạn đã đăng ký tài khoản thành công tại taichua.com<br>'
-                    . 'Vui lòng click vào linh dưới đây để Kích hoạt tài khoản hoặc copy '
-                    . 'link và chạy trên trình duyệt:<br>'
-                    . '<a href="https://taichua.com/kich-hoat-tai-khoan?email='.  base64_encode($this->email).'&token='.  base64_encode($auth_token).'">'
-                    . 'https://taichua.com/kich-hoat-tai-khoan?email='.  base64_encode($this->email).'&token='.  base64_encode($auth_token).'</a>';
-            $act = Yii::$app->mailer->compose('signup-html', ['body' => $body])
-            ->setTo($this->email)
-            ->setFrom([Yii::$app->params['adminEmail'] => 'Admin taichua.com'])
-            ->setSubject('Kích hoạt tài khoản tại taichua.com')
-            ->send();
-            
-            if ($act) {
-                if ($user->save()) {
-                    return $user;
-                }
-            }
-        }*/
         if (!empty($this->google_id) && !empty($this->google_token)) {
             $user = User::find()->where(['email' => $this->email])->one();
             if (!empty($user)) {
@@ -172,7 +140,7 @@ class SignupForm extends Model
 			if(!empty($this->avatar)){
 				$pathUpload    	= Yii::getAlias('@frontend').'/web/uploads/avatars/'.date('Y') . '/' . date('m').'/';
 				if (!file_exists($pathUpload)) {
-				   mkdir($pathUpload, 0777);
+                    FileHelper::createDirectory($pathUpload, 0777);
 				}
 				$fileNewName	= slug($this->firstname.' '.$this->lastname).time().'.jpg';
 				grab_image($this->avatar,$pathUpload.$fileNewName);
@@ -185,10 +153,10 @@ class SignupForm extends Model
                 throw new \Exception("Lỗi Máy Chủ. Không thể đăng kí.", 1);
             }
         }
-        else {
-            $error = $this->getErrors();
-            dd($error);
-        }
+        // else {
+        //     $error = $this->getErrors();
+        //     dd($error);
+        // }
         return null;
     }
 }

@@ -2,8 +2,9 @@
 	"use strict";
 	$(document).ready(function() {
 	    $('.search-form form input').on('keyup', function () {
+	    	var key = $(this).val();
 	    	delay(function() {
-				searchMain({key: $(this).value});
+				searchMain({key: key});
 		    }, 500 );
 	        $('.suggest-search').fadeIn();
 	        $('.site-main').addClass('search-focus');

@@ -2,6 +2,7 @@
 namespace frontend\models;
 
 use common\models\BaseModel;
+use yii\db\Expression;
 use Yii;
 
 /**
@@ -35,7 +36,30 @@ class SearchModel extends BaseModel
     }
 
     public function search() {
-        return ['result' => 'hello world'];
+        $userExpression = new Expression("'user' AS type");
+        $user = (new \yii\db\Query())
+            ->select(["id", "username AS name", $userExpression])
+            ->from('user')
+            ->where(['like', 'username', $this->key])
+            ;
+
+        $topicExpression = new Expression("'topic' AS type");
+        $topic = (new \yii\db\Query())
+            ->select(["id", "title AS name", $topicExpression])
+            ->from('topics')
+            ->where(['like', 'title', $this->key])
+            ;
+
+        $questionExpression = new Expression("'question' AS type");
+        $question = (new \yii\db\Query())
+            ->select(["id", "title AS name", $questionExpression])
+            ->from('questions')
+            ->where(['like', 'title', $this->key])
+            ;
+
+        $list = $user->union($topic, $question)
+            ->all();
+        return ['list' => $list];
     }
     
 }
