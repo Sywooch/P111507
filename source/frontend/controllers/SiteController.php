@@ -12,12 +12,14 @@ use common\models\LoginForm;
 use common\models\Questions;
 use common\models\SearchForm;
 use common\models\User;
+use common\models\Upvotes;
 use Facebook\Facebook;
 use frontend\components\FrontendController;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\base\InvalidParamException;
 use yii\db\Expression;
 use yii\helpers\Url;
@@ -82,91 +84,91 @@ class SiteController extends FrontendController {
 	 */
 	public function actionIndex()
     {
-		/*
-			        if (Yii::$app->user->isGuest) {
-			            return $this->redirect(['/site/login']);
-			        }
-
-			        $questions_down = \yii\helpers\ArrayHelper::getColumn(Upvotes::find()
-			        ->where([
-			            'user_id' => cuser()->id,
-			            'type' => Upvotes::TYPE_DOWN,
-			            'upvote_type' => Upvotes::TYPE_QUESTIONS
-			        ])->select('post_id')->asArray()->all(), 'post_id');
-
-			        $query = Questions::find();
-
-			        if (!empty($questions_down)) {
-			            $query = Questions::find()
-			            ->where('id NOT IN ('.implode(',', $questions_down).')');
-			        }
-
-			        $query->where(['status' => 1]);
-
-		*/
-		/*
-					$dataProvider = new ActiveDataProvider([
-			            'query' => $query,
-			            'pagination' => [
-			                'pageSize' => 5,
-			            ],
-			            'sort'=> [
-			                'defaultOrder' => ['id' => SORT_DESC]
-			            ]
-			        ]);
-		*/
-        // if (cuser()) {
-        //     echo "<a href='/dang-xuat'>Đăng xuất</a>";
-        //     echo cuser()->username;die;
+        // if (Yii::$app->user->isGuest) {
+        //     return $this->redirect(['/site/login']);
         // }
-		$dataProvider = array();
+        $questions_down = \yii\helpers\ArrayHelper::getColumn(
+            Upvotes::find()
+                ->where([
+                    'user_id' => cuser()->id,
+                    'type' => Upvotes::TYPE_DOWN,
+                    'upvote_type' => Upvotes::TYPE_QUESTIONS
+                ])
+                ->select('post_id')
+                ->asArray()
+                ->all(),
+            'post_id'
+        );
+
+        $query = Questions::find();
+
+        if (!empty($questions_down)) {
+            $query = Questions::find()
+            ->where('id NOT IN ('.implode(',', $questions_down).')');
+        }
+        $query->where(['status' => 1]);		
+
+		$dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
+            'sort'=> [
+                'defaultOrder' => ['id' => SORT_DESC]
+            ]
+        ]);
 		/** SEO META **/
-		$metaTitle = "";
-		$metaDescription = "";
-		$metaImgage = "";
-
-		$metaDescription = "Quickrep.vn - Một nền tảng Hỏi & Đáp được tạo ra kết nối mọi người chia sẻ và tìm kiếm thông tin về bất kỳ chủ đề nào,
-            Đem những kiến thức được cá nhân hóa có chất lượng cao đến cho cộng đồng.";
-
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'description',
-			'content' => $metaDescription,
-		]);
-		\Yii::$app->view->registerMetaTag([
-			'name' => 'og:description',
-			'content' => $metaDescription,
-		]);
-
-		$metaTitle = "Quickrep.vn - Hỏi đáp trực tuyến, nơi chia sẻ kiến ​​thức và hiểu rõ hơn về thế giới.";
-		$this->view->title = $metaTitle;
-		\Yii::$app->view->registerMetaTag([
-			'property' => 'og:title',
-			'content' => $metaTitle . ' - Quickrep',
-		]);
-
-		$metaImages = \Yii::$app->homeUrl . '/v1/images/index_social_bg';
-		\Yii::$app->view->registerMetaTag([
-			'property' => 'og:image',
-			'content' => $metaImages,
-		]);
-
-		\Yii::$app->view->registerMetaTag([
-			'property' => 'og:url',
-			'content' => \Yii::$app->homeUrl . Url::to(["site/index"]),
-		]);
-		$this->view->registerLinkTag([
-			'rel' => 'canonical',
-			'href' => \Yii::$app->homeUrl . Url::to(["site/index"]),
-			'type' => 'text/html',
-		]);
-		$this->view->registerMetaTag([
-			'name' => 'robots',
-			'content' => 'noarchive',
-		]);
+        $this->getSeoMetaIndex();
 		/** END SEO META **/
-
+        // dd($dataProvider);
 		return $this->render('index', ['dataProvider' => $dataProvider]);
 	}
+
+    private function getSeoMetaIndex()
+    {
+        $metaTitle = "";
+        $metaDescription = "";
+        $metaImgage = "";
+
+        $metaDescription = "Quickrep.vn - Một nền tảng Hỏi & Đáp được tạo ra kết nối mọi người chia sẻ và tìm kiếm thông tin về bất kỳ chủ đề nào,
+            Đem những kiến thức được cá nhân hóa có chất lượng cao đến cho cộng đồng.";
+
+        \Yii::$app->view->registerMetaTag([
+            'name' => 'description',
+            'content' => $metaDescription,
+        ]);
+        \Yii::$app->view->registerMetaTag([
+            'name' => 'og:description',
+            'content' => $metaDescription,
+        ]);
+
+        $metaTitle = "Quickrep.vn - Hỏi đáp trực tuyến, nơi chia sẻ kiến ​​thức và hiểu rõ hơn về thế giới.";
+        $this->view->title = $metaTitle;
+        \Yii::$app->view->registerMetaTag([
+            'property' => 'og:title',
+            'content' => $metaTitle . ' - Quickrep',
+        ]);
+
+        $metaImages = \Yii::$app->homeUrl . '/v1/images/index_social_bg';
+        \Yii::$app->view->registerMetaTag([
+            'property' => 'og:image',
+            'content' => $metaImages,
+        ]);
+
+        \Yii::$app->view->registerMetaTag([
+            'property' => 'og:url',
+            'content' => \Yii::$app->homeUrl . Url::to(["site/index"]),
+        ]);
+        $this->view->registerLinkTag([
+            'rel' => 'canonical',
+            'href' => \Yii::$app->homeUrl . Url::to(["site/index"]),
+            'type' => 'text/html',
+        ]);
+        $this->view->registerMetaTag([
+            'name' => 'robots',
+            'content' => 'noarchive',
+        ]);
+    }
 
 	/**
 	 * Search page.

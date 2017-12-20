@@ -6,3 +6,6 @@
 	height: 32px;
 	border-radius: 50%;
 }
+.hidden {
+	display: none;
+}
