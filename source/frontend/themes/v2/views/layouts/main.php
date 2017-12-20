@@ -50,6 +50,8 @@ use yii\helpers\Url;
     <!-- orther script -->
     <script  type="text/javascript" src="<?=$base_url?>/js/main.js"></script>
     <script  type="text/javascript" src="<?=$base_url?>/js/ajax.js"></script>
+    <script  type="text/javascript" src="<?=$base_url?>/js/lodash.core.min.js"></script>
+    
 </head>
 
 <body>

@@ -225,6 +225,15 @@ class User extends ActiveRecord implements IdentityInterface
         }
     }
 
+    public static function getFullPathAvatar($avatar) 
+    {
+        if (!empty($avatar)) {
+            return Yii::$app->homeUrl.'/uploads/avatars/' . $avatar;
+        } else {
+            return Yii::$app->homeUrl.'/v1/images/user.jpg';
+        }
+    }
+
     public function getAnswers()
     {
         return $this->hasMany(Order::className(), ['question_id' => 'id']);

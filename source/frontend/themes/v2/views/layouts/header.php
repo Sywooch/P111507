@@ -13,21 +13,12 @@
 		</div><!-- .site-brand -->
 		<div class="search-form">
 			<a href="#" class="search-back"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>
-			<form action="#" method="POST">
+			<form >
 				<input type="text" value="" name="s" class="main-search" placeholder="Tìm kiếm...">
-				<button type="submit" value=""><img src="<?=$base_url?>/images/assets/search-icon.png" alt=""></button>
+				<button type="button" value=""><img src="<?=$base_url?>/images/assets/search-icon.png" alt=""></button>
 			</form>
 			<div class="suggest-search">
-				<div class="suggest-title">
-					<p><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm cho:</p>
-				</div>
-				<ul>
-					<li><a href="#"><img src="<?=$base_url?>/images/ava-comment.png" alt="">Tài khoản:<span>Andrew</span></a></li>
-					<li><a href="#"><img src="<?=$base_url?>/images/ava-comment-02.png" alt="">Tài khoản:<span>Sói Ăn Chay</span></a></li>
-					<li><a href="#"><img src="<?=$base_url?>/images/ava-comment-01.png" alt="">Chủ đề:<span>Âm nhạc</span></a></li>
-					<li><a href="#"><img src="<?=$base_url?>/images/ava-comment.png" alt="">Câu hỏi:<span>Ăn kiêng cho người giảm béo</span></a></li>
-				</ul>
-				<div class="suggest-footer"><a href="#" class="today-ask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Đặt câu hỏi</a></div>
+				
 			</div>
 		</div><!-- .search-form -->
 

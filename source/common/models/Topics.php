@@ -129,6 +129,15 @@ class Topics extends \yii\db\ActiveRecord
             return Yii::$app->homeUrl.'/v1/images/default-topics.png';
         }
     }
+
+    public static function getFullPathAvatar($avatar) 
+    {
+        if (!empty($avatar)) {
+            return Yii::$app->homeUrl . '/uploads/topics/' . $avatar;
+        } else {
+            return Yii::$app->homeUrl . '/v1/images/default-topics.png';
+        }
+    }
 	
 	public function suggetTopics($textSearch)
 	{
