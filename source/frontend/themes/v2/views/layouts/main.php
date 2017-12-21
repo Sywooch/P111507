@@ -55,6 +55,7 @@ use yii\helpers\Url;
 </head>
 
 <body>
+	<?php $this->beginBody() ?>
 	<div id="wrapper">
 		<?= $this->render('header'); ?>
 		<?=$content?>
@@ -65,5 +66,7 @@ use yii\helpers\Url;
 			</div><!-- .container -->
 		</footer><!-- site-footer -->
 	</div><!-- #wrapper -->
+	<?php $this->endBody() ?>
 </body>
 </html>
+<?php $this->endPage() ?>

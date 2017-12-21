@@ -15,6 +15,7 @@ class SearchModel extends BaseModel
 {
     public $key;
     public $list = [];
+    public $limit = 5;
     /**
      * @inheritdoc
      */
@@ -64,7 +65,7 @@ class SearchModel extends BaseModel
         $this->list = $user
             ->union($topic)
             ->union($question)
-            ->all();
+            ->limit($this->limit);
         $this->getImage();
         return ['list' => $this->list];
     }

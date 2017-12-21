@@ -118,9 +118,10 @@ class Questions extends BaseModel
     
     public function getAnswerbyuser()
     {
-        return $this->hasOne(Answers::className(), [
-            'question_id'   => 'id'
-        ])->where(['user_id'        =>  Yii::$app->user->getId()]);
+        return $this->hasOne(
+            Answers::className(),
+            ['question_id'=> 'id']
+        )->where(['user_id' => Yii::$app->user->getId()]);
     }
 
     public function getAnswers()

@@ -87,20 +87,23 @@ class SiteController extends FrontendController {
         // if (Yii::$app->user->isGuest) {
         //     return $this->redirect(['/site/login']);
         // }
-        $questions_down = \yii\helpers\ArrayHelper::getColumn(
-            Upvotes::find()
-                ->where([
-                    'user_id' => cuser()->id,
-                    'type' => Upvotes::TYPE_DOWN,
-                    'upvote_type' => Upvotes::TYPE_QUESTIONS
-                ])
-                ->select('post_id')
-                ->asArray()
-                ->all(),
-            'post_id'
-        );
+        $questions_down = [];
+        if (cuser()) {
+            $questions_down = \yii\helpers\ArrayHelper::getColumn(
+                Upvotes::find()
+                    ->where([
+                        'user_id' => cuser()->id,
+                        'type' => Upvotes::TYPE_DOWN,
+                        'upvote_type' => Upvotes::TYPE_QUESTIONS
+                    ])
+                    ->select('post_id')
+                    ->asArray()
+                    ->all(),
+                'post_id'
+            );
+        }
 
-        $query = Questions::find();
+        $query = Questions::find()->with(['answers', 'answers.user']);
 
         if (!empty($questions_down)) {
             $query = Questions::find()

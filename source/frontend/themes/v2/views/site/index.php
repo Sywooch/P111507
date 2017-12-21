@@ -20,7 +20,8 @@
 <main id="main" class="site-main">
 	<div class="container">
 		<?= $this->render('_sidebar_left') ?>
-		<div class="main-content scroll" data-ui="jscroll-default">
+		<!-- scroll -->
+		<div class="main-content " data-ui="jscroll-default">
 			<div class="m-menu-top">
 				<ul>
 					<li class="active"><a href="index.html">Tin tức</a></li>

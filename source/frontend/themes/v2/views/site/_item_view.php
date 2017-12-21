@@ -1,6 +1,8 @@
 <?php 
+    use yii\helpers\Html;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
+    // dd($model->answers->user);
 ?>
 <div class="question-premium section">
     <div class="qp-topic">
@@ -21,7 +23,7 @@
             </div>
         </div>
     </div>
-    <h3 class="qp-title"><a href="#">Xin địa chỉ homestay tại thành phố Đà Lạt?</a></h3>
+    <h3 class="qp-title"><a href="#"><?=Html::encode($model->title)?></a></h3>
     <div class="qp-author">
         <a href="#" class="qp-ava"><img src="<?=$base_url?>/images/ava-qp.png" alt=""></a>
         <div class="author-info">
