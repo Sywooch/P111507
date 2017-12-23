@@ -65,7 +65,9 @@ class SearchModel extends BaseModel
         $this->list = $user
             ->union($topic)
             ->union($question)
-            ->limit($this->limit);
+            ->limit($this->limit)
+            ->all()
+            ;
         $this->getImage();
         return ['list' => $this->list];
     }
