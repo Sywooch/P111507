@@ -13,7 +13,7 @@ $home_url = Yii::$app->homeUrl;
 					<div class="question-basic section">
 						<h3 class="qb-title">
 							<a href="#">
-								<img src="<?=$base_url?><?=$model->images?>" alt="">
+								<img src="<?=$model->getImages()?>" alt="<?=$model->title?>">
 							</a>
 							<a class="qb-title-info" href="#"><?=$model->title?></a>
 						</h3>

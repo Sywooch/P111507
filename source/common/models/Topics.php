@@ -124,9 +124,9 @@ class Topics extends \yii\db\ActiveRecord
 	public function getImages()
     {
         if (!empty($this->images)) {
-            return $this->images;
+            return  Yii::$app->homeUrl.'/uploads/topics/'.$this->images;
         } else {
-            return Yii::$app->homeUrl.'/v1/images/default-topics.png';
+            return Yii::$app->homeUrl.'/v2/images/default-topics.png';
         }
     }
 
