@@ -11,8 +11,13 @@ $home_url = Yii::$app->homeUrl;
 			<div class="container">
 				<div class="topic">
 					<div class="question-basic section">
-						<h3 class="qb-title"><a href="#"><img src="<?=$base_url?>/images/bg-topic.jpeg" alt=""></a><a class="qb-title-info" href="#">Khách sạn</a></h3>
-						<div class="qb-desc"><p>Câu hỏi liên quan đến khách sạn.</p></div>
+						<h3 class="qb-title">
+							<a href="#">
+								<img src="<?=$base_url?><?=$model->images?>" alt="">
+							</a>
+							<a class="qb-title-info" href="#"><?=$model->title?></a>
+						</h3>
+						<div class="qb-desc"><p><?=$model->body?>.</p></div>
 						<div class="qb-action">
 							<div class="action-left">
 								<ul>
