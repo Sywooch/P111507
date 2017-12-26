@@ -9,3 +9,9 @@
 .hidden {
 	display: none;
 }
+.qp-readmore {
+	cursor: pointer;
+}
+.avatar {
+	border-radius: 50%;
+}

@@ -62,7 +62,7 @@ function detectEggFieldArray($haystack) // Xoa Phan Tu Trung Lap Trong Array
 	return $haystack;
 }
 
-function word_limit($chuoi, $gioihan) {
+function word_limit($chuoi, $gioihan, $end = '...') {
 	$chuoi = strip_tags($chuoi);
 	if (strlen($chuoi) <= $gioihan) {
 		return $chuoi;
@@ -76,7 +76,7 @@ function word_limit($chuoi, $gioihan) {
 		if (strpos($chuoi, " ", $gioihan) > $gioihan) {
 			$new_gioihan = strpos($chuoi, " ", $gioihan);
 			$new_chuoi = substr($chuoi, 0, $new_gioihan);
-			return $new_chuoi . '...';
+			return $new_chuoi . $end;
 		}
 		// trường hợp còn lại không ảnh hưởng tới kết quả
 		$new_chuoi = substr($chuoi, 0, $gioihan);

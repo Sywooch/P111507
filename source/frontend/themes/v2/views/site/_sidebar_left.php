@@ -24,7 +24,7 @@
 					<div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
-								<a href="#"><img src="images/profile-cat.png" alt=""></a>
+								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
 								<div class="profile-name"><a href="#">Âm nhạc</a></div>
 							</div>
 							<div class="profile-info">
@@ -42,7 +42,7 @@
 					<div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
-								<a href="#"><img src="images/profile-cat.png" alt=""></a>
+								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
 								<div class="profile-name"><a href="#">Công nghệ</a></div>
 							</div>
 							<div class="profile-info">
@@ -60,7 +60,7 @@
 					<div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
-								<a href="#"><img src="images/profile-cat.png" alt=""></a>
+								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
 								<div class="profile-name"><a href="#">Du lịch</a></div>
 							</div>
 							<div class="profile-info">
@@ -78,7 +78,7 @@
 					<div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
-								<a href="#"><img src="images/profile-cat.png" alt=""></a>
+								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
 								<div class="profile-name"><a href="#">Đời sống</a></div>
 							</div>
 							<div class="profile-info">
@@ -96,7 +96,7 @@
 					<div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
-								<a href="#"><img src="images/profile-cat.png" alt=""></a>
+								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
 								<div class="profile-name"><a href="#">Giới tính</a></div>
 							</div>
 							<div class="profile-info">
@@ -114,7 +114,7 @@
 					<div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
-								<a href="#"><img src="images/profile-cat.png" alt=""></a>
+								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
 								<div class="profile-name"><a href="#">Sức khỏe</a></div>
 							</div>
 							<div class="profile-info">

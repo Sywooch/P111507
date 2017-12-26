@@ -449,12 +449,15 @@
 	    $('.info-top a').mouseout(function() {
 	        $(this).parent().parent().find('.profile').css('display','none');
 	    });
-	    $('.qp-ava img').mouseover(function() {
+	    // dinhtin fix mouseover to delegate
+	    $('body').delegate('.qp-ava img', 'mouseenter', function (e) {
+	    // $('.qp-ava img').mouseover(function() {
 	        $(this).parent().parent().find('.profile').css('display','block');
 	        $(this).parent().parent().find('.profile').css('left','-40px');
 	        $(this).parent().parent().find('.profile').css('top','37px');
 	    });
-	    $('.qp-ava img').mouseout(function() {
+	    // $('.qp-ava img').mouseout(function() {
+	    $('body').delegate('.qp-ava img', 'mouseleave', function (e) {
 	        $(this).parent().parent().find('.profile').css('display','none');
 	    });
 	    $('a.qbt-hover').mouseover(function() {
@@ -494,7 +497,9 @@
 
 	    /*  [ Full Content ]
         - - - - - - - - - - - - - - - - - - - - */
-        $('.qp-readmore').on('click', function (e) {
+        //dinh tin fix from on to delegate
+        $('body').delegate('.qp-readmore', 'click', function (e) {
+        	alert('load more');
         	e.preventDefault();
 	        $(this).parent().parent().parent().fadeToggle(0);
 	        $(this).parent().parent().parent().parent().find('.qp-full-content').fadeToggle();

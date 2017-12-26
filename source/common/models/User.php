@@ -294,6 +294,10 @@ class User extends ActiveRecord implements IdentityInterface
             ->viaTable(CredentialLocation::tableName(), ['user_id' => 'id']);
     }
 
+    // public function fields() {
+    //     return  ['id','first_name', 'last_name'];
+    // }
+
 }
 
 
