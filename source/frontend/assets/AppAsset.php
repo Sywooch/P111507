@@ -19,8 +19,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web/skins/';
     public $css = [
         //'bootstrap\css\bootstrap.css'
-        '/css/style.css',
-        '/css/responsive.css'
+        // '/css/style.css',
+        // '/css/responsive.css'
     ];
     public $js = [
         //'bootstrap\js\bootstrap.js'
