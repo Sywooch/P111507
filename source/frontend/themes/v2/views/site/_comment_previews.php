@@ -1,5 +1,6 @@
 <?php 
     use yii\helpers\Html;
+    use common\models\Comments;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
 ?>
@@ -19,7 +20,12 @@
 <div class="qp-comment">
     <img src="<?=$base_url?>/images/ava-comment.png" alt="">
     <form action="#">
-        <input type="text" placeholder="Viết bình luận của bạn..." data-ajax="<?=$model->id?>">
+        <input
+            type="text"
+            placeholder="Viết bình luận của bạn..."
+            data-ajax-id="<?=$model->answers[0]->id?>"
+            data-ajax-type="<?=Comments::TYPE_ANSWER?>"
+            >
         <input class="btn-comment" type="submit" value="Bình luận">
     </form>
     <div class="comment-content">

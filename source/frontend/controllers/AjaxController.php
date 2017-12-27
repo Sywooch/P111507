@@ -36,13 +36,13 @@ class AjaxController extends FrontendController
         return $response;
     }
 
-    public function actionComment()
+    public function actionAddComment()
     {
         try {
             $model = new CommentModel;
             $model->value = crequest()->post('value');
-            $model->id = crequest()->post('question_id');
-            $model->type = Comments::TYPE_QUESTIONS;
+            $model->id = crequest()->post('id');
+            $model->type = crequest()->post('type');
             if ($model->validate()) {
                 $result = $model->craeteComment();
                 return $this->jsonOut(false, 'success', $result);

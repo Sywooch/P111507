@@ -26,8 +26,9 @@
 			console.log('COMMENT');
 			var input = $(this).parent().find('input[type="text"]');
 			var value = input.val();
-			var question_id = input.attr('data-ajax');
-			handleComment(value, question_id, function() {
+			var id = input.attr('data-ajax-id');
+			var type = input.attr('data-ajax-type');
+			handleComment(value, id, type, function() {
 				input.val('');
 			});
 		});
@@ -115,14 +116,15 @@ function getItemSearch(item) {
 /**
  * process comment
  * params object value
- * params object question_id
+ * params object id
  * return string
  * TODO need update URL
 */
-function handleComment(value, question_id, callback) {
+function handleComment(value, id, type, callback) {
 	var params = {
 		value: value,
-		question_id: question_id
+		id: id,
+		type: type
 	};
 	appAjax(
 		'/binh-luan',
