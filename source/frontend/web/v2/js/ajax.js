@@ -1,6 +1,8 @@
 (function($) {
 	"use strict";
 	$(document).ready(function() {
+	
+		// MAIN SEARCH
 	    $('.search-form form input').on('keyup', function () {
 	    	var key = $(this).val();
 	    	delay(function() {
@@ -17,9 +19,21 @@
     			return false;
 	        }
 		});
+	
+	    // COMMENT QUESTION
+		$('body').delegate('.btn-comment', 'click', function (e) {
+			e.preventDefault();
+			console.log('COMMENT');
+			var input = $(this).parent().find('input[type="text"]');
+			var value = input.val();
+			var question_id = input.attr('data-ajax');
+			handleComment(value, question_id, function() {
+				input.val('');
+			});
+		});
 	});
 })(jQuery);
-
+// 
 
 function appAjax(url, method, data, dataType, callback) {
 	var csrfToken = $('meta[name="csrf-token"]').attr("content");
@@ -95,4 +109,33 @@ function getItemSearch(item) {
 	});
 	return '<li><a href="#"><img class="img-header-avatar" src="'+ item.image +
 	'" alt="">'+ title.name +': <span>'+ item.name +'</span></a></li>';
+}
+
+
+/**
+ * process comment
+ * params object value
+ * params object question_id
+ * return string
+ * TODO need update URL
+*/
+function handleComment(value, question_id, callback) {
+	var params = {
+		value: value,
+		question_id: question_id
+	};
+	appAjax(
+		'/binh-luan',
+		'post',
+		params,
+		'',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
 }

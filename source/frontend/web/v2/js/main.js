@@ -499,7 +499,6 @@
         - - - - - - - - - - - - - - - - - - - - */
         //dinh tin fix from on to delegate
         $('body').delegate('.qp-readmore', 'click', function (e) {
-        	alert('load more');
         	e.preventDefault();
 	        $(this).parent().parent().parent().fadeToggle(0);
 	        $(this).parent().parent().parent().parent().find('.qp-full-content').fadeToggle();
@@ -509,7 +508,9 @@
 				$(this).parent().parent().parent().parent().find('.qp-comment').fadeToggle();
 	        }
 	    });
-        $('.comment-previews').on('click', function () {
+        // $('.comment-previews').on('click', function () {
+        	//dinh tin fix from on to delegate
+        $('body').delegate('.comment-previews', 'click', function (e) {
         	$(this).fadeToggle();
 	        $(this).parent().find('.qp-comment').fadeToggle();
 	    });

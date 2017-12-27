@@ -108,7 +108,11 @@ class SiteController extends FrontendController {
                 // TODO - GET LAST ANSWER
                 return $q->orderBy(['create_time' => SORT_DESC])->one();
             },
-            'answers.user'
+            'answers.user',
+            'comments' => function($q) {
+                return $q->orderBy(['create_time' => SORT_DESC])->one();
+            },
+            'comments.user'
         ]);
 
         if (!empty($questions_down)) {

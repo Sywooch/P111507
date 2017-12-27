@@ -68,7 +68,7 @@ return [
 				'facebook-dang-ki' => 'site/facebook-signup',
 				'cau-hoi' => 'answer/index',
 				'cau-hoi/<page:\d+>' => 'answer/index',
-
+				'binh-luan' => 'ajax/comment',
 				#content
 				//'tai-khoan' 			=> 'profiles/index',
 				// 'tai-khoan/<slug:[A-Za-z0-9 -_.]+>' => 'profiles/index',

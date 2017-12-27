@@ -7,6 +7,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use common\models\Upvotes;
+use yii\helpers\Html;
 
 /**
  * User model
@@ -223,6 +224,11 @@ class User extends ActiveRecord implements IdentityInterface
         } else {
             return Yii::$app->homeUrl.'/v1/images/user.jpg';
         }
+    }
+
+    public function getFullName() 
+    {
+        return Html::encode($this->first_name.' '.$this->last_name);
     }
 
     public static function getFullPathAvatar($avatar) 

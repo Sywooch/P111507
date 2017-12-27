@@ -6,6 +6,8 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Html;
 use frontend\models\SearchModel;
+use frontend\models\CommentModel;
+use common\models\Comments;
 /**/
 use yii\db\Expression;
 use yii\db\Query;
@@ -34,8 +36,27 @@ class AjaxController extends FrontendController
         return $response;
     }
 
-    public function actionSearchMain()
+    public function actionComment()
     {
+        try {
+            $model = new CommentModel;
+            $model->value = crequest()->post('value');
+            $model->id = crequest()->post('question_id');
+            $model->type = Comments::TYPE_QUESTIONS;
+            if ($model->validate()) {
+                $result = $model->craeteComment();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }
+    }
+
+    public function actionSearchMain() 
+    {
+
         try {
             $model = new SearchModel;
             $model->key = crequest()->get('key');
@@ -49,5 +70,4 @@ class AjaxController extends FrontendController
             return $this->jsonOut(true, 'fail', $e->getMessage());
         }
     }
-
 }
