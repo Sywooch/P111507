@@ -73,7 +73,7 @@ class Answers extends BaseModel
 	public function getComments()
     {
         return $this->hasMany(Comments::className(), ['post_id' => 'id'])
-        ->where(['comment_type' => Comments::TYPE_QUESTIONS]);
+        ->where(['comment_type' => Comments::TYPE_ANSWER]);
     }
 	public function getVotes()
     {

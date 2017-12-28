@@ -511,6 +511,12 @@
         // $('.comment-previews').on('click', function () {
         	//dinh tin fix from on to delegate
         $('body').delegate('.comment-previews', 'click', function (e) {
+        	var id = $(this).attr('data-ajax-id');
+        	var type = $(this).attr('data-ajax-type');
+        	var commentContent = $(this).parent().find('.comment-content');
+        	loadAllComment(id, type, function(response) {
+        		commentContent.html(response);
+        	});
         	$(this).fadeToggle();
 	        $(this).parent().find('.qp-comment').fadeToggle();
 	    });

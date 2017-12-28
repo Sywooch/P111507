@@ -70,4 +70,17 @@ class AjaxController extends FrontendController
             return $this->jsonOut(true, 'fail', $e->getMessage());
         }
     }
+
+    public function actionGetComment() 
+    {
+        try {
+            $model = new CommentModel;
+            $model->id = crequest()->get('id');
+            $model->type = crequest()->get('type');
+            $comments = $model->getComment();
+            return $this->renderAjax('comment', ['comments' => $comments]);
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }
+    }
 }

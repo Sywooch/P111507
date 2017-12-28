@@ -2,6 +2,7 @@
     use yii\helpers\Html;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
+    // dd($model->answers[0]->comments, false);
 ?>
 <div class="question-premium section">
     <div class="qp-topic">
@@ -26,12 +27,12 @@
     <div class="qp-author">
         <a href="#" class="qp-ava"><img src="<?=$model->answers[0]->user->getAvatar()?>" class="img-header-avatar" alt=""></a>
         <div class="author-info">
-            <p class="info-top"><a href="#"><?= $model->answers[0]->user->last_name .' '. $model->answers[0]->user->first_name ?><!--TODO </a>, Designer tại SpaceLab</p> -->
+            <p class="info-top"><a href="#"><?= $model->answers[0]->user->fullname ?><!--TODO </a>, Designer tại SpaceLab</p> -->
             <div class="profile">
                 <div class="profile-content">
                     <div class="profile-title">
                         <a href="#"><img class="avatar" src="<?=$model->answers[0]->user->getAvatar()?>" alt=""></a>
-                        <div class="profile-name"><a href="#"><?= $model->answers[0]->user->last_name .' '. $model->answers[0]->user->first_name ?></a></div>
+                        <div class="profile-name"><a href="#"><?= $model->answers[0]->user->fullname ?></a></div>
                     </div>
                     <!-- TODO -->
                     <!-- <div class="profile-info">
@@ -113,7 +114,7 @@
     </div>
 
     <?php
-        if (!empty($model->comments)) {
+        if (!empty($model->answers[0]->comments)) {
             echo $this->render('_comment_previews', ['model' => $model]);
         }
     ?>

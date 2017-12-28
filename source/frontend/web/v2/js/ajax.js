@@ -127,7 +127,7 @@ function handleComment(value, id, type, callback) {
 		type: type
 	};
 	appAjax(
-		'/binh-luan',
+		'/them-binh-luan',
 		'post',
 		params,
 		'',
@@ -140,4 +140,25 @@ function handleComment(value, id, type, callback) {
 			}
 		}
 	);
+}
+
+function loadAllComment(id, type, callback) {
+	var params = {
+		id: id,
+		type: type
+	};
+	appAjax(
+		'/binh-luan',
+		'get',
+		params,
+		'html',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	)
 }

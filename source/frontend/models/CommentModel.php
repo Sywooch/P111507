@@ -5,6 +5,7 @@ use common\models\BaseModel;
 use common\models\User;
 use common\models\Questions;
 use common\models\Comments;
+use yii\data\ActiveDataProvider;
 use yii\db\Expression;
 use Yii;
 
@@ -22,6 +23,7 @@ class CommentModel extends BaseModel
      */
     public function rules()
     {
+        // need add validate type and validate parent_comment_id
         return [
             ['value', 'filter', 'filter' => 'trim'],
             ['value', 'filter', 'filter' => 'strip_tags'],
@@ -44,7 +46,8 @@ class CommentModel extends BaseModel
      * Create comment
      * Return object
     */
-    public function craeteComment() {
+    public function craeteComment()
+    {
         $comment = new Comments;
         $comment->user_id = cuser()->id;
         $comment->post_id = $this->id;
@@ -53,6 +56,18 @@ class CommentModel extends BaseModel
         $comment->comment_parent_id = $this->parent_comment_id;
         $comment->save();
         return $comment;
+    }
+
+    public function getComment() 
+    {
+        $model = Comments::find()
+            ->with(['user', 'childs', 'childs.user'])
+            ->where(['post_id' => $this->id, 'comment_type' => $this->type, 'comment_parent_id' => null])
+            // ->asArray()
+            ->all()
+            ;
+        // dd($model->createCommand()->sql);
+        return $model;
     }
 }
 

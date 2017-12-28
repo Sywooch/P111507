@@ -106,13 +106,17 @@ class SiteController extends FrontendController {
         $query = Questions::find()->with([
             'answers' => function($q) {
                 // TODO - GET LAST ANSWER
-                return $q->orderBy(['create_time' => SORT_DESC])->one();
+                return $q->with([
+                    'comments',
+                    'comments.user',
+                ])
+                ->orderBy(['create_time' => SORT_DESC])->one();
             },
             'answers.user',
-            'comments' => function($q) {
-                return $q->orderBy(['create_time' => SORT_DESC])->one();
-            },
-            'comments.user'
+            // 'comments' => function($q) {
+            //     return $q->orderBy(['create_time' => SORT_DESC])->one();
+            // },
+            // 'comments.user'
         ]);
 
         if (!empty($questions_down)) {
