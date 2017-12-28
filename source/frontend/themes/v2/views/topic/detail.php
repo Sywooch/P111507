@@ -121,11 +121,11 @@ $home_url = Yii::$app->homeUrl;
 							'itemOptions' => ['class' => 'item'],
 							'itemView' => function ($model, $key, $index, $widget) {
 								if(!empty($model->answer->answers_text)){
-									return $this->render('_item_premium_view', ['model' => $model]);
+									return $this->render('_question_premium', ['model' => $model]);
 								}
 								else
 								{
-									return $this->render('_item_view', ['model' => $model]);
+									return $this->render('_question_basic', ['model' => $model]);
 								}
 							},
 							'pager' => [

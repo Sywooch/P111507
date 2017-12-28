@@ -9,13 +9,15 @@
 			<div class="m-search-click"><i class="nc-icon-outline ui-1_zoom"></i>Search</div>
 		</div>
 		<div class="site-brand">
-			<a href="index.html"><img src="<?=$base_url?>/images/assets/logo.png" alt=""></a>
+			<a href="<?=$home_url?>"><img src="<?=$base_url?>/images/assets/logo.png" alt=""></a>
 		</div><!-- .site-brand -->
 		<div class="search-form">
 			<a href="#" class="search-back"><i class="nc-icon-outline arrows-1_minimal-left"></i></a>
 			<form >
 				<input type="text" value="" name="s" class="main-search" placeholder="Tìm kiếm...">
-				<button type="button" value=""><img src="<?=$base_url?>/images/assets/search-icon.png" alt=""></button>
+				<button type="button" value="">
+					<img src="<?=$base_url?>/images/assets/search-icon.png" alt="">
+				</button>
 			</form>
 			<div class="suggest-search">
 				
@@ -72,7 +74,9 @@
 	</div><!-- .container -->
 	<nav class="main-menu">
 		<ul>
-			<li class="active"><a href="index.html">Trang chủ</a></li>
+			<li class="active">
+				<a href="<?=$home_url?>">Trang chủ</a>
+			</li>
 			<li><a href="answer.html">Trả lời</a></li>
 			<li><a href="notifications.html">Thông báo</a></li>
 			<li><a href="profile.html">Hồ sơ</a></li>
