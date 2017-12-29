@@ -19,3 +19,11 @@
 	width: 40px;
 	height: 40px;
 }
+.comment-loading-img {
+	position: absolute;
+    margin: auto;
+    top: 154px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

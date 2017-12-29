@@ -1,13 +1,11 @@
 <?php
-        use yii\helpers\Html;
-        use common\components\DateSetup;
-        use yii\helpers\Url;
-        use yii\web\View;
-
-        use frontend\widget\WidgetCommentItem;
-
-        $base_url = $this->theme->baseUrl;
-    ?>
+    use yii\helpers\Html;
+    use common\components\DateSetup;
+    use yii\helpers\Url;
+    use yii\web\View;
+    use frontend\widget\WidgetCommentItem;
+    $base_url = $this->theme->baseUrl;
+?>
 <div class="comments-child">
     <div class="media">
         <div class="media-left">

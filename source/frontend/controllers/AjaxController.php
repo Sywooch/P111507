@@ -43,9 +43,10 @@ class AjaxController extends FrontendController
             $model->value = crequest()->post('value');
             $model->id = crequest()->post('id');
             $model->type = crequest()->post('type');
+            $model->comment_parent_id = crequest()->post('parent');
             if ($model->validate()) {
                 $result = $model->craeteComment();
-                return $this->jsonOut(false, 'success', $result);
+                return $this->renderAjax('comment-item', ['model' => $result]);
             } else {
                 return $this->jsonOut(true,  $model->getErrors());
             }

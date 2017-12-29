@@ -28,9 +28,30 @@
 			var value = input.val();
 			var id = input.attr('data-ajax-id');
 			var type = input.attr('data-ajax-type');
-			handleComment(value, id, type, function() {
+			var parent = input.attr('data-ajax-parent');
+			var params = {
+				value: value,
+				id: id,
+				type: type,
+				parent: parent
+			};
+			handleComment(params, function(response) {
 				input.val('');
+				if (_.isUndefined(parent) || _.isNull(parent) || parent === '') {
+					var commentContent = input.parent().parent().find('.comment-content').first();
+					commentContent.prepend(response);
+				} else {
+					var commentInfo = input.parent().parent().parent();
+					var subComment = '<div class="sub-comment comment-content">' + response + '</div/';
+					commentInfo.after(subComment);
+				}
 			});
+		});
+
+		// REPLY COMMENT
+		$('body').delegate('.sub-reply-click', 'click', function (e) {
+			e.preventDefault();
+        	$(this).parent().parent().parent().parent().find('.sub-reply-comment').fadeIn();
 		});
 	});
 })(jQuery);
@@ -120,17 +141,12 @@ function getItemSearch(item) {
  * return string
  * TODO need update URL
 */
-function handleComment(value, id, type, callback) {
-	var params = {
-		value: value,
-		id: id,
-		type: type
-	};
+function handleComment(params, callback) {
 	appAjax(
 		'/them-binh-luan',
 		'post',
 		params,
-		'',
+		'html',
 		function(response) {
 			callback(response);
 			if (!response.error) {

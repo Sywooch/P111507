@@ -17,18 +17,18 @@ class CommentModel extends BaseModel
     public $value;// content of comment.
     public $id; // Id of model.
     public $type;// Question or Answer.
-    public $parent_comment_id;// Question or Answer.
+    public $comment_parent_id;// Question or Answer.
     /**
      * @inheritdoc
      */
     public function rules()
     {
-        // need add validate type and validate parent_comment_id
+        // need add validate type and validate comment_parent_id
         return [
             ['value', 'filter', 'filter' => 'trim'],
             ['value', 'filter', 'filter' => 'strip_tags'],
             [['id', 'value'], 'required'],            
-            [['parent_comment_id'], 'safe'],
+            [['comment_parent_id'], 'safe'],
         ];
     }
 
@@ -53,7 +53,7 @@ class CommentModel extends BaseModel
         $comment->post_id = $this->id;
         $comment->comment_type = $this->type;
         $comment->comment = $this->value;
-        $comment->comment_parent_id = $this->parent_comment_id;
+        $comment->comment_parent_id = $this->comment_parent_id;
         $comment->save();
         return $comment;
     }
@@ -63,6 +63,7 @@ class CommentModel extends BaseModel
         $model = Comments::find()
             ->with(['user', 'childs', 'childs.user'])
             ->where(['post_id' => $this->id, 'comment_type' => $this->type, 'comment_parent_id' => null])
+            ->orderBy(['create_time' => SORT_DESC])
             // ->asArray()
             ->all()
             ;

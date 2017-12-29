@@ -1,8 +1,10 @@
 <?php 
     use yii\helpers\Html;
+    use yii\helpers\HtmlPurifier;
+    use frontend\widget\WidgetFormComment;
+    use common\models\Comments;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
-    // dd($model->answers[0]->comments, false);
 ?>
 <div class="question-premium section">
     <div class="qp-topic">
@@ -62,7 +64,7 @@
     </div>
     <div class="qp-full-content">
         <div class="qp-text">
-        <?= \yii\helpers\HtmlPurifier::process($model->answers[0]->answers_text); ?>
+        <?= HtmlPurifier::process($model->answers[0]->answers_text); ?>
         </div>
     </div>
     <div class="qp-action">
@@ -116,6 +118,15 @@
     <?php
         if (!empty($model->answers[0]->comments)) {
             echo $this->render('_comment_previews', ['model' => $model]);
+        } else {
+            echo '<div class="qp-comment">';
+            echo WidgetFormComment::widget([
+                'id' => $model->answers[0]->id,
+                'type' => Comments::TYPE_ANSWER
+            ]);
+            echo '<div class="comment-content">';
+            echo '</div>';
+            echo '</div>';
         }
     ?>
 </div><!-- .question-premium -->

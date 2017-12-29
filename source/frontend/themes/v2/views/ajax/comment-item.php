@@ -2,6 +2,7 @@
     use yii\widgets\ListView;
     use yii\helpers\Html;
     use common\models\Comments;
+    use frontend\widget\WidgetFormComment;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
 ?>
@@ -20,11 +21,11 @@
             </ul>
         </div>
         <div class="sub-reply-comment">
-            <img src="<?=$base_url?>/images/ava-comment.png" alt="">
-            <form action="#">
-                <input type="text" placeholder="Viết bình luận của bạn...">
-                <input type="submit" value="Bình luận">
-            </form>
+            <?= WidgetFormComment::widget([
+                'id' => $model->post_id,
+                'type' => $model->comment_type,
+                'parent_id' => $model->id,
+            ]) ?>
         </div>
     </div>
     <?php if (!empty($model->childs)) {
