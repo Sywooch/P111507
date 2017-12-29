@@ -1,7 +1,8 @@
 <?php
-    $theme = $this->theme;
-    $base_url = $theme->baseUrl;
-	$home_url = Yii::$app->homeUrl;
+use yii\helpers\Url;
+$theme = $this->theme;
+$base_url = $theme->baseUrl;
+$home_url = Yii::$app->homeUrl;
 ?>
 <header id="header" class="site-header">
 	<div class="container">
@@ -69,7 +70,19 @@
 				</div>
 			</div><!-- .account -->
 		</div>
-		<?php } ?>
+		<?php }else{ ?>
+		<div class="header-right">
+			<div class="question">
+				<a href="#" class="today-ask">
+					<i class="nc-icon-outline location_bookmark-add"></i>
+					Đặt câu hỏi
+				</a>
+			</div><!-- .question -->
+			<div class="account">
+				<a class="account-ava" href="<?=Url::to(["site/login"])?>">Đăng nhập</a> / <a class="account-ava" href="<?=Url::to(["site/signup"])?>">Đăng ký</a>
+			</div><!-- .account -->
+		</div>	
+		<?php }?>
 		<!-- .header-right -->
 	</div><!-- .container -->
 	<nav class="main-menu">
