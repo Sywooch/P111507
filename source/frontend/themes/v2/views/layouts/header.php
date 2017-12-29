@@ -56,10 +56,16 @@ $home_url = Yii::$app->homeUrl;
 				</div>
 			</div><!-- .notice -->
 			<div class="account">
-				<a class="account-ava" href="#"><img src="<?=cuser()->getAvatar();?>" alt="" class="img-header-avatar"></a>
+				<a class="account-ava" href="<?=Url::to(["profiles/index","id"=>cuser()->id,"slug"=>cuser()->slug])?>">
+					<img src="<?=cuser()->getAvatar();?>" alt="" class="img-header-avatar">
+				</a>
 				<div class="account-popup" tabindex="-1">
 					<ul>
-						<li><a href="profile.html">Thông tin cá nhân</a></li>
+						<li>
+							<a href="<?=Url::to(["profiles/index","id"=>cuser()->id,"slug"=>cuser()->slug])?>">
+								Thông tin cá nhân
+							</a>
+						</li>
 						<!-- <li><a href="profile-blogs.html">Blogs</a></li>
 						<li><a href="messages.html">Tin nhắn</a></li>
 						<li><a href="content.html">Nội dung của bạn</a></li>
@@ -79,7 +85,9 @@ $home_url = Yii::$app->homeUrl;
 				</a>
 			</div><!-- .question -->
 			<div class="account">
-				<a class="account-ava" href="<?=Url::to(["site/login"])?>">Đăng nhập</a> / <a class="account-ava" href="<?=Url::to(["site/signup"])?>">Đăng ký</a>
+				<a class="account-ava" onclick="window.location='<?=Url::to(["site/login"])?>'" href="<?=Url::to(["site/login"])?>">Đăng nhập</a> 
+				/ 
+				<a class="account-ava" onclick="window.location='<?=Url::to(["site/signup"])?>'" href="<?=Url::to(["site/signup"])?>">Đăng ký</a>
 			</div><!-- .account -->
 		</div>	
 		<?php }?>
