@@ -17,11 +17,13 @@
     $base_url = $theme->baseUrl;
     $url_set_follow_topics = Url::to(['/ajax/follow']);
 ?>
+
 <main id="main" class="site-main">
 	<div class="container">
 		<?= $this->render('_sidebar_left') ?>
 		<!-- scroll -->
 		<div class="main-content " data-ui="jscroll-default">
+
 			<div class="m-menu-top">
 				<ul>
 					<li class="active"><a href="index.html">Tin tức</a></li>
@@ -29,11 +31,17 @@
 					<li><a href="questions.html">Câu hỏi mới</a></li>
 				</ul>
 			</div>
+            <?php                 
+                foreach (Yii::$app->session->getAllFlashes() as $key => $message) {
+                    echo '<div class="alert alert-' . $key . '">' . $message . '</div>';
+                }
+            ?>
 			<?= $this->render('_m_complete_profile') ?>
 			<?= $this->render('_m_credentials') ?>
 			<?= $this->render('_today_question') ?>
 
 			<?php
+
                 echo ListView::widget([
                     'summary'=>'',
                     'dataProvider' => $dataProvider,

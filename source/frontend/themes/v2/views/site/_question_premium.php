@@ -3,6 +3,7 @@
     use yii\helpers\HtmlPurifier;
     use frontend\widget\WidgetFormComment;
     use common\models\Comments;
+    use yii\helpers\Url;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
 ?>
@@ -25,7 +26,7 @@
             </div>
         </div>
     </div>
-    <h3 class="qp-title"><a href="#"><?=Html::encode($model->title)?></a></h3>
+    <h3 class="qp-title"><a href="<?=Url::to(['/cau-hoi/'.$model->slug])?>"><?=Html::encode($model->title)?></a></h3>
     <div class="qp-author">
         <a href="#" class="qp-ava"><img src="<?=$model->answers[0]->user->getAvatar()?>" class="img-header-avatar" alt=""></a>
         <div class="author-info">

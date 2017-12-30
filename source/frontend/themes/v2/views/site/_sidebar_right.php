@@ -1,21 +1,11 @@
 <?php 
+	use frontend\widget\WidgetCompleteRegister;
 	$theme = $this->theme;
 	$base_url = $theme->baseUrl;
 ?>
 <div class="sidebar-right">
 	<div class="sidebar-fixed">
-		<div class="complete-register">
-			<h3>Hoàn tất đăng ký</h3>
-			<div class="complete-content">
-				<ul>
-					<li class="active check-topic"><a href="#">Theo dõi 8 chủ đề mà bạn quan tâm.</a></li>
-					<li class="active"><a href="#">Thích một câu trả lời mà bạn ưng ý.</a></li>
-					<li class="active"><a href="#">Hãy đặt một câu hỏi đầu tiên của bạn.</a></li>
-					<li class="active"><a href="#">Vui lòng cung cấp thêm thông tin về bạn.</a></li>
-					<li><a href="#">Trả lời một câu hỏi trong lĩnh vực của bạn.</a></li>
-				</ul>	
-			</div>
-		</div><!-- .complete-register -->
+		<?= WidgetCompleteRegister::widget(); ?>
 		<div class="sidebar-footer">
 			<nav class="menu-footer">
 				<ul>
@@ -31,7 +21,7 @@
 			<div class="copyright"><p>Copyright © 2017 by <a href="#">quickrep.vn</a></p></div>
 		</div><!-- .sidebar-footer -->
 	</div>
-	<div class="process">
+<!-- 	<div class="process">
 		<div class="container">
 			<div class="site-brand">
 				<a href="#"><img src="<?=$base_url?>/images/assets/logo.png" alt=""></a>
@@ -177,5 +167,5 @@
 			</ul>
 		</div>
 		<a href="#" class="topic-btn">Lựa chọn 9 chủ đề nữa và tiếp tục</a>
-	</div>
+	</div> -->
 </div><!-- .sidebar-right -->

@@ -9,11 +9,13 @@ use yii\filters\AccessControl;
 use common\models\Questions;
 use common\models\Answers;
 use common\models\Topics;
+use frontend\models\QuestionModel;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use common\models\QuestionTopic;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use Yii;
 /**
  * Site controller
  */
@@ -25,28 +27,28 @@ class QuestionController extends FrontendController
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['unanswered'],
-                'rules' => [
-                    [
-                        'actions' => ['unanswered'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['unanswered'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                /*'actions' => [
-                    'logout' => ['post'],
-                ],*/
-            ],
+            // 'access' => [
+            //     'class' => AccessControl::className(),
+            //     'only' => ['unanswered'],
+            //     'rules' => [
+            //         [
+            //             'actions' => ['unanswered'],
+            //             'allow' => true,
+            //             'roles' => ['?'],
+            //         ],
+            //         [
+            //             'actions' => ['unanswered'],
+            //             'allow' => true,
+            //             'roles' => ['@'],
+            //         ],
+            //     ],
+            // ],
+            // 'verbs' => [
+            //     'class' => VerbFilter::className(),
+            //     /*'actions' => [
+            //         'logout' => ['post'],
+            //     ],*/
+            // ],
         ];
     }
 
@@ -178,46 +180,80 @@ class QuestionController extends FrontendController
 	
 	public function actionAnswered($slug)
     {
-        $model = Questions::find()->where(['slug' => $slug])->one();
-        if (empty($model)) {
-            throw new NotFoundHttpException();
+    	$this->layout = 'question_layout';
+    	try {
+            $model = new QuestionModel;
+            $model->slug = crequest()->get('slug');
+            if ($model->validate()) {
+                $result = $model->getQuestionBySlug();
+                return $this->render('question-answered', ['model' => $result]);
+            } else {
+                Yii::$app->session->setFlash(
+	                'danger',
+	                $model->getErrors()
+	            );
+            	return $this->goHome();
+            }
+        } catch (\Exception $e) {
+        	dd($e->getMessage());
+        	Yii::$app->session->setFlash(
+                'danger',
+                $e->getMessage()
+            );
+            return $this->goHome();
         }
-        /** LAY CAU TRA LOI**/
-        $sqlAnswerQuestion = Answers::find()
-        ->where([
-            "question_id"=>$model->id,
-            "status"     => Answers::IS_ACTIVE
-        ]);
-        $dataProviderAnswerQuestion = new ActiveDataProvider([
-            'query' => $sqlAnswerQuestion,
-            'pagination' => [
-                'pageSize' => 5,
-            ],
-            'sort'=> [
-                'defaultOrder' => ['id' => SORT_DESC]
-            ]
-        ]);
-        $totalAnswer = clone $sqlAnswerQuestion;
-        /** LAY TOPIC CUNG CAU HOI **/
-        $dataIdQuestionTopic    =   QuestionTopic::find()
-            ->select('topic_id')
-            ->where(["question_id"=>$model->id])
-            ->all();
-        $dataIdQuestionRelation =   QuestionTopic::find()
-            ->select('question_id')
-            ->where(['topic_id' => ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
-            ->all();
-        $dataQuestionRelation = Questions::find()
-            ->where(["id" => ArrayHelper::getColumn($dataIdQuestionRelation, "question_id")])
-            ->limit(10)
-            ->orderBy(["id"=>SORT_DESC])
-            ->all();
-        $dataTopics	= Topics::find()
-			->where(["id"=>ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
-			->all();
+  //       $model = Questions::find()->where(['slug' => $slug])->one();
+  //       if (empty($model)) {
+  //           throw new NotFoundHttpException();
+  //       }
+  //       /** LAY CAU TRA LOI**/
+  //       $sqlAnswerQuestion = Answers::find()
+  //       ->where([
+  //           "question_id"=>$model->id,
+  //           "status"     => Answers::IS_ACTIVE
+  //       ]);
+  //       $dataProviderAnswerQuestion = new ActiveDataProvider([
+  //           'query' => $sqlAnswerQuestion,
+  //           'pagination' => [
+  //               'pageSize' => 5,
+  //           ],
+  //           'sort'=> [
+  //               'defaultOrder' => ['id' => SORT_DESC]
+  //           ]
+  //       ]);
+  //       $totalAnswer = clone $sqlAnswerQuestion;
+  //       /** LAY TOPIC CUNG CAU HOI **/
+  //       $dataIdQuestionTopic    =   QuestionTopic::find()
+  //           ->select('topic_id')
+  //           ->where(["question_id"=>$model->id])
+  //           ->all();
+  //       $dataIdQuestionRelation =   QuestionTopic::find()
+  //           ->select('question_id')
+  //           ->where(['topic_id' => ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
+  //           ->all();
+  //       $dataQuestionRelation = Questions::find()
+  //           ->where(["id" => ArrayHelper::getColumn($dataIdQuestionRelation, "question_id")])
+  //           ->limit(10)
+  //           ->orderBy(["id"=>SORT_DESC])
+  //           ->all();
+  //       $dataTopics	= Topics::find()
+		// 	->where(["id"=>ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
+		// 	->all();
 			
-		
-		/** SEO META **/
+		// $this->addSeoDataQuestion();
+
+        // return $this->render('question-answered', [
+   //          'model' 		=> $model,
+   //          'totalAnswer' 	=> $totalAnswer->count(),
+   //          'dataProviderAnswerQuestion' 	=> $dataProviderAnswerQuestion,
+   //          'dataQuestionRelation' 			=> $dataQuestionRelation,
+			// 'dataTopics'	=> $dataTopics
+        // ]);
+    }
+
+    private function addSeoDataQuestion()
+    {
+    	/** SEO META **/
 		$metaTitle			= "";
 		$metaDescription 	= "";
 		$metaImgage			= "";
@@ -290,13 +326,5 @@ class QuestionController extends FrontendController
 			]);
 		}
 		/** END SEO META **/
-			
-        return $this->render('answered', [
-            'model' 		=> $model,
-            'totalAnswer' 	=> $totalAnswer->count(),
-            'dataProviderAnswerQuestion' 	=> $dataProviderAnswerQuestion,
-            'dataQuestionRelation' 			=> $dataQuestionRelation,
-			'dataTopics'	=> $dataTopics
-        ]);
     }
 }

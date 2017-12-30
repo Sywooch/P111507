@@ -66,10 +66,13 @@ return [
 				'dang-xuat' => 'site/logout',
 				'dang-ki' => 'site/signup',
 				'facebook-dang-ki' => 'site/facebook-signup',
-				'cau-hoi' => 'answer/index',
-				'cau-hoi/<page:\d+>' => 'answer/index',
+				// 'cau-hoi' => 'answer/index',
+				// 'cau-hoi/<page:\d+>' => 'answer/index',
 				'them-binh-luan' => 'ajax/add-comment',
 				'binh-luan' => 'ajax/get-comment',
+				'cau-hoi/<slug:[A-Za-z0-9 -_.]+>' => 'question/answered',
+				// '<controller:[\w-]+>/<id:\d+>' => 'question/action-answered/<slug:\d+>',
+
 				#content
 				//'tai-khoan' 			=> 'profiles/index',
 				// 'tai-khoan/<slug:[A-Za-z0-9 -_.]+>' => 'profiles/index',

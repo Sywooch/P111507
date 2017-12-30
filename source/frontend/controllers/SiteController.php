@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-session_start();
+// session_start();
 
 use common\components\CRestFull;
 use common\models\Answers;

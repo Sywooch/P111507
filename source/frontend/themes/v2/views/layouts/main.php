@@ -35,6 +35,7 @@ use yii\helpers\Url;
 	<!-- End Alexa Certify Javascript -->  
 	
 	<!-- Style CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" /> -->
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/style.css" />
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/style-dev.css" />
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/responsive.css" />
