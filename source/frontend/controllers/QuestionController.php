@@ -74,42 +74,76 @@ class QuestionController extends FrontendController
 
     public function actionUnanswered($slug)
     {
-        $model = Questions::find()->where(['slug' => $slug])->one();
-        if (empty($model)) {
-            throw new NotFoundHttpException();
+    	$this->layout = 'question_layout';
+    	try {
+            $model = new QuestionModel;
+            $model->unanswered = true;
+            $model->slug = crequest()->get('slug');
+            if ($model->validate()) {
+                $result = $model->getQuestionBySlug();
+                return $this->render('question-unanswered', ['model' => $result]);
+            } else {
+                Yii::$app->session->setFlash(
+	                'danger',
+	                $model->getErrors()
+	            );
+            	return $this->goHome();
+            }
+        } catch (\Exception $e) {
+        	dd($e->getMessage());
+        	Yii::$app->session->setFlash(
+                'danger',
+                $e->getMessage()
+            );
+            return $this->goHome();
         }
-        /** LAY CAU TRA LOI**/
-        $questionAnswerCount = Answers::find()
-        ->where([
-            "question_id"=>$model->id,
-            "status"     => Answers::IS_ACTIVE
-        ])->count();
-		if($questionAnswerCount>0)
-		{
-			return $this->redirect([$model->modulehadanswer,'id'=>$model->id]);
-			//$url = Yii::$app->urlManager->createUrl([$model->modulehadanswer,'id'=>$model->id]);
-			//return Yii::$app->response->redirect($url, 301);
-		}
+  //       $model = Questions::find()->where(['slug' => $slug])->one();
+  //       if (empty($model)) {
+  //           throw new NotFoundHttpException();
+  //       }
+  //       /** LAY CAU TRA LOI**/
+  //       $questionAnswerCount = Answers::find()
+  //       ->where([
+  //           "question_id"=>$model->id,
+  //           "status"     => Answers::IS_ACTIVE
+  //       ])->count();
+		// if($questionAnswerCount>0)
+		// {
+		// 	return $this->redirect([$model->modulehadanswer,'id'=>$model->id]);
+		// 	//$url = Yii::$app->urlManager->createUrl([$model->modulehadanswer,'id'=>$model->id]);
+		// 	//return Yii::$app->response->redirect($url, 301);
+		// }
 		
-        /** LAY TOPIC CUNG CAU HOI **/
-        $dataIdQuestionTopic    =   QuestionTopic::find()
-            ->select('topic_id')
-            ->where(["question_id"=>$model->id])
-            ->all();
-        $dataIdQuestionRelation =   QuestionTopic::find()
-            ->select('question_id')
-            ->where(['topic_id' => ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
-            ->all();
-        $dataQuestionRelation = Questions::find()
-            ->where(["id" => ArrayHelper::getColumn($dataIdQuestionRelation, "question_id")])
-            ->limit(10)
-            ->orderBy(["id"=>SORT_DESC])
-            ->all();
-		$dataTopics	= Topics::find()
-			->where(["id"=>ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
-			->all();
+  //       /** LAY TOPIC CUNG CAU HOI **/
+  //       $dataIdQuestionTopic    =   QuestionTopic::find()
+  //           ->select('topic_id')
+  //           ->where(["question_id"=>$model->id])
+  //           ->all();
+  //       $dataIdQuestionRelation =   QuestionTopic::find()
+  //           ->select('question_id')
+  //           ->where(['topic_id' => ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
+  //           ->all();
+  //       $dataQuestionRelation = Questions::find()
+  //           ->where(["id" => ArrayHelper::getColumn($dataIdQuestionRelation, "question_id")])
+  //           ->limit(10)
+  //           ->orderBy(["id"=>SORT_DESC])
+  //           ->all();
+		// $dataTopics	= Topics::find()
+		// 	->where(["id"=>ArrayHelper::getColumn($dataIdQuestionTopic, "topic_id")])
+		// 	->all();
 		
-		/** SEO META **/
+		// $this->setSeoMetaData();
+        
+  //       return $this->render('unanswered', [
+  //           'model' => $model,
+  //           'dataQuestionRelation' => $dataQuestionRelation,
+		// 	'dataTopics'	=> $dataTopics
+  //       ]);
+    }
+
+    private function setSeoMetaData() 
+    {
+    	/** SEO META **/
 		$metaTitle			= "";
 		$metaDescription 	= "";
 		$metaImgage			= "";
@@ -170,12 +204,6 @@ class QuestionController extends FrontendController
 			]);
 		
 		/** END SEO META **/	
-        
-        return $this->render('unanswered', [
-            'model' => $model,
-            'dataQuestionRelation' => $dataQuestionRelation,
-			'dataTopics'	=> $dataTopics
-        ]);
     }
 	
 	public function actionAnswered($slug)
@@ -195,7 +223,6 @@ class QuestionController extends FrontendController
             	return $this->goHome();
             }
         } catch (\Exception $e) {
-        	dd($e->getMessage());
         	Yii::$app->session->setFlash(
                 'danger',
                 $e->getMessage()

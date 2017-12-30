@@ -2,6 +2,7 @@
     use yii\helpers\Html;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
+    use yii\helpers\Url;
     // dd($model->answers->user);
 ?>
 <div class="question-basic section">
@@ -23,7 +24,7 @@
 			</div>
 		</div>
 	</div>
-	<h3 class="qb-title"><a href="#">Xin địa chỉ trung tâm luyện thi IELTS đảm bảo, uy tín ở TP.HCM?</a></h3>
+	<h3 class="qb-title"><a href="<?=Url::to(['/cau-hoi-chua-tra-loi/'.$model->slug])?>"><?=Html::encode($model->title)?></a></h3>
 	<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
 	<div class="qb-action">
 		<div class="action-left">

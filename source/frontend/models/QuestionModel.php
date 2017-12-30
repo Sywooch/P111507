@@ -15,6 +15,7 @@ use Yii;
 class QuestionModel extends BaseModel
 {
     public $slug;// Question or Answer.
+    public $unanswered;
     /**
      * @inheritdoc
      */
@@ -22,9 +23,11 @@ class QuestionModel extends BaseModel
     {
         // need add validate type and validate comment_parent_id
         return [
+            ['unanswered', 'boolean'],
             ['slug', 'filter', 'filter' => 'trim'],
             ['slug', 'filter', 'filter' => 'strip_tags'],
-            [['slug'], 'required'],            
+            [['slug'], 'required'],
+            ['unanswered', 'safe']            
         ];
     }
 
@@ -40,7 +43,11 @@ class QuestionModel extends BaseModel
 
     public function getQuestionBySlug() 
     {
-        $model = Questions::find()->where(['slug' => $this->slug])->one();
+        $query = Questions::find()->with(['answer'])->where(['slug' => $this->slug]);
+        if ($this->unanswered) {
+            $query->leftJoin('answers', 'questions.id = answers.question_id')->where(['answers.id' => null]);
+        }
+        $model = $query->one();
         return $model;
     }
 }
