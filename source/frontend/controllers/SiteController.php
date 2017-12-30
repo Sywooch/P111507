@@ -34,28 +34,42 @@ class SiteController extends FrontendController {
 	 */
 	public function behaviors()
     {
-		return [
-			// 'access' => [
-			// 	'class' => AccessControl::className(),
-			// 	'only' => ['logout', 'signup'],
-			// 	'rules' => [
-			// 		[
-			// 			'actions' => ['signup', 'index', 'login'],
-			// 			'allow' => true,
-			// 			'roles' => ['?'],
-			// 		],
-			// 		[
-			// 			'actions' => ['logout', 'index'],
-			// 			'allow' => true,
-			// 			'roles' => ['@'],
-			// 		],
-			// 	],
-			// ],
-			// 'verbs' => [
-			// 	'class' => VerbFilter::className(),
-			// ],
-		];
+        return [
+            // FOR LOGIN FACEBOOK ACROSS SITE
+            // 'corsFilter' => [
+            //     'class' => \yii\filters\Cors::className(),
+            // ],
+        ];
+		// return [
+		// 	'access' => [
+		// 		'class' => AccessControl::className(),
+		// 		'only' => ['logout', 'signup'],
+		// 		'rules' => [
+		// 			[
+		// 				'actions' => ['signup', 'index', 'login'],
+		// 				'allow' => true,
+		// 				'roles' => ['?'],
+		// 			],
+		// 			[
+		// 				'actions' => ['logout', 'index'],
+		// 				'allow' => true,
+		// 				'roles' => ['@'],
+		// 			],
+		// 		],
+		// 	],
+		// 	'verbs' => [
+		// 		'class' => VerbFilter::className(),
+		// 	],
+		// ];
 	}
+
+    // public function beforeAction($action)
+    // {      
+    //     if ($this->action->id == 'login') {
+    //         Yii::$app->controller->enableCsrfValidation = false;
+    //     }
+    //     return true;
+    // }
 
 	/**
 	 * @inheritdoc
@@ -256,6 +270,10 @@ class SiteController extends FrontendController {
     private function getFacebookUrl() 
     {
         $fb_helper = $this->fb->getRedirectLoginHelper();
+        $session = Yii::$app->session;
+        if (isset($_GET['state'])) {
+            $fb_helper->getPersistentDataHandler()->set('state', $_GET['state']);
+        }
         return $fb_helper->getLoginUrl(Yii::$app->params['facebook_redirect_url'], $this->permissions);
     }
 
@@ -267,7 +285,10 @@ class SiteController extends FrontendController {
     {
         $session = Yii::$app->session;
         $fb_helper = $this->fb->getRedirectLoginHelper();
-        $session->set('FBRLH_state', $_REQUEST['state']);
+        if (isset($_GET['state'])) {
+            $fb_helper->getPersistentDataHandler()->set('state', $_GET['state']);
+        }
+        // $session->set('FBRLH_state', $_REQUEST['state']);
         $accessToken = $fb_helper->getAccessToken();
         $response = $this->fb->get('/me?fields=id,name,email,picture,first_name,last_name', $accessToken);
         $user_fb = $response->getGraphUser();
@@ -433,6 +454,7 @@ class SiteController extends FrontendController {
      */
     public function actionLogin()
     {
+        // $this->enableCsrfValidation = false;
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
