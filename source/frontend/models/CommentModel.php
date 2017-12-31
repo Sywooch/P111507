@@ -70,6 +70,11 @@ class CommentModel extends BaseModel
         // dd($model->createCommand()->sql);
         return $model;
     }
+
+    public function getCommentById($id)
+    {
+        return Comments::find()->where(['id' => $id])->one();
+    }
 }
 
 

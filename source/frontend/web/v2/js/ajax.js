@@ -53,6 +53,22 @@
 			e.preventDefault();
         	$(this).parent().parent().parent().parent().find('.sub-reply-comment').fadeIn();
 		});
+
+		// LIKE COMMENT
+		$('body').delegate('.sub-like-click', 'click', function (e) {
+			e.preventDefault();
+			var element = $(this);
+    		var id = $(this).attr('data-ajax-id');
+    		handleLike(id, function(response) {
+    			if (!response.error) {
+					if (response.data === 1) {
+						element.html('Yêu thích');
+					} else {
+						element.html('Bỏ thích');
+					}
+				} 
+    		});
+		});
 	});
 })(jQuery);
 // 
@@ -80,7 +96,7 @@ function appAjax(url, method, data, dataType, callback) {
 	  callback(jqXHR, textStatus);
 	});
 }
-
+// HANDLE SEARCH
 function searchMain(params) {
 	appAjax(
 		'/ajax/search-main',
@@ -138,8 +154,7 @@ function getItemSearch(item) {
  * process comment
  * params object value
  * params object id
- * return string
- * TODO need update URL
+ * return void
 */
 function handleComment(params, callback) {
 	appAjax(
@@ -158,6 +173,12 @@ function handleComment(params, callback) {
 	);
 }
 
+/**
+ * process load all comment
+ * params object value
+ * params object id
+ * return html
+*/
 function loadAllComment(id, type, callback) {
 	var params = {
 		id: id,
@@ -176,5 +197,28 @@ function loadAllComment(id, type, callback) {
 				console.log('error');
 			}
 		}
-	)
+	);
+}
+
+/**
+ * process load all comment
+ * params object value
+ * params object id
+ * return void
+*/
+function handleLike(id, callback) {
+	appAjax(
+		'/thich-binh-luan',
+		'post',
+		{id: id},
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
 }
