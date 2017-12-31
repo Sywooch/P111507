@@ -17,8 +17,8 @@ class m171231_025040_create_comment_like_table extends Migration
             'id' => $this->primaryKey(),
             'comment_id' =>  $this->integer()->notNull(),
             'user_id' =>  $this->integer()->notNull(),
-            'created_at' =>  $this->integer(),
-            'updated_at' =>  $this->integer(),
+            'create_time' =>  $this->integer(),
+            'update_time' =>  $this->integer(),
         ]);
     }
 

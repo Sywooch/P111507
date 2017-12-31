@@ -101,4 +101,12 @@ class Comments extends BaseModel
             ->andWhere(['type' => Upvotes::TYPE_DOWN])
             ->andWhere(['user_id' => !empty(cuser()->id) ? cuser()->id : null]);
     }
+
+    public function getLike() {
+        if (!cuser()) {
+            return false;
+        }
+        return $this->hasOne(CommentLike::className(), ['comment_id' => 'id'])
+            ->where(['comment_likes.user_id' => cuser()->id]);
+    }
 }
