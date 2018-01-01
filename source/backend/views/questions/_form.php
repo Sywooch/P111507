@@ -29,7 +29,7 @@ $baseUrlPUpload = Yii::$app->homeUrl.'/uploads/questions/';
 								<?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 								
 								<div class="form-group">
-									<input type="text" name="topics" id="topics" class="form-control topic-tokeninput">
+									<input type="text" name="topics" id="question_topics" class="form-control topic-tokeninput">
 								</div>
 								
 								<?= $form->field($model, 'is_anonymous')->checkbox() ?>
@@ -88,19 +88,49 @@ $baseUrlPUpload = Yii::$app->homeUrl.'/uploads/questions/';
 <?php 
 $this->registerJsFile("/tokeninput/jquery.tokeninput.js");
 $this->registerCssFile("/tokeninput/token-input.css");
-$url_search_topics 	= Url::to(['/ajax/search-topics-profiles']);
+$url_search_topics 	= Url::to(['/ajax/search-topics']);
+$url_create_topics 	= Url::to(['/ajax/create-topics']); 
+$strChude 	= "[]";
+if(!$model->isNewRecord)
+{
+	$dienvien 	= $dataChude;
+	$strChude 	= json_encode($dienvien);
+}
 $js = <<<JS
-$("#topics").tokenInput('$url_search_topics',{
+$("#question_topics").tokenInput('$url_search_topics',{
 	onResult: function (results) {
         $.each(results, function (index, value) {
             value.name = value.title;
         });
 		return results;
     },
-	tokenLimit: 1,
-	noResultsText: " <a id='add-topic' data-ajax-addtopic='education_concentration' href='javascript:;'> Thêm topic</a>",
+	//tokenLimit: 1,
+	preventDuplicates: true,
+	prePopulate: $strChude,
+	noResultsText: " <a id='add-topic' data-ajax-addtopic='question_topics' href='javascript:;'> Thêm topic</a>",
 	resultsFormatter: function(item){ return "<li>" + "<img src='" + item.images + "' height='25px' width='25px' />" + "<div style='display: inline-block; padding-left: 10px;'><div class='full_name'>" + item.title + "</div><div class='email'>(" + item.id + ")</div></div></li>" },
     //tokenFormatter: function(item) { return "<li><p>" + item.title + "</p></li>" },			
+});
+
+// Add a token programatically
+$("body").on("click","#add-topic", function(){
+		var element = $(this).data("ajax-addtopic");
+		var topic 	= document.getElementById("token-input-"+element+"").value;
+		var dta 	= {
+			action  : 'no-action', 
+			key 	: topic
+		};
+		$.ajax({ 
+            url: '$url_create_topics',
+            type: 'POST',
+            data: dta
+        }).done(function(result) 
+		{
+			var rs = $.parseJSON(result);
+        	$('#'+element+'').tokenInput("add", {id: rs.id, name: rs.title});
+            return false;
+        });
+        return false;
 });
 JS;
 $this->registerJs($js,$this::POS_END);

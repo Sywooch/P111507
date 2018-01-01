@@ -11,7 +11,7 @@ class AjaxController extends Controller
         $urlSlug = slug($title);
         echo  $urlSlug;
     }
-	public function actionSearchTopicsProfiles()
+	public function actionSearchTopics()
     {
         $key = $_REQUEST['q'];
         //$data = array();
@@ -19,6 +19,12 @@ class AjaxController extends Controller
             $data = Topics::getTopicsByKey(convert_vi_to_en($key));
         }
         return json_encode($data);
+    }
+	
+	public function actionCreateTopics()
+    {
+        $key = Yii::$app->request->post('key');
+        return json_encode(Topics::createTopicKnow($key));
     }
 }
 ?>

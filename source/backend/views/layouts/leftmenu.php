@@ -40,12 +40,21 @@
                 <i class="fa fa-dashboard"></i> <span>DASHBOARD</span> 
               </a>
             </li>
+			
 			<li class="treeview">
-				<a href="<?= Yii::$app->urlManager->createAbsoluteUrl('/topics/index'); ?>">
-					<i class="fa fa-users"></i> <span>QUẢN LÝ TOPICS</span>
+				<a href="<?= Yii::$app->urlManager->createAbsoluteUrl('/topicsgroup/index'); ?>">
+					<i class="fa fa-users"></i> <span>NHÓM CHỦ ĐỂ</span>
 					<i class="fa fa-angle-left pull-right"></i>
 				</a>
             </li>
+			
+			<li class="treeview">
+				<a href="<?= Yii::$app->urlManager->createAbsoluteUrl('/topics/index'); ?>">
+					<i class="fa fa-users"></i> <span>QUẢN LÝ CHỦ ĐỀ</span>
+					<i class="fa fa-angle-left pull-right"></i>
+				</a>
+            </li>
+			
 			<li class="treeview">
 				<a href="<?= Yii::$app->urlManager->createAbsoluteUrl('/questions/index'); ?>">
 					<i class="fa fa-users"></i> <span>QUẢN LÝ CAU HOI</span>

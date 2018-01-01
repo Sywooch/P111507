@@ -4,7 +4,9 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Questions;
+use common\models\QuestionTopic;
 use backend\models\QuestionsSearch;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -104,8 +106,17 @@ class QuestionsController extends Controller
     {
         $model 	= $this->findModel($id);
 		$oldImg = $model->social_images;
+		$dataChude = QuestionTopic::find()
+			->select("topics.title as name,topics.id as id")
+			->innerJoin("topics","question_topic.topic_id = topics.id")
+			->where(["question_id"=>$model->id])
+			->asArray()->all();
+		var_dump($dataChude);
+		
         if ($model->load(Yii::$app->request->post())) 
 		{
+			$dataPost = Yii::$app->request->post();
+			
 			//SET IMAGES
             $modelUpload 		= new UploadForm();
             $modelUpload->file 	= UploadedFile::getInstance($model, 'social_images');
@@ -127,6 +138,15 @@ class QuestionsController extends Controller
                 $model->social_images = $oldImg;
             }
             //END UPLOAD IMAGES
+			
+			/**KEN ADD TOPIC FOR QUESTIONS**/
+				$dataArrayTopics  = explode(",",$dataPost["topics"]);
+				foreach($dataArrayTopics as $topic){
+					$modelQuestionTopic = new QuestionTopic();
+					$modelQuestionTopic->addQuestionTopic($model->id,$topic);
+				}
+			/**END ADD TOPIC FOR QUESTION**/
+			
             if($model->save()){
 				return $this->redirect(['view', 'id' => $model->id]);
 			}else
@@ -137,7 +157,8 @@ class QuestionsController extends Controller
 			}
         } else {
             return $this->render('update', [
-                'model' => $model,
+                'model' 	=> $model,
+				'dataChude' => $dataChude
             ]);
         }
     }

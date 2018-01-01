@@ -64,6 +64,8 @@ class Topics extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
+			'parent_id'	=> 'Chủ đề gốc',
+			'topics_group_id'	=> 'Nhóm chủ đề',
             'quote' => 'Quote',
             'body' => 'Body',
             'images' => 'Images',
