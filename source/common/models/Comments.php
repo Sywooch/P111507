@@ -109,4 +109,12 @@ class Comments extends BaseModel
         return $this->hasOne(CommentLike::className(), ['comment_id' => 'id'])
             ->where(['comment_likes.user_id' => cuser()->id]);
     }
+
+    public function getFollow() {
+        if (!cuser()) {
+            return false;
+        }
+        return $this->hasOne(CommentFollow::className(), ['comment_id' => 'id'])
+            ->where(['comment_follows.user_id' => cuser()->id]);
+    }
 }

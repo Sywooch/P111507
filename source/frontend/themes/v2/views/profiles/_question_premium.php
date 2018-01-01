@@ -121,13 +121,7 @@
             <li class="action-follow"><a href="#">Theo dõi <span>1</span></a></li>
          </ul>
       </div>
-      <div class="action-right">
-         <ul>
-            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
-         </ul>
-      </div>
+      <?= $this->render('action-right') ?>
    </div>
    <div class="comment-previews">
       <div class="comment-item">

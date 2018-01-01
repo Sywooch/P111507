@@ -7,8 +7,8 @@ return [
 	'google_sitekey' => '6LeEQD0UAAAAAAtg2eEyiE7irilNxTRv01jbeuwa',
 	'google_secret' => '6LeEQD0UAAAAAHNbe9uHgSCTmBrs1D0QIPcRxnZC',
 
-	'facebook_appid' => '489263334590783',
-	'facebook_secret' => '287899791ad8149c727f21848faa8f61',
+	'facebook_appid' =>  '1182532371830999',// '489263334590783',
+	'facebook_secret' => '2e4a86f366533d11118460063da1e928', //  '287899791ad8149c727f21848faa8f61',
 	'facebook_redirect_url' => 'http://quickrep.com/dang-nhap?type=fb',
 
 	//tdt.smile1@gmail.com keep it.
@@ -21,6 +21,9 @@ return [
 	'google_captcha_secret' => '6LeEQD0UAAAAAHNbe9uHgSCTmBrs1D0QIPcRxnZC',
 
 	'loginExpire' => 3600 * 24 * 60,
+
+	'twitter_key' => '1f7H3OE5isEWSuDirC8P0SjNC',
+	'twitter_secret' => 'K4Y2wRtVfTIMBMeZs916JSz1WvVgckCYppbzamfoO7Gy0X8KeQ'
 
 ];
 //763000599317-f1o25fqh9dh6f97g1b5ocup42rriibg2.apps.googleusercontent.com

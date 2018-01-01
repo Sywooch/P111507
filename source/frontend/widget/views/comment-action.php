@@ -14,7 +14,7 @@
         	</a>
         </li>
         <li>
-        	<a href="javascript:void(0)" data-ajax-id="<?=$model->id?>"" class="sub-follow-click">		Theo dõi
+        	<a href="javascript:void(0)" data-ajax-id="<?=$model->id?>"" class="sub-follow-click">		<?= ($model->follow) ? 'Bỏ theo' : 'Theo dõi' ?> 
         	</a>
         </li>
         <li>

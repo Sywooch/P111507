@@ -69,6 +69,36 @@
 				} 
     		});
 		});
+
+		// FOLLOW COMMENT
+		$('body').delegate('.sub-follow-click', 'click', function (e) {
+			e.preventDefault();
+			var element = $(this);
+    		var id = $(this).attr('data-ajax-id');
+    		handleFollow(id, function(response) {
+    			if (!response.error) {
+					if (response.data === 1) {
+						element.html('Theo Dõi');
+					} else {
+						element.html('Bỏ Theo');
+					}
+				} 
+    		});
+		});
+		// SHARE FACEBOOK
+		$('body').delegate('.share-fa', 'click', function (e) {
+			e.preventDefault();
+			var element = $(this);
+    		var href = $(this).attr('href');
+    		FB.ui({
+				method: 'share',
+				href: href,
+				display: 'popup',
+				mobile_iframe: true,
+			}, function(response){
+				console.log('response', response);
+			});
+		});
 	});
 })(jQuery);
 // 
@@ -209,6 +239,29 @@ function loadAllComment(id, type, callback) {
 function handleLike(id, callback) {
 	appAjax(
 		'/thich-binh-luan',
+		'post',
+		{id: id},
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
+}
+
+/**
+ * process load all comment
+ * params object value
+ * params object id
+ * return void
+*/
+function handleFollow(id, callback) {
+	appAjax(
+		'/theo-doi-binh-luan',
 		'post',
 		{id: id},
 		'json',

@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use frontend\models\SearchModel;
 use frontend\models\CommentModel;
 use frontend\models\CommentLikeModel;
+use frontend\models\CommentFollowModel;
 use common\models\Comments;
 /**/
 use yii\db\Expression;
@@ -100,4 +101,21 @@ class AjaxController extends FrontendController
             return $this->jsonOut(true, 'fail', $e->getMessage());
         }
     }
+
+    public function actionFollowComment()
+    {
+        try {
+            $model = new CommentFollowModel;
+            $model->id = crequest()->post('id');
+            if ($model->validate()) {
+                $result = $model->follow();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }
+    }
+
 }

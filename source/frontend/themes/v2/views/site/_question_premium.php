@@ -2,6 +2,7 @@
     use yii\helpers\Html;
     use yii\helpers\HtmlPurifier;
     use frontend\widget\WidgetFormComment;
+    use frontend\widget\WidgetRightAction;
     use common\models\Comments;
     use yii\helpers\Url;
     $theme = $this->theme;
@@ -107,13 +108,7 @@
                 <li class="action-follow"><a href="#">Theo dõi <span>1</span></a></li>
             </ul>
         </div>
-        <div class="action-right">
-            <ul>
-                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
-            </ul>
-        </div>
+        <?= WidgetRightAction::widget(['link' => Url::toRoute('/cau-hoi/'.$model->slug, true)]);?>
     </div>
 
     <?php
