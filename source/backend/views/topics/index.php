@@ -52,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
 								'format' => 'raw',
 							],
 							'title',
+							'topicsgroup.title',
 							// 'google_title',
 							// 'google_description:ntext',
 							// 'create_time',

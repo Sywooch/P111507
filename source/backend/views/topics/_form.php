@@ -3,11 +3,18 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\web\View;
+use yii\helpers\ArrayHelper;
+use common\models\TopicsGroup;
 /* @var $this yii\web\View */
 /* @var $model common\models\Topics */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <?php
+$dataTopicsGroup = TopicsGroup::find()
+->select(['id', 'title'])
+->orderBy("title ASC")
+->asArray()
+->all();
 $jsReadUrl = <<<JS
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -24,7 +31,6 @@ $jsReadUrl = <<<JS
 
 JS;
 $this->registerJs($jsReadUrl,View::POS_END);
-
 $baseUrlPUpload = Yii::$app->homeUrl.'/uploads/topics/';
 ?>
 <style>
@@ -44,7 +50,11 @@ $baseUrlPUpload = Yii::$app->homeUrl.'/uploads/topics/';
 						<div class="row">
 							<div class="col-md-12">
 							<?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
+							
+							<?= $form
+								->field($model, 'topics_group_id')
+								->dropdownList(ArrayHelper::map($dataTopicsGroup,'id','title')) ?>
+							
 							<div class="col-md-12">
 								<div class="preview-image-wrapper<?= !$model->isNewRecord && $model->images ? '' : ' hidden' ?>">
 									<?php

@@ -39,6 +39,7 @@ class Topics extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+			[['topics_group_id'], 'integer'],
             [['quote', 'body', 'google_description','slug'], 'string'],
             [['create_time', 'update_time'], 'safe'],
             [['title', 'images', 'google_title'], 'string', 'max' => 255],
@@ -200,5 +201,10 @@ class Topics extends \yii\db\ActiveRecord
 			'error' => false,
 			'data'	=> $dataProvider->getModels()
 		]);
+	}
+	
+	public function getTopicsgroup()
+	{
+		return $this->hasOne(TopicsGroup::className(),['id'=>'topics_group_id']);
 	}
 }
