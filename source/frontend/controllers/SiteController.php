@@ -123,6 +123,7 @@ class SiteController extends FrontendController {
                 return $q->with([
                     'comments',
                     'comments.user',
+                    'favorite'
                 ])
                 ->orderBy(['create_time' => SORT_DESC])->one();
             },

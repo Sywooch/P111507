@@ -82,4 +82,16 @@ class Answers extends BaseModel
         ->andWhere(['!=', 'type', Upvotes::TYPE_DOWN])
         ;
     }
+    public function getFavorite()
+    {
+        return $this->hasMany(AnswerFavorite::className(), ['answer_id' => 'id']);
+    }
+
+    public function getIsFavorite() {
+        if (!cuser()) {
+            return false;
+        }
+        return $this->hasOne(AnswerFavorite::className(), ['answer_id' => 'id'])
+            ->where(['answer_favorites.user_id' => cuser()->id]);
+    }
 }

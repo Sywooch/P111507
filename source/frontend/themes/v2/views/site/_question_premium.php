@@ -3,6 +3,7 @@
     use yii\helpers\HtmlPurifier;
     use frontend\widget\WidgetFormComment;
     use frontend\widget\WidgetRightAction;
+    use frontend\widget\WidgetFavoriteAnswer;
     use common\models\Comments;
     use yii\helpers\Url;
     $theme = $this->theme;
@@ -72,12 +73,13 @@
     <div class="qp-action">
         <div class="action-left">
             <ul>
-                <li>
-                    <a class="like-btn" href="#" data-ajax-id="<?=$model->answers[0]->id?>">
-                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                        Yêu thích | <span class="like-number">16</span>
-                    </a>
-                </li>
+                <?php
+                    echo WidgetFavoriteAnswer::widget([
+                        'id' => $model->answers[0]->id,
+                        'count' => count($model->answers[0]->favorite),
+                        'isFavorite' => $model->answers[0]->isFavorite
+                    ]);
+                ?>
                 <li class="action-report">
                     <a href="#">Báo cáo</a>
                     <div class="report-bg"></div>

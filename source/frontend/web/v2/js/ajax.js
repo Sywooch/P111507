@@ -110,12 +110,12 @@
         			var numberElement = element.find('.like-number');
         			var count = !isNaN(parseInt(numberElement.html())) ? parseInt(numberElement.html()) : 0;
 					if (response.data === 1) {
-	        			element.addClass('active');
+	        			element.removeClass('active');
 	        			count = count - 1;
 	        			var text = ' '+ count;
 	        			numberElement.html(text);
 					} else {
-	        			element.removeClass('active');
+	        			element.addClass('active');
 	        			count = count + 1;
 	        			var text = ' '+ count;
 	        			numberElement.html(text);
