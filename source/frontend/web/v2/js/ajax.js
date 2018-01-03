@@ -99,6 +99,30 @@
 				console.log('response', response);
 			});
 		});
+
+		// FAVORITE COMMENT
+		 $('body').delegate('.like-btn', 'click', function (e) {
+     	    e.preventDefault();
+     	    var element = $(this);
+    		var id = $(this).attr('data-ajax-id');
+    		handleFavoriteAnswer(id, function(response) {
+    			if (!response.error) {
+        			var numberElement = element.find('.like-number');
+        			var count = !isNaN(parseInt(numberElement.html())) ? parseInt(numberElement.html()) : 0;
+					if (response.data === 1) {
+	        			element.addClass('active');
+	        			count = count - 1;
+	        			var text = ' '+ count;
+	        			numberElement.html(text);
+					} else {
+	        			element.removeClass('active');
+	        			count = count + 1;
+	        			var text = ' '+ count;
+	        			numberElement.html(text);
+					}
+				} 
+    		});
+	    });
 	});
 })(jQuery);
 // 
@@ -262,6 +286,28 @@ function handleLike(id, callback) {
 function handleFollow(id, callback) {
 	appAjax(
 		'/theo-doi-binh-luan',
+		'post',
+		{id: id},
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
+}
+/**
+ * process favorite answer
+ * params object value
+ * params object id
+ * return void
+*/
+function handleFavoriteAnswer(id, callback) {
+	appAjax(
+		'/thich-cau-tra-loi',
 		'post',
 		{id: id},
 		'json',

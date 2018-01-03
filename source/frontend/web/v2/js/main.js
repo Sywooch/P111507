@@ -766,10 +766,11 @@
         	$('.m-credentials').fadeOut();
 	    });
 
-	    $('.like-btn').on('click', function (e) {
-        	e.preventDefault();
-	        $(this).toggleClass('active');
-	    });
+	    // DINHTIN COMMENT THIS CODE
+	    // $('.like-btn').on('click', function (e) {
+     	//     e.preventDefault();
+	    //     $(this).toggleClass('active');
+	    // });
 
 	    $('.ar-click').on('click', function (e) {
         	e.preventDefault();

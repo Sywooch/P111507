@@ -72,7 +72,12 @@
     <div class="qp-action">
         <div class="action-left">
             <ul>
-                <li><a class="like-btn" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Yêu thích | <span class="like-number">16</span></a></li>
+                <li>
+                    <a class="like-btn" href="#" data-ajax-id="<?=$model->answers[0]->id?>">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        Yêu thích | <span class="like-number">16</span>
+                    </a>
+                </li>
                 <li class="action-report">
                     <a href="#">Báo cáo</a>
                     <div class="report-bg"></div>

@@ -9,6 +9,7 @@ use frontend\models\SearchModel;
 use frontend\models\CommentModel;
 use frontend\models\CommentLikeModel;
 use frontend\models\CommentFollowModel;
+use frontend\models\AnswerModel;
 use common\models\Comments;
 /**/
 use yii\db\Expression;
@@ -109,6 +110,22 @@ class AjaxController extends FrontendController
             $model->id = crequest()->post('id');
             if ($model->validate()) {
                 $result = $model->follow();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }
+    }
+
+    public function actionFavoriteAnswer()
+    {
+        try {
+            $model = new AnswerModel;
+            $model->id = crequest()->post('id');
+            if ($model->validate()) {
+                $result = $model->favorite();
                 return $this->jsonOut(false, 'success', $result);
             } else {
                 return $this->jsonOut(true,  $model->getErrors());
