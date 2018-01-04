@@ -22,6 +22,9 @@ use common\models\extmodels\UploadForm;
 
 class AjaxController extends FrontendController
 {
+
+    // TODO ADD BEHAVIOR FUNCTION FOR GUEST
+
     // public function beforeAction($action)
     // {
     //     \Yii::$app->response->format = Response::FORMAT_JSON;
@@ -126,6 +129,25 @@ class AjaxController extends FrontendController
             $model->id = crequest()->post('id');
             if ($model->validate()) {
                 $result = $model->favorite();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }
+    }
+
+
+    public function actionReportAnswer()
+    {
+        try {
+            $model = new AnswerModel();
+            $model->id = crequest()->post('id');
+            $model->reason_id = crequest()->post('reason_id');
+            $model->setRulesReport();
+            if ($model->validate()) {
+                $result = $model->report();
                 return $this->jsonOut(false, 'success', $result);
             } else {
                 return $this->jsonOut(true,  $model->getErrors());

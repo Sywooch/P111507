@@ -4,6 +4,7 @@ namespace frontend\models;
 use common\models\BaseModel;
 use common\models\User;
 use common\models\AnswerFavorite;
+use common\models\AnswerReport;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
 use Yii;
@@ -14,16 +15,28 @@ use Yii;
 class AnswerModel extends BaseModel
 {
     public $id; // Id of Answer.
+    public $reason_id;
     /**
      * @inheritdoc
      */
+    public $rules = [
+        ['id', 'filter', 'filter' => 'trim'],
+        ['id', 'filter', 'filter' => 'strip_tags'],
+        [['id'], 'required'],
+    ];
     public function rules()
     {
         // need add validate type and validate comment_parent_id
-        return [
-            ['id', 'filter', 'filter' => 'trim'],
-            ['id', 'filter', 'filter' => 'strip_tags'],
-            [['id'], 'required'],            
+        return $this->rules;
+    }
+
+    public function setRulesReport()
+    {
+        $this->rules = [
+            // TODO UDPATE ID ANSWER EXITS IN TALBE ANSWER
+            [['id', 'reason_id'], 'filter', 'filter' => 'trim'],
+            [['id', 'reason_id'], 'filter', 'filter' => 'strip_tags'],
+            [['id', 'reason_id'], 'required'],
         ];
     }
 
@@ -34,6 +47,7 @@ class AnswerModel extends BaseModel
     {
         return [
             'id' => 'Id',
+            'reason_id' => 'Lý do'
         ];
     }
 
@@ -66,7 +80,7 @@ class AnswerModel extends BaseModel
     //     return $model;
     // }
 
-    // public function getCommentById($id)
+    // public function getAnswerById($id)
     // {
     //     return Comments::find()->where(['id' => $id])->one();
     // }
@@ -83,6 +97,25 @@ class AnswerModel extends BaseModel
             $model = new AnswerFavorite();
             $model->user_id = cuser()->id;
             $model->answer_id = $this->id;
+            $model->save();
+            return $model;
+        }
+    }
+
+    public function report()
+    {
+        $model = AnswerReport::find()->where([
+            'answer_id' => $this->id,
+            'user_id' => cuser()->id,
+            'reason_id' => $this->reason_id
+        ])->one();
+        if (!empty($model)) {
+            return $model;
+        } else {
+            $model = new AnswerReport();
+            $model->user_id = cuser()->id;
+            $model->answer_id = $this->id;
+            $model->reason_id = $this->reason_id;
             $model->save();
             return $model;
         }

@@ -130,17 +130,31 @@
         	e.preventDefault();
         	var element = $(this);
     		var id = $(this).attr('data-ajax-id');
-	        $('body').find('.report-bg').fadeToggle();
-	        var reportPopup = $('body').find('.report-popup');
-	        reportPopup.fadeToggle();
+    		tooglePopupReport()
 	        $('body').find('.report-send').attr('data-ajax-id', id);
 	    });
 
 	    $('body').delegate('.report-send', 'click', function (e) {
+	    	var reportPopup = $('body').find('.report-popup');
 	    	e.preventDefault();
 	    	var id = $(this).attr('data-ajax-id');
-	    	handleReportAnswer(id, function(response){
-	    		console.log('response', response);
+	    	var reason_id = $('input[name=report_answer]:checked').val();
+	    	var params = {
+	    		id: id,
+	    		reason_id: reason_id
+	    	};
+	    	handleReportAnswer(params, function(response){
+	    		if (!response.error) {
+	    			delay(function() {
+						tooglePopupReport();
+						$('body').find('.report-content').find('.alert.alert-success').remove();
+				    }, 5000 );
+	    			$('body').find('.report-content').prepend('<div class="alert alert-success">'
+			            +'Báo cáo thành công.'
+			        +'</div>');
+	    		} else {
+	    			console.log('error', response);
+	    		}
 	    	});
 	    });
 	});
@@ -346,11 +360,11 @@ function handleFavoriteAnswer(id, callback) {
  * params object id
  * return void
 */
-function handleReportAnswer(id, callback) {
+function handleReportAnswer(params, callback) {
 	appAjax(
 		'/bao-cao-tra-loi',
 		'post',
-		{id: id},
+		params,
 		'json',
 		function(response) {
 			callback(response);
@@ -361,4 +375,9 @@ function handleReportAnswer(id, callback) {
 			}
 		}
 	);
+}
+
+function tooglePopupReport() {
+    $('body').find('.report-bg').fadeToggle();
+    $('body').find('.report-popup').fadeToggle();
 }

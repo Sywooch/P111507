@@ -73,6 +73,7 @@ return [
 				'thich-binh-luan' => 'ajax/like-comment',
 				'theo-doi-binh-luan' => 'ajax/follow-comment',
 				'thich-cau-tra-loi' => 'ajax/favorite-answer',
+				'bao-cao-tra-loi' => 'ajax/report-answer',
 				'cau-hoi/<slug:[A-Za-z0-9 -_.]+>' => 'question/answered',
 				'cau-hoi-chua-tra-loi/<slug:[A-Za-z0-9 -_.]+>' => 'question/unanswered',
 				// '<controller:[\w-]+>/<id:\d+>' => 'question/action-answered/<slug:\d+>',
