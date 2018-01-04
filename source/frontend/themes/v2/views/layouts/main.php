@@ -105,6 +105,9 @@ use yii\helpers\Url;
 			</div><!-- .container -->
 		</footer><!-- site-footer -->
 	</div><!-- #wrapper -->
+
+	<!-- POPUP -->
+	<?= $this->render('popup-report')?>
 	<?php $this->endBody() ?>
 </body>
 </html>

@@ -1159,8 +1159,8 @@ textarea:focus {
 }
 .report-popup,
 .request-popup{
-	top: 50%;
-	transform: translateY(-50%);
+	/*top: 50%;*/
+	/*transform: translateY(-50%);*/
 	position: fixed;
 	z-index: 11;
 	background-color: #fff;
@@ -1168,6 +1168,10 @@ textarea:focus {
 	border-radius: 4px;
 	overflow: hidden;
 	display: none;
+	/*DINHTIN ADD THIS*/
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 .request-popup{
 	max-width: 600px;

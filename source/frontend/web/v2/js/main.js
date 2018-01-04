@@ -374,11 +374,12 @@
 
 	    /*  [ Report Popup ]
         - - - - - - - - - - - - - - - - - - - - */
-        $('.action-report a').on('click', function (e) {
-        	e.preventDefault();
-	        $(this).parent().find('.report-bg').fadeToggle();
-	        $(this).parent().find('.report-popup').fadeToggle();
-	    });
+     	// DINHTIN COMMENT THIS CODE
+     	//    $('.action-report a').on('click', function (e) {
+     	//    	e.preventDefault();
+	    //     $(this).parent().find('.report-bg').fadeToggle();
+	    //     $(this).parent().find('.report-popup').fadeToggle();
+	    // });
 	    $('.report-bg').on('click', function () {
 	        $(this).fadeToggle();
 	        $(this).parent().find('.report-popup').fadeToggle();

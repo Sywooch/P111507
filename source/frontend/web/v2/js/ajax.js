@@ -85,6 +85,7 @@
 				} 
     		});
 		});
+
 		// SHARE FACEBOOK
 		$('body').delegate('.share-fa', 'click', function (e) {
 			e.preventDefault();
@@ -100,8 +101,8 @@
 			});
 		});
 
-		// FAVORITE COMMENT
-		 $('body').delegate('.like-btn', 'click', function (e) {
+		// FAVORITE ANSWER
+		$('body').delegate('.like-btn', 'click', function (e) {
      	    e.preventDefault();
      	    var element = $(this);
     		var id = $(this).attr('data-ajax-id');
@@ -122,6 +123,25 @@
 					}
 				} 
     		});
+	    });
+
+		// REPORT ANSWER
+	    $('body').delegate('.action-report a', 'click', function (e) {
+        	e.preventDefault();
+        	var element = $(this);
+    		var id = $(this).attr('data-ajax-id');
+	        $('body').find('.report-bg').fadeToggle();
+	        var reportPopup = $('body').find('.report-popup');
+	        reportPopup.fadeToggle();
+	        $('body').find('.report-send').attr('data-ajax-id', id);
+	    });
+
+	    $('body').delegate('.report-send', 'click', function (e) {
+	    	e.preventDefault();
+	    	var id = $(this).attr('data-ajax-id');
+	    	handleReportAnswer(id, function(response){
+	    		console.log('response', response);
+	    	});
 	    });
 	});
 })(jQuery);
@@ -308,6 +328,27 @@ function handleFollow(id, callback) {
 function handleFavoriteAnswer(id, callback) {
 	appAjax(
 		'/thich-cau-tra-loi',
+		'post',
+		{id: id},
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
+}
+/**
+ * process report answer
+ * params object id
+ * return void
+*/
+function handleReportAnswer(id, callback) {
+	appAjax(
+		'/bao-cao-tra-loi',
 		'post',
 		{id: id},
 		'json',
