@@ -8,6 +8,7 @@
    $home_url = Yii::$app->HomeUrl;
    $base_url = $this->theme->baseUrl;
    use frontend\widget\WidgetProfilesCredential;
+   use frontend\widget\WidgetUserV2HeaderInfo;
 ?>
 <main id="main" class="site-main site-profie">
 			<div class="container">
@@ -26,74 +27,35 @@
 				</div>
 				<div class="profile-wrapper">
 					
+					<?php 
+					if(!Yii::$app->user->isGuest){	
+					if($model->id == \Yii::$app->user->identity->id){?>
+						<?=WidgetUserV2HeaderInfo::widget(["model"=>$model])?>
+					<?php }else{?>
 					<div class="pf-top">
 						<div class="pf-avatar">
-							<img src="<?=$base_url?>/images/connect-ava-02.png" alt="">
-							<div class="pfa-edit">
-								<a href="#" class="pfa-remove"><i class="nc-icon-mini ui-2_small-remove"></i></a>
-								<div class="pfar-bg"></div>
-								<div class="pfar-popup">
-									<div class="popup-content">
-										<h3>Xóa ảnh hồ sơ</h3>
-										<p>Bạn có chắc chắn muốn xóa ảnh hồ sơ của bạn?</p>
-									</div>
-									<div class="popup-bottom">
-										<div class="btn">
-											<a href="#" class="btn-cancel pfar-cancel">Đóng</a>
-											<a href="#" class="btn-accept">Gỡ bỏ hình</a>
-										</div>
-									</div>
-								</div>
-								<a href="#" class="edit-photo">Chỉnh sửa hình ảnh</a>
-								<div class="ep-bg"></div>
-								<div class="ep-popup">
-									<h3>Chỉnh sửa Ảnh Hồ sơ<span class="ep-cancel"><i class="nc-icon-mini ui-2_small-remove"></i></span></h3>
-									<div class="ep-content">
-										<div class="drag-photo">Kéo hình ảnh ở đây, hoặc ...</div>
-										<div class="upload"><input type="file" id="file" value="Upload an Image"><label for="file">Chọn hình ảnh</label></div>
-										<div class="image-url">
-											<label for="">Sử dụng một hình ảnh từ Web</label>
-											<input type="text" placeholder="http://">
-										</div>
-									</div>
-								</div>
-							</div>
+							<img src="<?php echo Html::encode($model->getAvatar()); ?>" 
+							alt="<?=Html::encode($model->getUsername())?>">
 						</div>
 						<div class="pf-info">
-							<h1>Sói Ăn Chay<a href="#">Sửa</a></h1>
-							<div class="pf-name-edit">
-								<input type="text">
-								<div class="btn">
-									<a href="#" class="btn-cancel en-cancel">Hủy</a>
-									<a href="#" class="btn-accept">Cập nhật</a>
-								</div>
-							</div>
-							<a href="messages.html" class="show-mess">Messages</a>
-							<p class="add-info">Thêm thông tin hồ sơ</p>
-							<div class="ai-bg"></div>
-							<div class="ai-popup">
-								<div class="popup-content">
-									<h3>Chỉnh sửa thông tin đăng nhập</h3>
-									<div class="desc"><p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p></div>
-								</div>
-								<div class="popup-bottom">
-									<div class="pb-title"><i class="nc-icon-mini users_single-01"></i>Thêm thông tin hồ sơ</div>
-									<form action="#" action="POST">
-										<input type="text">
-										<div class="btn">
-											<a href="#" class="btn-cancel ai-cancel">Hủy</a>
-											<a href="#" class="btn-accept">Lưu</a>
-										</div>
-									</form>
-								</div>
-							</div>
-							<p class="add-desc">Viết mô tả về bản thân bạn</p>
-							<div class="qb-textarea">
-								<textarea id="froala-editor"></textarea>
-							</div>
+							<h1><?=Html::encode($model->getUsername())?></h1>
+							<a href="#" class="btn-accept followers">Theo dõi</a>
+						</div>
+					</div><!-- .pf-top -->	
+					<?php } 
+					} else {
+					?>
+					<div class="pf-top">
+						<div class="pf-avatar">
+							<img src="<?php echo Html::encode($model->getAvatar()); ?>" 
+							alt="<?=Html::encode($model->getUsername())?>">
+						</div>
+						<div class="pf-info">
+							<h1><?=Html::encode($model->getUsername())?></h1>
 							<a href="#" class="btn-accept followers">Theo dõi</a>
 						</div>
 					</div><!-- .pf-top -->
+					<?php } ?>
 					
 					<div class="pf-content">
 						<div class="pf-left">
@@ -498,3 +460,5 @@
 				</div><!-- .profile-sidebar -->
 			</div><!-- .container -->
 		</main><!-- .site-main -->
+		
+		

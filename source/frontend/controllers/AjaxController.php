@@ -11,6 +11,7 @@ use frontend\models\CommentLikeModel;
 use frontend\models\CommentFollowModel;
 use frontend\models\AnswerModel;
 use common\models\Comments;
+use common\models\User;
 /**/
 use yii\db\Expression;
 use yii\db\Query;
@@ -156,5 +157,47 @@ class AjaxController extends FrontendController
             return $this->jsonOut(true, 'fail', $e->getMessage());
         }
     }
+	
+	public function actionUserUploadAvatarProfiles()
+	{
+		$fileImgName 	= "";
+		$pathUpload    	= Yii::getAlias('@frontend').'/web/uploads/avatars/';
+		$uid 			= \Yii::$app->user->identity->id;
+		$modelUser 		= User::findOne($uid);
+		$fileImgName 	= slug($modelUser->username).'-'.time() .'.jpg';
+		$folderDate		= date('Y') . '/' . date('m').'/';
+		$dbPath			= $folderDate.$fileImgName;
+		$maxSize		= 5*1024*1024; //5MB
+		
+		
+		if (!is_dir($pathUpload.$folderDate)) // check isset folder
+		{
+			BaseFileHelper::createDirectory($pathUpload.$folderDate, 0775, TRUE);
+		}
+		
+		
+		$data = $_POST['img'];
+		if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+			$data = substr($data, strpos($data, ',') + 1);
+			$type = strtolower($type[1]); // jpg, png, gif
 
+			if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png' ])) {
+				return $this->jsonOut(true, 'invalid image type');
+			}
+
+			$data = base64_decode($data);
+
+			if ($data === false) {
+				return $this->jsonOut(true, 'fail');
+			}
+		} else {
+			return $this->jsonOut(true, 'fail');
+		}
+		file_put_contents($pathUpload . $dbPath, $data);
+		$modelUser->avatar = $dbPath;
+		if($modelUser->save())
+		{
+			return $this->jsonOut(false, 'success');
+		}
+	}
 }

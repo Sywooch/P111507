@@ -121,7 +121,8 @@
 
 	    /*  [ Edit Popup ]
         - - - - - - - - - - - - - - - - - - - - */
-        $('.edit-photo').on('click', function (e) {
+        /*
+		$('.edit-photo').on('click', function (e) {
         	e.preventDefault();
 	        $('.ep-bg').fadeToggle();
 	        $('.ep-popup').fadeToggle();
@@ -135,7 +136,7 @@
 	        $('.ep-bg').fadeToggle();
 	        $('.ep-popup').fadeToggle();
 	    });
-
+		*/
 	    /*  [ Edit Topic ]
         - - - - - - - - - - - - - - - - - - - - */
         $('.we-topic').on('click', function (e) {
