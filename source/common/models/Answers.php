@@ -62,19 +62,23 @@ class Answers extends BaseModel
             'update_time'   => Yii::t('app', 'Create Time'),
         ];
     }
+
     public function getQuestion()
     {
         return $this->hasOne(Questions::className(), ['id' => 'question_id']);
     }
+
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
 	public function getComments()
     {
         return $this->hasMany(Comments::className(), ['post_id' => 'id'])
         ->where(['comment_type' => Comments::TYPE_ANSWER]);
     }
+
 	public function getVotes()
     {
         return $this->hasMany(Upvotes::className(), ['post_id' => 'id'])
@@ -82,16 +86,32 @@ class Answers extends BaseModel
         ->andWhere(['!=', 'type', Upvotes::TYPE_DOWN])
         ;
     }
+
     public function getFavorite()
     {
         return $this->hasMany(AnswerFavorite::className(), ['answer_id' => 'id']);
     }
 
-    public function getIsFavorite() {
+    public function getIsFavorite()
+    {
         if (!cuser()) {
             return false;
         }
         return $this->hasOne(AnswerFavorite::className(), ['answer_id' => 'id'])
             ->where(['answer_favorites.user_id' => cuser()->id]);
+    }
+
+    public function getFollow()
+    {
+        return $this->hasMany(AnswerFollow::className(), ['answer_id' => 'id']);
+    }
+
+    public function getIsFollow()
+    {
+        if (!cuser()) {
+            return false;
+        }
+        return $this->hasOne(AnswerFollow::className(), ['answer_id' => 'id'])
+            ->where(['answer_follows.user_id' => cuser()->id]);
     }
 }

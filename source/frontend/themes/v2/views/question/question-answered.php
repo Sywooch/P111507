@@ -2,6 +2,8 @@
     use yii\helpers\Html;
     use yii\helpers\HtmlPurifier;
     use yii\helpers\Url;
+    use common\models\Comments;
+    use frontend\widget\WidgetFormComment;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
 ?>
@@ -766,11 +768,16 @@
 			<textarea id="froala-editor"></textarea>
 		</div>
 		<div class="qp-comment qd-qp-comment">
-			<img src="images/ava-comment.png" alt="">
+			<?= WidgetFormComment::widget([
+					'id' => $model->id,
+					'type' => Comments::TYPE_QUESTIONS,
+					'parent_id' => null
+				]); ?>
+			<!-- <img src="images/ava-comment.png" alt="">
 			<form action="#">
 				<input type="text" placeholder="Viết bình luận của bạn...">
 				<input type="submit" value="Bình luận">
-			</form>
+			</form> -->
 		</div>
 	</div><!-- .question-basic -->
 	<div class="sum-question">3 Câu trả lời</div>

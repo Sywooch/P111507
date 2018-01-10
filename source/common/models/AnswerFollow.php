@@ -5,22 +5,22 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "comment_follows".
+ * This is the model class for table "answer_follows".
  *
  * @property int $id
- * @property int $comment_id
+ * @property int $answer_id
  * @property int $user_id
  * @property int $create_time
  * @property int $update_time
  */
-class CommentFollow extends BaseModel
+class AnswerFollow extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'comment_follows';
+        return 'answer_follows';
     }
 
     /**
@@ -29,8 +29,8 @@ class CommentFollow extends BaseModel
     public function rules()
     {
         return [
-            [['comment_id', 'user_id'], 'required'],
-            [['comment_id', 'user_id', 'create_time', 'update_time'], 'integer'],
+            [['answer_id', 'user_id'], 'required'],
+            [['answer_id', 'user_id', 'create_time', 'update_time'], 'integer'],
         ];
     }
 
@@ -41,7 +41,7 @@ class CommentFollow extends BaseModel
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'comment_id' => Yii::t('app', 'Comment ID'),
+            'answer_id' => Yii::t('app', 'Answer ID'),
             'user_id' => Yii::t('app', 'User ID'),
             'create_time' => Yii::t('app', 'Create Time'),
             'update_time' => Yii::t('app', 'Update Time'),
