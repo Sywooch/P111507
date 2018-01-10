@@ -332,7 +332,7 @@ textarea:focus {
 .show-mess{
 	display: none;
 }
-/*.loading{
+.loading{
 	position: relative;
 }
 .loading:after{
@@ -347,7 +347,7 @@ textarea:focus {
 	bottom: 0;
 	left: 0;
 	right: 0;
-}*/
+}
 .loader{
 	display: none;
 }

@@ -92,14 +92,24 @@ class Topics extends \yii\db\ActiveRecord
     }
     public static function getTopicsByKey($key)
     {
-        return self::find()
+        $models = self::find()
         ->select('topics.*, COUNT(user_topic_follow.topic_id) as user_follow ')
         ->leftJoin('user_topic_follow', 'topics.id = user_topic_follow.topic_id')
         ->where(['like', 'title', $key], false)
         ->groupBy('user_topic_follow.topic_id')
         ->asArray()
         ->all();
-        /*$r = $query->createCommand()->getRawSql();*/
+        if(!empty($models)){
+			foreach($models as &$model)
+			{
+				if (!empty($model['images'])) {
+					$model['images'] =  Yii::$app->homeUrl.'/uploads/topics/'.$model['images'];
+				} else {
+					$model['images'] = Yii::$app->homeUrl.'/v2/images/default-topics.png';
+				}
+			}
+		}
+		return $models;
     }
 	
 	/** KEN : TIM TOPIC BY SLUG **/

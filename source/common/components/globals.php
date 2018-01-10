@@ -273,3 +273,26 @@ function time_elapsed_string($datetime, $full = false) {
 
 	return $string ? implode(', ', $string) . ' trước' : 'ngay bây giờ';
 }
+
+function resultYear($idInput,$yearSelected = "")
+{
+	$htmlResult 	= "";
+	// Sets the top option to be the current year. (IE. the option that is chosen by default).
+	$currently_selected = date('Y'); 
+	if($yearSelected != "")
+	{
+		$currently_selected = (int)$yearSelected; 
+	}
+	// Year to start available options at
+	$earliest_year 	= 1950; 
+	// Set your latest year you want in the range, in this case we use PHP to just set it to the current year.
+	$latest_year 	= date('Y'); 
+	$htmlResult 	=  '<select id="'.$idInput.'">';
+	// Loops over each int[year] from current year, back to the $earliest_year [1950]
+	foreach ( range( $latest_year, $earliest_year ) as $i ) {
+	// Prints the option with the next year in range.
+		$htmlResult .= '<option value="'.$i.'"'.($i === $currently_selected ? ' selected="selected"' : '').'>'.$i.'</option>';
+	}
+	$htmlResult 	.= '</select>'; 
+	return $htmlResult;
+}

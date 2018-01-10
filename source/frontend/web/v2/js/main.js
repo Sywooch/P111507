@@ -280,38 +280,6 @@
 	        $('.hide-mess-popup').fadeToggle();
 	    });
 
-	    /*  [ Widget Employment ]
-        - - - - - - - - - - - - - - - - - - - - */
-        $('.widget-employment').on('click', function () {
-	        $('.popup-employment-bg').fadeToggle();
-	        $('.popup-employment').fadeToggle();
-	    });
-	    $('.popup-employment-bg').on('click', function () {
-	        $(this).fadeToggle();
-	        $('.popup-employment').fadeToggle();
-	    });
-	    $('.btn-widget-employment').on('click', function (e) {
-        	e.preventDefault();
-	        $('.popup-employment-bg').fadeToggle();
-	        $('.popup-employment').fadeToggle();
-	    });
-
-	    /*  [ Widget Education ]
-        - - - - - - - - - - - - - - - - - - - - */
-        $('.widget-education').on('click', function () {
-	        $('.popup-education-bg').fadeToggle();
-	        $('.popup-education').fadeToggle();
-	    });
-	    $('.popup-education-bg').on('click', function () {
-	        $(this).fadeToggle();
-	        $('.popup-education').fadeToggle();
-	    });
-	    $('.btn-widget-education').on('click', function (e) {
-        	e.preventDefault();
-	        $('.popup-education-bg').fadeToggle();
-	        $('.popup-education').fadeToggle();
-	    });
-
 	    /*  [ What Topic ]
         - - - - - - - - - - - - - - - - - - - - */
         $('.what-topic').on('click', function () {
@@ -321,22 +289,6 @@
 	    $('.what-topic-bg').on('click', function () {
 	        $(this).fadeToggle();
 	        $('.what-topic-popup').fadeToggle();
-	    });
-
-	    /*  [ Widget Location ]
-        - - - - - - - - - - - - - - - - - - - - */
-        $('.widget-location').on('click', function () {
-	        $('.popup-location-bg').fadeToggle();
-	        $('.popup-location').fadeToggle();
-	    });
-	    $('.popup-location-bg').on('click', function () {
-	        $(this).fadeToggle();
-	        $('.popup-location').fadeToggle();
-	    });
-	    $('.btn-widget-location').on('click', function (e) {
-        	e.preventDefault();
-	        $('.popup-location-bg').fadeToggle();
-	        $('.popup-location').fadeToggle();
 	    });
 
 	    /*  [ Request Popup ]

@@ -85,14 +85,30 @@
 										<li><a href="#">Lượt xem 30 ngày</a></li>
 									</ul>
 								</div>
+								
 								<div class="m-profile">
 									<aside class="widget widget-credentials">
 										<h3 class="widget-title">Công việc & Học vấn<a href="#">Sửa</a></h3>
 										<div class="widget-content">
 											<ul>
-												<li class="widget-employment"><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>Nhặt bóng tại Stamford Bridge</a></li>
-												<li class="widget-education"><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Từng học Graphic Design tại FPT University</a></li>
-												<li class="widget-location"><a href="#"><i class="nc-icon-mini location_pin"></i>Sống tại Vinh</a></li>
+												<li class="widget-employment">
+													<a href="#">
+														<i class="fa fa-briefcase" aria-hidden="true"></i>
+														Nhặt bóng tại Stamford Bridge
+													</a>
+												</li>
+												<li class="widget-education">
+													<a href="#">
+														<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+														Từng học Graphic Design tại FPT University
+													</a>
+												</li>
+												<li class="widget-location">
+													<a href="#">
+														<i class="nc-icon-mini location_pin"></i>
+														Sống tại Vinh
+													</a>
+												</li>
 											</ul>
 											<div class="popup-employment-bg"></div>
 											<div class="popup-employment">
@@ -277,162 +293,8 @@
 						</div><!-- .pf-right -->
 					</div><!-- .pf-content -->
 				</div><!-- .profile-content -->
-				<div class="profile-sidebar">
-					<aside class="widget widget-credentials">
-						<h3 class="widget-title">Công việc & Học vấn<a href="#">Sửa</a></h3>
-						<div class="widget-content">
-							<ul>
-								<li class="widget-employment"><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>Nhặt bóng tại Stamford Bridge</a></li>
-								<li class="widget-education"><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Từng học Graphic Design tại FPT University</a></li>
-								<li class="widget-location"><a href="#"><i class="nc-icon-mini location_pin"></i>Sống tại Vinh</a></li>
-							</ul>
-							<div class="popup-employment-bg"></div>
-							<div class="popup-employment">
-								<div class="employment-title">
-									<h3>Chỉnh sửa thông tin đăng nhập</h3>
-									<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
-								</div>
-								<div class="item-credential item-employment">
-									<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin việc làm</h3>
-									<form action="#">
-										<p>
-											<label for="">Chức vụ</label>
-											<input type="text" placeholder="Software Engineer">
-										</p>
-										<p>
-											<label for="">Công ty / Tổ chức</label>
-											<input type="text" placeholder="Software Engineer">
-										</p>
-										<p>
-											<label for="">Năm bắt đầu</label>
-											<select name="s" id="">
-												<option value=""></option>
-												<option value="">2017</option>
-												<option value="">2016</option>
-												<option value="">2015</option>
-												<option value="">2014</option>
-												<option value="">2013</option>
-											</select>
-										</p>
-										<p>
-											<label for="">Năm kết thúc</label>
-											<select name="s" id="">
-												<option value=""></option>
-												<option value="">2017</option>
-												<option value="">2016</option>
-												<option value="">2015</option>
-												<option value="">2014</option>
-												<option value="">2013</option>
-											</select>
-										</p>
-										<p>
-											<label for="">Tôi hiện đang làm việc tại đây</label>
-											<input type="checkbox">
-										</p>
-										<p class="credential-btn">
-											<span class="btn">
-												<a href="#" class="btn-cancel btn-widget-employment">Hủy</a>
-												<a href="#" class="btn-accept">Lưu</a>
-											</span>
-										</p>
-									</form>
-								</div>
-							</div>
-							<div class="popup-education-bg"></div>
-							<div class="popup-education">
-								<div class="education-title">
-									<h3>Chỉnh sửa thông tin đăng nhập</h3>
-									<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
-								</div>
-								<div class="item-credential item-education">
-									<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm thông tin giáo dục</h3>
-									<form action="#">
-										<p>
-											<label for="">Trường học</label>
-											<input type="text">
-										</p>
-										<p>
-											<label for="">Sự tập trung</label>
-											<input type="text">
-										</p>
-										<p>
-											<label for="">Nồng độ trung học</label>
-											<input type="text">
-										</p>
-										<p>
-											<label for="">Loại bằng cấp</label>
-											<input type="text">
-										</p>
-										<p>
-											<label for="">Năm tốt nghiệp</label>
-											<select name="s" id="">
-												<option value=""></option>
-												<option value="">2017</option>
-												<option value="">2016</option>
-												<option value="">2015</option>
-												<option value="">2014</option>
-												<option value="">2013</option>
-											</select>
-										</p>
-										<p class="credential-btn">
-											<span class="btn">
-												<a href="#" class="btn-cancel btn-widget-education">Hủy</a>
-												<a href="#" class="btn-accept">Lưu</a>
-											</span>
-										</p>
-									</form>
-								</div>
-							</div>
-							<div class="popup-location-bg"></div>
-							<div class="popup-location">
-								<div class="location-title">
-									<h3>Chỉnh sửa thông tin đăng nhập</h3>
-									<p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
-								</div>
-								<div class="item-credential item-location">
-									<h3><i class="fa fa-briefcase" aria-hidden="true"></i>Thêm chứng chỉ vị trí</h3>
-									<form action="#">
-										<p>
-											<label for="">Địa điểm (yêu cầu)</label>
-											<input type="text" placeholder="Địa điểm">
-										</p>
-										<p>
-											<label for="">Năm bắt đầu</label>
-											<select name="s" id="">
-												<option value=""></option>
-												<option value="">2017</option>
-												<option value="">2016</option>
-												<option value="">2015</option>
-												<option value="">2014</option>
-												<option value="">2013</option>
-											</select>
-										</p>
-										<p>
-											<label for="">Năm kết thúc</label>
-											<select name="s" id="">
-												<option value=""></option>
-												<option value="">2017</option>
-												<option value="">2016</option>
-												<option value="">2015</option>
-												<option value="">2014</option>
-												<option value="">2013</option>
-											</select>
-										</p>
-										<p>
-											<label for="">Tôi hiện đang làm việc tại đây</label>
-											<input type="checkbox">
-										</p>
-										<p class="credential-btn">
-											<span class="btn">
-												<a href="#" class="btn-cancel btn-widget-location">Hủy</a>
-												<a href="#" class="btn-accept">Lưu</a>
-											</span>
-										</p>
-									</form>
-								</div>
-							</div>
-						</div>
-					</aside><!-- .widget-question -->
+					<?=WidgetProfilesCredential::widget(["uid"=>$model->id])?>
+					
 					<aside class="widget widget-credentials">
 						<h3 class="widget-title">Chủ đề bạn biết<a href="#">Sửa</a></h3>
 						<div class="widget-content">
