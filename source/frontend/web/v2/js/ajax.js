@@ -125,6 +125,28 @@
     		});
 	    });
 
+	    // FOLLOW ANSWER
+		$('body').delegate('.action-follow a', 'click', function (e) {
+     	    e.preventDefault();
+     	    var element = $(this);
+    		var id = $(this).attr('data-ajax-id');
+    		handleFollowAnswer(id, function(response) {
+    			if (!response.error) {
+        			var numberElement = element.find('span');
+        			var count = !isNaN(parseInt(numberElement.html())) ? parseInt(numberElement.html()) : 0;
+					if (response.data === 1) {
+	        			count = count - 1;
+	        			var text = ' '+ count;
+	        			numberElement.html(text);
+					} else {
+	        			count = count + 1;
+	        			var text = ' '+ count;
+	        			numberElement.html(text);
+					}
+				} 
+    		});
+	    });
+
 		// REPORT ANSWER
 	    $('body').delegate('.action-report a', 'click', function (e) {
         	e.preventDefault();
@@ -342,6 +364,28 @@ function handleFollow(id, callback) {
 function handleFavoriteAnswer(id, callback) {
 	appAjax(
 		'/thich-cau-tra-loi',
+		'post',
+		{id: id},
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
+}
+/**
+ * process follo answer
+ * params object value
+ * params object id
+ * return void
+*/
+function handleFollowAnswer(id, callback) {
+	appAjax(
+		'/theo-doi-tra-loi',
 		'post',
 		{id: id},
 		'json',

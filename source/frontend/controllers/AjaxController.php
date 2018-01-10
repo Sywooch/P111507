@@ -161,6 +161,23 @@ class AjaxController extends FrontendController
             return $this->jsonOut(true, 'fail', $e->getMessage());
         }
     }
+
+    public function actionFollowAnswer()
+    {
+        try {
+            $model = new AnswerModel();
+            $model->id = crequest()->post('id');
+            $model->setRulesFollow();
+            if ($model->validate()) {
+                $result = $model->follow();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }
+    }
 	
 	public function actionUserUploadAvatarProfiles()
 	{

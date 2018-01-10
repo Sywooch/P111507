@@ -5,6 +5,7 @@
     use frontend\widget\WidgetRightAction;
     use frontend\widget\WidgetFavoriteAnswer;
     use frontend\widget\WidgetAnswerReport;
+    use frontend\widget\WidgetAnswerFollow;
     use common\models\Comments;
     use yii\helpers\Url;
     $theme = $this->theme;
@@ -81,8 +82,14 @@
                         'isFavorite' => $model->answers[0]->isFavorite
                     ]);
                 ?>
-                <?= WidgetAnswerReport::widget(['id' => $model->answers[0]->id]) ?>
-                <li class="action-follow"><a href="#">Theo dõi <span>1</span></a></li>
+                <?= WidgetAnswerReport::widget([
+                    'id' => $model->answers[0]->id
+                ]) ?>
+                <?= WidgetAnswerFollow::widget([
+                    'id' => $model->answers[0]->id,
+                    'count' => count($model->answers[0]->follow),
+                    'isFollow' => $model->answers[0]->isFollow
+                    ]) ?>
             </ul>
         </div>
         <?= WidgetRightAction::widget(['link' => Url::toRoute('/cau-hoi/'.$model->slug, true)]);?>

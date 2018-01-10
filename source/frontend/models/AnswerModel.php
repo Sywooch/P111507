@@ -5,6 +5,7 @@ use common\models\BaseModel;
 use common\models\User;
 use common\models\AnswerFavorite;
 use common\models\AnswerReport;
+use common\models\AnswerFollow;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
 use Yii;
@@ -37,6 +38,16 @@ class AnswerModel extends BaseModel
             [['id', 'reason_id'], 'filter', 'filter' => 'trim'],
             [['id', 'reason_id'], 'filter', 'filter' => 'strip_tags'],
             [['id', 'reason_id'], 'required'],
+        ];
+    }
+
+    public function setRulesFollow()
+    {
+        $this->rules = [
+            // TODO UDPATE ID ANSWER EXITS IN TALBE ANSWER
+            ['id', 'filter', 'filter' => 'trim'],
+            ['id', 'filter', 'filter' => 'strip_tags'],
+            [['id'], 'required'],
         ];
     }
 
@@ -116,6 +127,23 @@ class AnswerModel extends BaseModel
             $model->user_id = cuser()->id;
             $model->answer_id = $this->id;
             $model->reason_id = $this->reason_id;
+            $model->save();
+            return $model;
+        }
+    }
+
+    public function follow()
+    {
+        $model = AnswerFollow::find()->where([
+            'answer_id' => $this->id,
+            'user_id' => cuser()->id
+        ])->one();
+        if (!empty($model)) {
+            return $model->delete();
+        } else {
+            $model = new AnswerFollow();
+            $model->user_id = cuser()->id;
+            $model->answer_id = $this->id;
             $model->save();
             return $model;
         }

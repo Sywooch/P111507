@@ -2,6 +2,7 @@
     use yii\helpers\Html;
     use frontend\widget\WidgetRightAction;
     use frontend\widget\WidgetAnswerReport;
+    use frontend\widget\WidgetAnswerFollow;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
     use yii\helpers\Url;
@@ -33,8 +34,14 @@
 			<ul>
 				<li><a href="#" class="textarea-click"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Trả lời</a></li>
 				<li><a href="#">Ẩn</a></li>
-				<!-- <?= WidgetAnswerReport::widget() ?> -->
-				<li class="action-follow"><a href="#">Theo dõi <span>2</span></a></li>
+				<?php 
+				// echo WidgetAnswerReport::widget();
+				// echo WidgetAnswerFollow::widget([
+				//                 'id' => $model->answers[0]->id,
+				//                 'count' => count($model->answers[0]->follow),
+				//                 'isFollow' => $model->answers[0]->isFollow
+				//                 ]);
+                ?>
 			</ul>
 		</div>
 		<?= WidgetRightAction::widget(['link' => Url::toRoute('/cau-hoi/'.$model->slug, true)]);?>
