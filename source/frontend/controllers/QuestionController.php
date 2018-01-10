@@ -90,7 +90,7 @@ class QuestionController extends FrontendController
             	return $this->goHome();
             }
         } catch (\Exception $e) {
-        	dd($e->getMessage());
+        	// dd($e->getMessage());
         	Yii::$app->session->setFlash(
                 'danger',
                 $e->getMessage()

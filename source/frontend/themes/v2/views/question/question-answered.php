@@ -4,6 +4,7 @@
     use yii\helpers\Url;
     use common\models\Comments;
     use frontend\widget\WidgetFormComment;
+    use frontend\widget\WidgetRightAction;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
 ?>
@@ -197,48 +198,19 @@
 						<a href="#" class="request-click">Yêu cầu</a>
 					</li>
 					<li><a href="#">Theo dõi <span class="count-number">3</span></a></li>
-					<li><a href="#" class="comment-click">Bình luận <span class="count-number">4</span></a></li>
+					<li>
+						<a
+							data-ajax-id="<?=$model->id?>"
+							data-ajax-type="<?=Comments::TYPE_QUESTIONS?>"
+							href="javascript:void(0)"
+							class="comment-click"> Bình luận <span class="count-number"><?=count($model->comments)?></span></a>
+					</li>
 					<li class="action-report">
 						<a href="#">Báo cáo</a>
-						<div class="report-bg"></div>
-						<div class="report-popup">
-							<div class="report-title">
-								<h3>Báo cáo vi phạm</h3>
-								<i class="nc-icon-outline ui-2_small-remove"></i>
-							</div>
-							<div class="report-content">
-								<form action="#">
-									<label for="r1">
-										<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
-									</label>
-									<label for="r2">
-										<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
-									</label>
-									<label for="r3">
-										<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
-									</label>
-									<label for="r4">
-										<input type="radio" name="report" id="r4">Đó là nội dung spam
-									</label>
-								</form>
-							</div>
-							<div class="report-bottom">
-								<div class="report-model">
-									<a href="#" class="report-cancel">Hủy bỏ</a>
-									<a href="#" class="report-send">Gửi báo cáo</a>
-								</div>
-							</div>
-						</div>
 					</li>
 				</ul>
 			</div>
-			<div class="action-right">
-				<ul>
-					<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-share-square-o" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
+			<?= WidgetRightAction::widget(['link' => Url::toRoute('/cau-hoi/'.$model->slug, true)]); ?>
 		</div>
 		<div class="qb-request">
 			<h3 class="qb-request-title">Yêu cầu trả lời</h3>
@@ -773,11 +745,9 @@
 					'type' => Comments::TYPE_QUESTIONS,
 					'parent_id' => null
 				]); ?>
-			<!-- <img src="images/ava-comment.png" alt="">
-			<form action="#">
-				<input type="text" placeholder="Viết bình luận của bạn...">
-				<input type="submit" value="Bình luận">
-			</form> -->
+			<div class="comment-content">
+		    	<img class="comment-loading-img" src="<?=$base_url?>/images/spin.gif">
+		    </div>
 		</div>
 	</div><!-- .question-basic -->
 	<div class="sum-question">3 Câu trả lời</div>
@@ -837,35 +807,6 @@
 						<li><a class="like-btn" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Yêu thích | <span class="like-number">16</span></a></li>
 						<li class="action-report">
 							<a href="#">Báo cáo</a>
-							<div class="report-bg"></div>
-							<div class="report-popup">
-								<div class="report-title">
-									<h3>Báo cáo vi phạm</h3>
-									<i class="nc-icon-outline ui-2_small-remove"></i>
-								</div>
-								<div class="report-content">
-									<form action="#">
-										<label for="r1">
-											<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
-										</label>
-										<label for="r2">
-											<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
-										</label>
-										<label for="r3">
-											<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
-										</label>
-										<label for="r4">
-											<input type="radio" name="report" id="r4">Đó là nội dung spam
-										</label>
-									</form>
-								</div>
-								<div class="report-bottom">
-									<div class="report-model">
-										<a href="#" class="report-cancel">Hủy bỏ</a>
-										<a href="#" class="report-send">Gửi báo cáo</a>
-									</div>
-								</div>
-							</div>
 						</li>
 						<li><a href="#">Theo dõi</a></li>
 					</ul>
@@ -1051,35 +992,6 @@
 						<li><a class="like-btn" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Yêu thích | <span class="like-number">16</span></a></li>
 						<li class="action-report">
 							<a href="#">Báo cáo</a>
-							<div class="report-bg"></div>
-							<div class="report-popup">
-								<div class="report-title">
-									<h3>Báo cáo vi phạm</h3>
-									<i class="nc-icon-outline ui-2_small-remove"></i>
-								</div>
-								<div class="report-content">
-									<form action="#">
-										<label for="r1">
-											<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
-										</label>
-										<label for="r2">
-											<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
-										</label>
-										<label for="r3">
-											<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
-										</label>
-										<label for="r4">
-											<input type="radio" name="report" id="r4">Đó là nội dung spam
-										</label>
-									</form>
-								</div>
-								<div class="report-bottom">
-									<div class="report-model">
-										<a href="#" class="report-cancel">Hủy bỏ</a>
-										<a href="#" class="report-send">Gửi báo cáo</a>
-									</div>
-								</div>
-							</div>
 						</li>
 						<li><a href="#">Theo dõi</a></li>
 					</ul>
@@ -1155,35 +1067,6 @@
 						<li><a class="like-btn" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Yêu thích | <span class="like-number">16</span></a></li>
 						<li class="action-report">
 							<a href="#">Báo cáo</a>
-							<div class="report-bg"></div>
-							<div class="report-popup">
-								<div class="report-title">
-									<h3>Báo cáo vi phạm</h3>
-									<i class="nc-icon-outline ui-2_small-remove"></i>
-								</div>
-								<div class="report-content">
-									<form action="#">
-										<label for="r1">
-											<input type="radio" name="report" id="r1">Nội dung này gây khó chịu hoặc không thú vị
-										</label>
-										<label for="r2">
-											<input type="radio" name="report" id="r2">Tôi nghĩ nội dung này không nên xuất hiện trên Quickrep
-										</label>
-										<label for="r3">
-											<input type="radio" name="report" id="r3">Quấy rối: Phân biệt hoặc đối nghịch với một người hoặc một nhóm
-										</label>
-										<label for="r4">
-											<input type="radio" name="report" id="r4">Đó là nội dung spam
-										</label>
-									</form>
-								</div>
-								<div class="report-bottom">
-									<div class="report-model">
-										<a href="#" class="report-cancel">Hủy bỏ</a>
-										<a href="#" class="report-send">Gửi báo cáo</a>
-									</div>
-								</div>
-							</div>
 						</li>
 						<li><a href="#">Theo dõi</a></li>
 					</ul>

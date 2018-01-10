@@ -463,7 +463,7 @@
 	        }
 	    });
         // $('.comment-previews').on('click', function () {
-        	//dinh tin fix from on to delegate
+        // DINHTIN  fix from on to delegate - SITE - INDEX
         $('body').delegate('.comment-previews', 'click', function (e) {
         	var id = $(this).attr('data-ajax-id');
         	var type = $(this).attr('data-ajax-type');
@@ -475,7 +475,14 @@
 	        $(this).parent().find('.qp-comment').fadeToggle();
 	    });
 
+        // QUESTION - ANSWERED
 	    $('.comment-click').on('click', function () {
+	    	var id = $(this).attr('data-ajax-id');
+        	var type = $(this).attr('data-ajax-type');
+        	var commentContent = $(this).parent().parent().parent().parent().parent().find('.comment-content');
+	    	loadAllComment(id, type, function(response) {
+        		commentContent.html(response);
+        	});
         	$(this).parent().parent().parent().parent().parent().find('.qp-comment').fadeToggle();
 	    });
 

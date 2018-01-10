@@ -43,7 +43,12 @@ class QuestionModel extends BaseModel
 
     public function getQuestionBySlug() 
     {
-        $query = Questions::find()->with(['answer'])->where(['slug' => $this->slug]);
+        $query = Questions::find()
+            ->with([
+                'answer',
+                'comments'
+            ])
+            ->where(['slug' => $this->slug]);
         if ($this->unanswered) {
             $query->leftJoin('answers', 'questions.id = answers.question_id')->where(['answers.id' => null]);
         }
