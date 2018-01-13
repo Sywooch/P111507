@@ -402,6 +402,27 @@
 			}
 		});
 		
+		$('.profilesUserHover').tooltipster({
+			content: '<div class="profile">Loading...</div>',
+			contentAsHTML: true,
+			interactive: true,
+			delay: 500,
+			// 'instance' is basically the tooltip. More details in the "Object-oriented Tooltipster" section.
+			functionBefore: function(instance, helper) {
+				var $origin = $(helper.origin);
+				// we set a variable so the data is only loaded once via Ajax, not every time the tooltip opens
+				if ($origin.data('loaded') !== true) {
+					$.post('/ajax/tooltip-profiles-user',{id:$origin.attr('data-ajax')}, function(data) {
+						// call the 'content' method to update the content of our tooltip with the returned data.
+						// note: this content update will trigger an update animation (see the updateAnimation option)
+						instance.content(data);
+						// to remember that the data has been loaded
+						$origin.data('loaded', true);
+					});
+				}
+			}
+		});
+		
 		/*
 		$( ".tooltip_topic" ).tooltip(
 		{
