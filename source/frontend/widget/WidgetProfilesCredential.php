@@ -10,8 +10,8 @@ use common\models\CredentialLocation;
 use common\models\User;
 class WidgetProfilesCredential extends Widget
 {
-    public $view = "widget-profiles-credential";
-	public $uid;	
+	public $uid;
+	public $typeDevice = 1;	 // type = 1 pc ; type = 2 is responsive;
     public function run()
     {
 		$userInfo = User::findOne($this->uid);
@@ -71,21 +71,37 @@ class WidgetProfilesCredential extends Widget
 				"name"	=> $profilesEmployment->topics->title
 			];
 		}
+		if($this->typeDevice == 1){
+			return $this->render('widget-profiles-credential',[
+				"profilesEmployment"	=> $profilesEmployment,
+				"profilesEducation"		=> $profilesEducation,
+				"profilesLocation"		=> $profilesLocation,
+				"uid"					=> $this->uid,
+				"userInfo"				=> $userInfo,
+				"fullName"				=> $fullName,
+				"primaryFlag"			=> $primaryFlag,
+				"dataChoosedLocation"	=> $dataChoosedLocation,
+				"dataChoosedEducationSchool"					=> $dataChoosedEducationSchool,
+				"dataChoosedEducationConcentration"				=> $dataChoosedEducationConcentration,
+				"dataChoosedEducationSecondaryConcentration"	=> $dataChoosedEducationSecondaryConcentration,
+				"dataChoosedEmploymentCompany"	=> $dataChoosedEmploymentCompany
+			]);
+		}
+		else
+		{
+			return $this->render('widget-profiles-credential-responsive',[
+				"profilesEmployment"	=> $profilesEmployment,
+				"profilesEducation"		=> $profilesEducation,
+				"profilesLocation"		=> $profilesLocation,
+				"uid"					=> $this->uid,
+				"userInfo"				=> $userInfo,
+				"fullName"				=> $fullName,
+				"primaryFlag"			=> $primaryFlag,
+			]);
+		}
 		
-		return $this->render($this->view,[
-			"profilesEmployment"	=> $profilesEmployment,
-			"profilesEducation"		=> $profilesEducation,
-			"profilesLocation"		=> $profilesLocation,
-			"uid"					=> $this->uid,
-			"userInfo"				=> $userInfo,
-			"fullName"				=> $fullName,
-			"primaryFlag"			=> $primaryFlag,
-			"dataChoosedLocation"	=> $dataChoosedLocation,
-			"dataChoosedEducationSchool"					=> $dataChoosedEducationSchool,
-			"dataChoosedEducationConcentration"				=> $dataChoosedEducationConcentration,
-			"dataChoosedEducationSecondaryConcentration"	=> $dataChoosedEducationSecondaryConcentration,
-			"dataChoosedEmploymentCompany"	=> $dataChoosedEmploymentCompany
-		]);
+		
+		
     }
 	
 	function isPrimaryAccount()

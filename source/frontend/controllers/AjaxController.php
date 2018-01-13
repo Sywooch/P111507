@@ -230,6 +230,23 @@ class AjaxController extends FrontendController
         }
         return json_encode($data);
     }
+	
+	public function actionTooltipTopic()
+	{
+		try{
+			$id 	= (int)crequest()->post("id");
+			$result = Topics::findOne($id);
+			if (!empty($result)) {
+                return $this->renderAjax('tooltip-topic', [
+					'model' => $result,
+				]);
+            } else {
+               return $this->jsonOut(true, 'fail','');
+            }
+		}catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }	
+	}
 
     public function actionCreateTopics()
     {

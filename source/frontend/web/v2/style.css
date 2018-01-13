@@ -538,7 +538,6 @@ textarea:focus {
 }
 .notice .notice-popup:before,
 .account-popup:before,
-.profile:before,
 .qb-request:before,
 .profile-request:before,
 .suggest-search:before,
@@ -553,7 +552,6 @@ textarea:focus {
 	top: -6px;
 	right: 20px;
 }
-.profile:before,
 .qb-request:before,
 .profile-request:before{
 	left: 10px;
@@ -562,7 +560,6 @@ textarea:focus {
 	border-right: 5px solid transparent;
 	border-bottom: 6px solid #bbb;
 }
-.profile:after,
 .qb-request:after,
 .profile-request:after,
 .suggest-search:after,
@@ -1909,11 +1906,11 @@ border-bottom-left-radius: 3px;
 .profile-request{
 	width: 320px;
 	background-color: #fff;
-	position: absolute;
+	position: relative;
 	box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
 	border: 1px solid #e4e4e4;
-	top: 20px;
-	display: none;
+	/*top: 20px;
+	display: none;*/
 	z-index: 11;
 }
 .profile-title:after{

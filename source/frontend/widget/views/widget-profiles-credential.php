@@ -11,7 +11,7 @@
 	<h3 class="widget-title">Công việc & Học vấn <?php if($primaryFlag){?><a href="#">Sửa</a><?php } ?></h3>
 	<div class="widget-content">
 		<ul>
-			<li class="widget-employment">
+			<li class="widget-employment" data-device='profile-sidebar'>
 				<?php if(empty($profilesEmployment) && $primaryFlag ){?>
 					<a href="javascript:;">
 						<i class="fa fa-briefcase" aria-hidden="true"></i>
@@ -26,7 +26,7 @@
 				<?php }?>
 			</li>
 			
-			<li class="widget-education">
+			<li class="widget-education" data-device='profile-sidebar'>
 				<?php if(empty($profilesEducation)  && $primaryFlag ){?>
 					<a href="javascript:;">
 						<i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -49,7 +49,7 @@
 				<?php }?>
 			</li>
 			
-			<li class="widget-location">
+			<li class="widget-location" data-device='profile-sidebar'>
 				<?php if(empty($profilesLocation)  && $primaryFlag  ){?>
 				<a href="javascript:;">
 					<i class="nc-icon-mini location_pin"></i>
@@ -139,9 +139,9 @@ $js = <<<js
 	    $('.popup-location').fadeToggle();
 	});
 	
-	function pcCallTokenInput(idInput,urlAjax,jsonPrePopulate)
+	function callTokenInput(idInput,urlAjax,jsonPrePopulate,deviceClass='profile-sidebar')
 	{
-		$("body").find(".profile-sidebar").find("#"+idInput).tokenInput(urlAjax,{
+		$("body").find("."+deviceClass).find("#"+idInput).tokenInput(urlAjax,{
 			onResult: function (results) {
 				$.each(results, function (index, value) {
 					value.name = value.title;
@@ -176,21 +176,23 @@ $js = <<<js
 	});
 
         $('.widget-location').on('click', function () {
+			var deviceClass  = $(this).data("device");	
 			$.ajax({ 
 				url : '$url_ajax_location',
 				type: 'POST',
 				data: {}
 			}).done(function(response) 
 			{
-				$('.popup-location-bg').fadeToggle();
-				$('.popup-location').fadeToggle();
+				$('body').find('.'+deviceClass).find('.popup-location-bg').fadeToggle();
+				$('body').find('.'+deviceClass).find('.popup-location').fadeToggle();
 				delay(function() {
-					$('body').find('.popup-location').removeClass('loading');
-					$('body').find('.profile-sidebar').find('.popup-location').html(response);
-					pcCallTokenInput(
+					$('body').find('.'+deviceClass).find('.popup-location').removeClass('loading');
+					$('body').find('.'+deviceClass).find('.popup-location').html(response);
+					callTokenInput(
 						'location_position',
 						'$url_search_topics',
-						[$dataJsonLocation]
+						[$dataJsonLocation],
+						deviceClass
 					);
 					
 				}, 2000 );
@@ -240,31 +242,35 @@ $js = <<<js
 	
 	 /*  [ Widget Education ] - - - - - - - - - - - - - - - - - - -  */
     $('.widget-education').on('click', function () {
+		var deviceClass  = $(this).data("device");	
 		$.ajax({ 
 			url : '$url_load_form_education',
 			type: 'POST',
 			data: {}
 		}).done(function(response) 
 		{
-			$('.popup-education-bg').fadeToggle();
-			$('.popup-education').fadeToggle();
+			$('body').find('.'+deviceClass).find('.popup-education-bg').fadeToggle();
+			$('body').find('.'+deviceClass).find('.popup-education').fadeToggle();
 			delay(function() {
-				$('body').find('.popup-education').removeClass('loading');
-				$('body').find('.profile-sidebar').find('.popup-education').html(response);
-				pcCallTokenInput(
+				$('body').find('.'+deviceClass).find('.popup-education').removeClass('loading');
+				$('body').find('.'+deviceClass).find('.popup-education').html(response);
+				callTokenInput(
 					'education_school',
 					'$url_search_topics',
-					[$dataJsonEducationSchool]
+					[$dataJsonEducationSchool],
+					deviceClass
 				);
-				pcCallTokenInput(
+				callTokenInput(
 					'education_concentration',
 					'$url_search_topics',
-					[$dataJsonEducationConcentration]
+					[$dataJsonEducationConcentration],
+					'deviceClass'
 				);
-				pcCallTokenInput(
+				callTokenInput(
 					'education_secondary_concentration',
 					'$url_search_topics',
-					[$dataJsonEducationConcentration]
+					[$dataJsonEducationSecondaryConcentration],
+					deviceClass
 				);
 			}, 2000 );
 		});
@@ -312,21 +318,24 @@ $js = <<<js
 	
 	// EMPLOYMENT 
 		$('.widget-employment').on('click', function () {
+			var deviceClass  = $(this).data("device");
 			$.ajax({ 
 				url : '$url_load_form_employment',
 				type: 'POST',
 				data: {}
 			}).done(function(response) 
 			{
-				$('.popup-employment-bg').fadeToggle();
-				$('.popup-employment').fadeToggle();
+				console.log($dataJsonEmploymentCompany);
+				$('body').find('.'+deviceClass).find('.popup-employment-bg').fadeToggle();
+				$('body').find('.'+deviceClass).find('.popup-employment').fadeToggle();
 				delay(function() {
-					$('body').find('.popup-employment').removeClass('loading');
-					$('body').find('.profile-sidebar').find('.popup-employment').html(response)
-					pcCallTokenInput(
+					$('body').find('.'+deviceClass).find('.popup-employment').removeClass('loading');
+					$('body').find('.'+deviceClass).find('.popup-employment').html(response)
+					callTokenInput(
 						'employment_company',
 						'$url_search_topics',
-						$dataJsonEmploymentCompany
+						[$dataJsonEmploymentCompany],
+						deviceClass
 					);
 				}, 2000 );
 			});

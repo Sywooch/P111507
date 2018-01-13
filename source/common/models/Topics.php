@@ -90,6 +90,7 @@ class Topics extends \yii\db\ActiveRecord
             return false;
         }
     }
+	
     public static function getTopicsByKey($key)
     {
         $models = self::find()
@@ -217,4 +218,32 @@ class Topics extends \yii\db\ActiveRecord
 	{
 		return $this->hasOne(TopicsGroup::className(),['id'=>'topics_group_id']);
 	}
+	
+	public static function getTopicsById($id)
+    {
+        $models = self::find()
+        ->select('topics.*, COUNT(user_topic_follow.topic_id) as user_follow')
+        ->leftJoin('user_topic_follow', 'topics.id = user_topic_follow.topic_id')
+        ->where(['topics.id' => $id])
+        ->groupBy('user_topic_follow.topic_id')
+        ->asArray()
+        ->all();
+		
+        if(!empty($models)){
+			foreach($models as &$model)
+			{
+				if (!empty($model['images'])) {
+					$model['images'] =  Yii::$app->homeUrl.'/uploads/topics/'.$model['images'];
+				} else {
+					$model['images'] = Yii::$app->homeUrl.'/v2/images/default-topics.png';
+				}
+			}
+		}
+		return $models;
+    }
+	
+	public function getNumberUserFollows()
+    {
+        return $this->hasMany(UserTopicFollow::className(), ['topic_id' => 'id'])->count();
+    }
 }
