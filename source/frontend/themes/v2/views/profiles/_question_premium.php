@@ -30,33 +30,39 @@
     </div>
     <h3 class="qp-title"><a href="<?=Url::to(['/cau-hoi/'.$model->slug])?>"><?=Html::encode($model->title)?></a></h3>
     <div class="qp-author">
-        <a href="#" class="qp-ava"><img src="<?=$model->answers[0]->user->getAvatar()?>" class="img-header-avatar" alt=""></a>
+        <a href="#" class="qp-ava">
+			<img src="<?=$model->answers[0]->user->getAvatar()?>" class="img-header-avatar" alt="">
+		</a>
         <div class="author-info">
-            <p class="info-top"><a href="#"><?= $model->answers[0]->user->fullname ?><!--TODO </a>, Designer tại SpaceLab</p> -->
-            <div class="profile">
-                <div class="profile-content">
-                    <div class="profile-title">
-                        <a href="#"><img class="avatar" src="<?=$model->answers[0]->user->getAvatar()?>" alt=""></a>
-                        <div class="profile-name"><a href="#"><?= $model->answers[0]->user->fullname ?></a></div>
-                    </div>
-                    <!-- TODO -->
-                    <!-- <div class="profile-info">
-                        <ul>
-                            <li><i class="fa fa-briefcase" aria-hidden="true"></i>Làm việc tại SpaceLab</li>
-                            <li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Từng học tại Đại học FPT</li>
-                            <li><i class="fa fa-home" aria-hidden="true"></i>Sống tại Vinh</li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i>57.8k lượt xem câu hỏi - 1.6k trong tháng này</li>
-                        </ul>
-                    </div> -->
-                </div>
-                <div class="profile-track">
-                    <div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-                    <a class="on-notice" href="#">Nhận thông báo</a>
-                </div>
-            </div>
-            <!-- TODO -->
-            <!-- <p class="info-bottom">Được yêu thích bởi <a href="#">Nguyễn Xuân Trường</a>, Designer tại Riseup Agency</p> -->
-        </div>
+			<p class="info-top">
+				<a href="#" data-ajax="<?=$model->id?>" class="profilesUserHover">
+					<?= $model->answers[0]->user->fullname ?>
+				</a>, Designer tại SpaceLab
+			</p>
+			<!--
+			<div class="profile">
+			  <div class="profile-content">
+				 <div class="profile-title">
+					<a href="#"><img src="<?=$model->answers[0]->user->getAvatar()?>" alt=""></a>
+					<div class="profile-name"><a href="#">Sói Ăn Chay</a></div>
+				 </div>
+				 <div class="profile-info">
+					<ul>
+					   <li><i class="fa fa-briefcase" aria-hidden="true"></i>Làm việc tại SpaceLab</li>
+					   <li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Từng học tại Đại học FPT</li>
+					   <li><i class="fa fa-home" aria-hidden="true"></i>Sống tại Vinh</li>
+					   <li><i class="fa fa-eye" aria-hidden="true"></i>57.8k lượt xem câu hỏi - 1.6k trong tháng này</li>
+					</ul>
+				 </div>
+			  </div>
+			  <div class="profile-track">
+				 <div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
+				 <a class="on-notice" href="#">Nhận thông báo</a>
+			  </div>
+			</div>
+			-->
+		   <p class="info-bottom">Được yêu thích bởi <a href="#">Nguyễn Xuân Trường</a>, Designer tại Riseup Agency</p>
+		</div>
     </div>
     <div class="qp-content">
         <div class="qp-text">

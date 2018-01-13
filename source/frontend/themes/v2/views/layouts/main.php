@@ -43,6 +43,7 @@ use yii\helpers\Url;
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/style-dev.css" />
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/responsive.css" />
 	<link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/token-input.css" />
+	<link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/tooltipster.bundle.css" />
     <!-- jQuery -->    
     <script type="text/javascript" src="<?=$base_url?>/js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="<?=$base_url?>/js/popper.min.js"></script>
@@ -56,6 +57,7 @@ use yii\helpers\Url;
     <script  type="text/javascript" src="<?=$base_url?>/js/ajax.js"></script>
     <script  type="text/javascript" src="<?=$base_url?>/js/lodash.core.min.js"></script>
     <script  type="text/javascript" src="<?=$base_url?>/js/jquery.tokeninput.js"></script>
+	<script type="text/javascript" src="<?=$base_url?>/js/tooltipster.bundle.js"></script>
 </head>
 
 <body>

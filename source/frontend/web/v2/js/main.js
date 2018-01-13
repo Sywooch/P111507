@@ -379,12 +379,99 @@
 	    $('.notice-user-three').mouseout(function() {
 	        $(this).parent().parent().find('.profile-three').css('display','none');
 	    });
+		
+		
+		$('.topicHover').tooltipster({
+			content: '<div class="profile">Loading...</div>',
+			contentAsHTML: true,
+			interactive: true,
+			delay: 500,
+			// 'instance' is basically the tooltip. More details in the "Object-oriented Tooltipster" section.
+			functionBefore: function(instance, helper) {
+				var $origin = $(helper.origin);
+				// we set a variable so the data is only loaded once via Ajax, not every time the tooltip opens
+				if ($origin.data('loaded') !== true) {
+					$.post('/ajax/tooltip-topic',{id:$origin.attr('data-ajax')}, function(data) {
+						// call the 'content' method to update the content of our tooltip with the returned data.
+						// note: this content update will trigger an update animation (see the updateAnimation option)
+						instance.content(data);
+						// to remember that the data has been loaded
+						$origin.data('loaded', true);
+					});
+				}
+			}
+		});
+		
+		$('.profilesUserHover').tooltipster({
+			content: '<div class="profile">Loading...</div>',
+			contentAsHTML: true,
+			interactive: true,
+			delay: 500,
+			// 'instance' is basically the tooltip. More details in the "Object-oriented Tooltipster" section.
+			functionBefore: function(instance, helper) {
+				var $origin = $(helper.origin);
+				// we set a variable so the data is only loaded once via Ajax, not every time the tooltip opens
+				if ($origin.data('loaded') !== true) {
+					$.post('/ajax/tooltip-profiles-user',{id:$origin.attr('data-ajax')}, function(data) {
+						// call the 'content' method to update the content of our tooltip with the returned data.
+						// note: this content update will trigger an update animation (see the updateAnimation option)
+						instance.content(data);
+						// to remember that the data has been loaded
+						$origin.data('loaded', true);
+					});
+				}
+			}
+		});
+		
+		/*
+		$( ".tooltip_topic" ).tooltip(
+		{
+			html: true,
+			trigger: "manual"
+		}).on({
+			mouseenter:function() {
+				var $el = $(this);
+				if( $el.data("fetched") === undefined ) {
+					$el.data("fetched", true );
+					$el.attr("data-original-title","loading...").tooltip("show");
+					$.ajax({
+					url: "/ajax/tooltip-topic",
+					data:{
+						lookup_id: $el.attr("lookup_id")
+					},
+					success:function(response){
+						$el.attr('data-original-title',response);
+						if($("#" + $el.attr("aria-describedby")).is(":visible" ))
+						{
+							$el.tooltip( "show");
+						}
+					},
+					dataType: "html"
+					});
+				} else {
+					$(this).tooltip( "show" );
+				}
+			},mouseleave:function() {
+				$(this).tooltip( "hide" );
+			}
+		});
+		*/
+		/*
 	    $('.wt-list li').mouseover(function() {
+			$.ajax({
+				'url' : '/ajax/tooltip-topic',
+				'type': 'json',
+				'data':{id:$(this).data('ajax')}
+			}).done(function(response){
+				//$('.wt-list').find('.profile').append('aaaaaaaaaaaaaaa');
+				$('.wt-list').find('.profile').replaceWith(response);
+			});
 	        $(this).find('> .profile').css('display','block');
 	        $(this).find('> .profile').css('left','0px');
 	        $(this).find('> .profile').css('top','31px');
 	    });
-	    $('.wt-list li a').mouseover(function() {
+	    
+		$('.wt-list li a').mouseover(function() {
 	        $(this).find('> .profile').css('display','block');
 	        $(this).find('> .profile').css('left','0px');
 	        $(this).find('> .profile').css('top','31px');
@@ -394,6 +481,7 @@
 	        $(this).find('.profile').css('top','55px');
 	        $(this).find('.profile').css('left','10px');
 	    });
+		
 	    $('.wr-wt-list li').mouseout(function() {
 	    	$(this).find('.profile').css('display','none');
 	    });
@@ -403,6 +491,7 @@
 	    $('.info-top a').mouseout(function() {
 	        $(this).parent().parent().find('.profile').css('display','none');
 	    });
+		*/
 	    // dinhtin fix mouseover to delegate
 	    $('body').delegate('.qp-ava img', 'mouseenter', function (e) {
 	    // $('.qp-ava img').mouseover(function() {
