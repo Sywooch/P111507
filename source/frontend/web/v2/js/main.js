@@ -643,7 +643,7 @@
         - - - - - - - - - - - - - - - - - - - - */
         $('.textarea-click').on('click', function (e) {
         	e.preventDefault();
-        	$(this).parent().parent().parent().parent().parent().find('.qb-textarea').fadeIn();
+        	$(this).parent().parent().parent().parent().parent().find('.qb-textarea').fadeToggle();
 	    });
 
 	    $('.textarea-clicks').on('click', function (e) {

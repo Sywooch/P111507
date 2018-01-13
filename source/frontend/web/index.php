@@ -20,3 +20,5 @@ require(__DIR__ . '/../../common/components/globals.php');
 
 $application = new yii\web\Application($config);
 $application->run();
+
+

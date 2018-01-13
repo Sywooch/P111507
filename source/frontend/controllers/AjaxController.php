@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use yii\helpers\Html;
 use frontend\models\SearchModel;
 use frontend\models\CommentModel;
+use frontend\models\QuestionModel;
 use frontend\models\CommentLikeModel;
 use frontend\models\CommentFollowModel;
 use frontend\models\AnswerModel;
@@ -177,6 +178,24 @@ class AjaxController extends FrontendController
         } catch (\Exception $e) {
             return $this->jsonOut(true, 'fail', $e->getMessage());
         }
+    }
+
+    public function actionAnswer()
+    {
+        try {
+            $model = new QuestionModel();
+            $model->id = crequest()->post('id');
+            $model->text = crequest()->post('text');
+            $model->setRulesCreateAnswer();
+            if ($model->validate()) {
+                $result = $model->createAnswer();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        } 
     }
 	
 	public function actionUserUploadAvatarProfiles()

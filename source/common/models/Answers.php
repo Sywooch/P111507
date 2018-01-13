@@ -26,6 +26,9 @@ class Answers extends BaseModel
     const IN_ACTIVE = 0; // TRANG THAI KHONG HOAT DONG
 	const DEFAULT_CENSOR_FAG 	= 0; // TRANG THAI DUYET BAI
 	const DEFAULT_STATUS 		= self::IS_ACTIVE;
+    const NOT_ANONYMOUS = 0;
+    const IS_ANONYMOUS = 1;
+
     public static function tableName()
     {
         return 'answers';

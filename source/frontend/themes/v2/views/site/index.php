@@ -41,7 +41,6 @@
 			<?= $this->render('_today_question') ?>
 
 			<?php
-
                 echo ListView::widget([
                     'summary'=>'',
                     'dataProvider' => $dataProvider,

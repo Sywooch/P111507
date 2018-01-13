@@ -150,6 +150,7 @@ class SiteController extends FrontendController {
                 'defaultOrder' => ['id' => SORT_DESC]
             ]
         ]);
+        
 		/** SEO META **/
         $this->getSeoMetaIndex();
 		/** END SEO META **/

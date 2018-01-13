@@ -10,6 +10,7 @@ use common\models\Questions;
 use common\models\Answers;
 use common\models\Topics;
 use frontend\models\QuestionModel;
+use frontend\models\AnswerModel;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 use common\models\QuestionTopic;
@@ -209,12 +210,16 @@ class QuestionController extends FrontendController
 	public function actionAnswered($slug)
     {
     	$this->layout = 'question_layout';
-    	try {
+    	// try {
             $model = new QuestionModel;
             $model->slug = crequest()->get('slug');
             if ($model->validate()) {
                 $result = $model->getQuestionBySlug();
-                return $this->render('question-answered', ['model' => $result]);
+                $answerProvider = AnswerModel::getDataProviderAnswerByQuetionId($result->id);
+                return $this->render(
+                  'question-answered',
+                  ['model' => $result, 'answerProvider' => $answerProvider]
+                );
             } else {
                 Yii::$app->session->setFlash(
 	                'danger',
@@ -222,13 +227,13 @@ class QuestionController extends FrontendController
 	            );
             	return $this->goHome();
             }
-        } catch (\Exception $e) {
-        	Yii::$app->session->setFlash(
-                'danger',
-                $e->getMessage()
-            );
-            return $this->goHome();
-        }
+        // } catch (\Exception $e) {
+        // 	Yii::$app->session->setFlash(
+        //         'danger',
+        //         $e->getMessage()
+        //     );
+        //     return $this->goHome();
+        // }
   //       $model = Questions::find()->where(['slug' => $slug])->one();
   //       if (empty($model)) {
   //           throw new NotFoundHttpException();

@@ -50,7 +50,8 @@
         "google/apiclient-services": "dev-master",
         "kop/yii2-scroll-pager": "dev-master",
         "wadeshuler/yii2-ckeditor-cdn": "~1.0",
-        "yiisoft/yii2-elasticsearch": "^2.0@dev"
+        "yiisoft/yii2-elasticsearch": "^2.0@dev",
+        "froala/yii2-froala-editor": "^2.7"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

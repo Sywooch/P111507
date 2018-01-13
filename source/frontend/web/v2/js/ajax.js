@@ -156,6 +156,7 @@
 	        $('body').find('.report-send').attr('data-ajax-id', id);
 	    });
 
+	    // SEND REPORT ANSWER
 	    $('body').delegate('.report-send', 'click', function (e) {
 	    	var reportPopup = $('body').find('.report-popup');
 	    	e.preventDefault();
@@ -177,6 +178,20 @@
 	    		} else {
 	    			console.log('error', response);
 	    		}
+	    	});
+	    });
+	    
+	    // CREATE ANSWER
+	    $('body').delegate('.btn-answer', 'click', function (e) {
+	    	var id = $(this).attr('data-ajax-id');
+	    	var textAreaE = $(this).parent().find('textarea');
+	    	var text = textAreaE.val();
+	    	var params = {
+	    		id: id,
+	    		text: text
+	    	};
+	    	handleAnswer(params, function(response) {
+	    		console.log('response', response);
 	    	});
 	    });
 	});
@@ -407,6 +422,27 @@ function handleFollowAnswer(id, callback) {
 function handleReportAnswer(params, callback) {
 	appAjax(
 		'/bao-cao-tra-loi',
+		'post',
+		params,
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
+}
+/**
+ * process answer
+ * params object id
+ * return void
+*/
+function handleAnswer(params, callback) {
+	appAjax(
+		'/tra-loi',
 		'post',
 		params,
 		'json',
