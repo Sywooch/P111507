@@ -474,7 +474,7 @@ class AjaxController extends FrontendController
 	public function actionTooltipProfilesUser()
 	{
 		try{
-			$id 	= 16;//(int)crequest()->post("id");
+			$id 	= (int)crequest()->post("id");
 			$result = User::findOne($id);
 			if (!empty($result)) {
                 return $this->renderAjax('tooltip-profiles-user', [

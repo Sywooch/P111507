@@ -12,21 +12,6 @@
 <div class="question-premium section">
     <div class="qp-topic">
         <p>Câu trả lời<a href="#" class="qp-hover">Du lịch</a><a href="#">Chủ đề có thể bạn thích</a></p>
-        <div class="profile">
-            <div class="profile-content">
-                <div class="profile-title">
-                    <a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
-                    <div class="profile-name"><a href="#">Du lịch</a></div>
-                </div>
-                <div class="profile-info">
-                    <p>Following recent terror attacks, the mayor's office has released a 59-point plan to lure tourists back to Paris, and the city is investing millions of euros into its ...</p>
-                </div>
-            </div>
-            <div class="profile-track">
-                <div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
-                <a class="on-notice" href="#">Thêm vào yêu thích</a>
-            </div>
-        </div>
     </div>
     <h3 class="qp-title"><a href="<?=Url::to(['/cau-hoi/'.$model->slug])?>"><?=Html::encode($model->title)?></a></h3>
     <div class="qp-author">
@@ -35,7 +20,7 @@
 		</a>
         <div class="author-info">
 			<p class="info-top">
-				<a href="#" data-ajax="<?=$model->id?>" class="profilesUserHover">
+				<a href="#" data-ajax="<?= $model->answers[0]->user->id ?>" class="profilesUserHover">
 					<?= $model->answers[0]->user->fullname ?>
 				</a>, Designer tại SpaceLab
 			</p>
