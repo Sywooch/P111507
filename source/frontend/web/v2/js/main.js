@@ -380,7 +380,7 @@
 	        $(this).parent().parent().find('.profile-three').css('display','none');
 	    });
 		
-		
+		/*
 		$('.topicHover').tooltipster({
 			content: '<div class="profile">Loading...</div>',
 			contentAsHTML: true,
@@ -422,7 +422,7 @@
 				}
 			}
 		});
-		
+		*/
 		/*
 		$( ".tooltip_topic" ).tooltip(
 		{
