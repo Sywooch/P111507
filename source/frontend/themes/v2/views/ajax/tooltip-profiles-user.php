@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 ?>
-<div class="qp-author">
+<div class="ajax-qp-author">
 <div class="profile">
    <div class="profile-content">
       <div class="profile-title">
