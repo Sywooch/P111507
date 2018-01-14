@@ -155,28 +155,16 @@ class AnswerModel extends BaseModel
     public static function getDataProviderAnswerByQuetionId($questionId)
     {
         $query = Answers::find()->where(['question_id' => $questionId]);
-        // $query = new  \yii\db\Query();
-        // $provider = new ActiveDataProvider([
-        //     'query' => $query->from('answers'),
-        //     'pagination' => [
-        //         'pageSize' => 20,
-        //     ],
-        // ]);
-        // return $provider;
-        // dd($query);
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 2,
+                'pageSize' => 5,
             ]
             ,
             'sort'=> [
                 'defaultOrder' => ['create_time' => SORT_DESC]
             ]
         ]);
-        // dd($dataProvider->getModels());
-        // dd($dataProvider);
         return $dataProvider;
     }
 

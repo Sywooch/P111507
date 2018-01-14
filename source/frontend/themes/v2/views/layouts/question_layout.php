@@ -42,6 +42,7 @@
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/style.css" />
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/style-dev.css" />
     <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="<?=$base_url?>/css/tooltipster.bundle.css" />
 
     <!-- jQuery -->    
     <script type="text/javascript" src="<?=$base_url?>/js/jquery-1.10.2.js"></script>
@@ -55,6 +56,7 @@
     <script  type="text/javascript" src="<?=$base_url?>/js/main.js"></script>
     <script  type="text/javascript" src="<?=$base_url?>/js/ajax.js"></script>
     <script  type="text/javascript" src="<?=$base_url?>/js/lodash.core.min.js"></script>
+	<script type="text/javascript" src="<?=$base_url?>/js/tooltipster.bundle.js"></script>
 </head>
 <body>
 	<?php $this->beginBody() ?>
