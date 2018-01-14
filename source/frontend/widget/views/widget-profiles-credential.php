@@ -264,7 +264,7 @@ $js = <<<js
 					'education_concentration',
 					'$url_search_topics',
 					[$dataJsonEducationConcentration],
-					'deviceClass'
+					deviceClass
 				);
 				callTokenInput(
 					'education_secondary_concentration',
