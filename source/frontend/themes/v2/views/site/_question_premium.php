@@ -7,6 +7,7 @@
     use frontend\widget\WidgetAnswerReport;
     use frontend\widget\WidgetAnswerFollow;
     use frontend\widget\WidgetAuthor;
+    use frontend\widget\WidgetAnswerComment;
     use common\models\Comments;
     use yii\helpers\Url;
     $theme = $this->theme;
@@ -70,7 +71,8 @@
 
     <?php
         if (!empty($model->answers[0]->comments)) {
-            echo $this->render('_comment_previews', ['model' => $model]);
+            echo WidgetAnswerComment::widget(['model' => $model->answers[0]]);
+            // echo $this->render('_comment_previews', ['model' => $model]);
         } else {
             echo '<div class="qp-comment">';
             echo WidgetFormComment::widget([

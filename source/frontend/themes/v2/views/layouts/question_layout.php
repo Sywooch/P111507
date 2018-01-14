@@ -97,7 +97,7 @@
 									<div class="popup-content">
 										<ul>
 											<li>
-												<img src="images/ava-comment.png" alt="">
+												<img src="<?=$base_url?>/images/ava-comment.png" alt="">
 												<div class="public-follow-info">
 													<h4><a href="#">Joy D</a></h4>
 													<div class="public-follow-desc"><p>Học sinh</p></div>

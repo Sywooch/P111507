@@ -29,7 +29,7 @@
                 <div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
                 <a class="on-notice" href="#">Nhận thông báo</a>
             </div>
-        </div>
-        <p class="info-bottom">Được yêu thích bởi <a href="#">Nguyễn Xuân Trường</a>, Designer tại Riseup Agency</p> -->
+        </div> -->
+        <p class="info-bottom">Được yêu thích bởi <a href="#">Nguyễn Xuân Trường</a>, Designer tại Riseup Agency</p>
     </div>
 </div>
