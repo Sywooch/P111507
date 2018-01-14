@@ -68,7 +68,9 @@
 				<?= $content ?>
 				<div class="sidebar-right">
 					<div class="sidebar-fixed">
-						<?= WidgetCompleteRegister::widget(); ?>
+						<?php 
+						// echo WidgetCompleteRegister::widget();
+						 ?>
 						<aside class="widget widget-question">
 							<h3 class="widget-title"><i class="nc-icon-outline files_question"></i>Câu hỏi liên quan</h3>
 							<div class="widget-content">

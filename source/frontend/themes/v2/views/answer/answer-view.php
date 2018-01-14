@@ -38,7 +38,8 @@
 		</div>
 	</div><!-- .today-question -->
 	<div class="question-basic section">
-		<?= $this->render('belong-topic') ?>
+		<?php
+		echo $this->render('//question/belong-topic') ?>
 		<h3 class="qb-title"><a href="#"><?=Html::encode($model->title)?></a></h3>
 		<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
 		<div class="qb-action">
@@ -63,7 +64,8 @@
 			</div>
 			<?= WidgetRightAction::widget(['link' => Url::toRoute('/cau-hoi/'.$model->slug, true)]); ?>
 		</div>
-		<?= $this->render('request-answer'); ?>
+		<?php
+		  echo $this->render('//question/request-answer'); ?>
 		<?= WidgetFormAnswer::widget(['model' => $model]) ?>
 		<div class="qp-comment qd-qp-comment">
 			<?= WidgetFormComment::widget([
@@ -78,32 +80,6 @@
 	</div><!-- .question-basic -->
 	<div class="sum-question">3 Câu trả lời</div>
 	<div class="list-answered">
-		<?php
-			$question = $model;
-            echo ListView::widget([
-                'summary'=>'',
-                'dataProvider' => $answerProvider,
-                'itemOptions' => ['class' => 'item'],
-                'itemView' => function ($model, $key, $index, $widget) use ($question) {
-                    return $this->render('item-anwer', ['model' => $model, 'question' => $question]);
-                },
-                'pager' => [
-                    'class' => ScrollPager::className(),
-                    'enabledExtensions' => [
-                        ScrollPager::EXTENSION_TRIGGER,
-                        ScrollPager::EXTENSION_SPINNER,
-                        ScrollPager::EXTENSION_NONE_LEFT,
-                        ScrollPager::EXTENSION_PAGING,
-                        //ScrollPager::EXTENSION_HISTORY
-                    ],
-                    'triggerOffset' =>  20,
-                    'eventOnRendered' => 'function() {
-                        console.log("eventOnRendered");
-                        do_qtip_profile_user();
-                        do_qtip_profile_topic();
-                    }'
-                ],
-            ]);
-        ?>
+		<?= $this->render('//question/item-anwer', ['model' => $model->answer, 'question' => $model]); ?>
 	</div>
 </div><!-- .main-content -->

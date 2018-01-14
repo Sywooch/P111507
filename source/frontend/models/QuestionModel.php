@@ -67,6 +67,9 @@ class QuestionModel extends BaseModel
             $query->leftJoin('answers', 'questions.id = answers.question_id')->where(['answers.id' => null]);
         }
         $model = $query->one();
+        if (empty($model)) {
+            throw new \Exception("Không tìm thấy câu hỏi.", 1);
+        }
         return $model;
     }
 

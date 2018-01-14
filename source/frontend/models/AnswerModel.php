@@ -11,6 +11,7 @@ use common\models\Questions;
 use yii\data\ActiveDataProvider;
 use yii\data\Sort;
 use yii\db\Expression;
+use yii\helpers\StringHelper;
 use Yii;
 
 /**
@@ -20,6 +21,9 @@ class AnswerModel extends BaseModel
 {
     public $id; // Id of Answer.
     public $reason_id;
+    public $username; // User creator
+    public $slug; // Question Slug
+
     /**
      * @inheritdoc
      */
@@ -51,6 +55,12 @@ class AnswerModel extends BaseModel
             ['id', 'filter', 'filter' => 'trim'],
             ['id', 'filter', 'filter' => 'strip_tags'],
             [['id'], 'required'],
+        ];
+    }
+
+    public function setRuleGetAnswerByQuestionAndCreator() {
+        $this->rules = [
+         [['slug', 'username'], 'required']
         ];
     }
 
@@ -166,6 +176,30 @@ class AnswerModel extends BaseModel
             ]
         ]);
         return $dataProvider;
+    }
+
+    public function getQuestionAnswerByUsernameSlug() {
+        $answerId = $this->getAnswerId();
+        $model = Questions::find()->with([
+            'answer' => function($q) use ($answerId) {
+                $q->where(['id' => $answerId]);
+            }
+        ])
+        ->where(['questions.slug' => $this->slug])
+        ->one()
+        ;
+        // dd($model->answers);
+        if (empty($model->answer)) {
+            throw new \Exception("Không tìm thấy câu trả lời.", 1);
+        }
+        return $model;
+    }
+
+    private function getAnswerId()
+    {
+        $pos = strrpos($this->username, '.');
+        $answerId = $pos === false ? $this->username : substr($this->username, $pos + 1);
+        return $answerId;
     }
 
 }

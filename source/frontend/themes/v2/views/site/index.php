@@ -62,6 +62,8 @@
                         'triggerOffset' =>  20,
                         'eventOnRendered' => 'function() {
                             console.log("eventOnRendered");
+                            do_qtip_profile_user();
+                            do_qtip_profile_topic();
                         }'
                     ],
                 ]);

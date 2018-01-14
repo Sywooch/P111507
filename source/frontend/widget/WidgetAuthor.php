@@ -9,8 +9,18 @@ class WidgetAuthor extends Widget
 {
     public $view = "author";
     public $model;
+    public $answer;
+    public $question;
+
     public function run()
     {
-        return $this->render($this->view, ['model' => $this->model]);
+        return $this->render(
+        	$this->view,
+        	[
+        		'model' => $this->model,
+        		'answer' => $this->answer,
+        		'question' => $this->question
+        	]
+        );
     }
 }

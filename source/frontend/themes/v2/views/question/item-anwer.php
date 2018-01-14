@@ -2,12 +2,15 @@
 	use frontend\widget\WidgetAuthor;
 	use frontend\widget\WidgetAnswerComment;
 	use frontend\widget\WidgetFormComment;
+	use frontend\widget\WidgetFavoriteAnswer;
+	use frontend\widget\WidgetAnswerReport;
+	use frontend\widget\WidgetAnswerFollow;
 	use common\models\Comments;
     $theme = $this->theme;
     $base_url = $theme->baseUrl;
     ?>
 <div class="question-premium section">
-	<?= WidgetAuthor::widget(['model' => $model->user]) ?>
+	<?= WidgetAuthor::widget(['model' => $model->user, 'view' => 'author-question-detail' , 'question' => $question, 'answer' => $model]) ?>
 	<div class="qp-content">
 		<div class="qp-text">
 			<?= \yii\helpers\HtmlPurifier::process(word_limit($model->answers_text, 150, '...<p><a href="javascript:void(0)" class="qp-readmore">(Xem thêm)</a></p>')) ?>
@@ -22,11 +25,21 @@
 	<div class="qp-action">
 		<div class="action-left">
 			<ul>
-				<li><a class="like-btn" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Yêu thích | <span class="like-number">16</span></a></li>
-				<li class="action-report">
-					<a href="#">Báo cáo</a>
-				</li>
-				<li><a href="#">Theo dõi</a></li>
+				<?php
+                    echo WidgetFavoriteAnswer::widget([
+                        'id' => $model->id,
+                        'count' => count($model->favorite),
+                        'isFavorite' => $model->isFavorite
+                    ]);
+                ?>
+                <?= WidgetAnswerReport::widget([
+                    'id' => $model->id
+                ]) ?>
+                <?= WidgetAnswerFollow::widget([
+                    'id' => $model->id,
+                    'count' => count($model->follow),
+                    'isFollow' => $model->isFollow
+                    ]) ?>
 			</ul>
 		</div>
 		<div class="action-right">

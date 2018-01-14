@@ -76,6 +76,7 @@ return [
 				'theo-doi-tra-loi' => 'ajax/follow-answer',
 				'bao-cao-tra-loi' => 'ajax/report-answer',
 				'tra-loi' => 'ajax/answer',
+				'cau-hoi/<slug:[A-Za-z0-9 -_.]+>/<username:[A-Za-z0-9 -_.]+>' => 'answer/view',
 				'cau-hoi/<slug:[A-Za-z0-9 -_.]+>' => 'question/answered',
 				'cau-hoi-chua-tra-loi/<slug:[A-Za-z0-9 -_.]+>' => 'question/unanswered',
 				// '<controller:[\w-]+>/<id:\d+>' => 'question/action-answered/<slug:\d+>',

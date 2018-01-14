@@ -1,3 +1,7 @@
+<?php
+    use yii\helpers\Html;
+    use  yii\helpers\Url;
+    ?>
 <div class="qp-author">
     <a data-ajax="<?=$model->id?>"
         class="profilesUserHover" href="javascript:void(0)" class="qp-ava"><img src="<?=$model->getAvatar()?>" class="img-header-avatar" alt=""></a>
@@ -30,6 +34,10 @@
                 <a class="on-notice" href="#">Nhận thông báo</a>
             </div>
         </div> -->
-        <p class="info-bottom">Được yêu thích bởi <a href="#">Nguyễn Xuân Trường</a>, Designer tại Riseup Agency </p>
+        <p class="info-bottom">
+            <?= Html::a(
+                '13h ago',
+                Url::to('/cau-hoi/' . $question->slug .'/'. str_replace(' ', '-', $answer->user->fullname) .'.'. $answer->id)) ?>
+            </p>
     </div>
 </div>
