@@ -10,8 +10,7 @@
 	<?= WidgetAuthor::widget(['model' => $model->user]) ?>
 	<div class="qp-content">
 		<div class="qp-text">
-			<p>
-			<?= \yii\helpers\HtmlPurifier::process(word_limit($model->answers_text, 150, '</p>...<p><a href="javascript:void(0)" class="qp-readmore">(Xem thêm)</a></p>')) ?>
+			<?= \yii\helpers\HtmlPurifier::process(word_limit($model->answers_text, 150, '...<p><a href="javascript:void(0)" class="qp-readmore">(Xem thêm)</a></p>')) ?>
 		</div>
 		<a href="#"><img src="<?=$base_url?>/images/qp-img-01.jpg" alt=""></a>
 	</div>

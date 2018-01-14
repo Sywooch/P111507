@@ -16,7 +16,7 @@
 <div class="question-premium section">
     <div class="qp-topic">
         <p>Câu trả lời<a href="#" class="qp-hover">Du lịch</a><a href="#">Chủ đề có thể bạn thích</a></p>
-        <div class="profile">
+        <!-- <div class="profile">
             <div class="profile-content">
                 <div class="profile-title">
                     <a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
@@ -30,7 +30,7 @@
                 <div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
                 <a class="on-notice" href="#">Thêm vào yêu thích</a>
             </div>
-        </div>
+        </div> -->
     </div>
     <h3 class="qp-title"><a href="<?=Url::to(['/cau-hoi/'.$model->slug])?>"><?=Html::encode($model->title)?></a></h3>
     <?= WidgetAuthor::widget(['model' => $model->answers[0]->user]) ?>

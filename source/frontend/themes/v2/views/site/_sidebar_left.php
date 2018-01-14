@@ -21,7 +21,7 @@
 			<ul class="wt-list">
 				<li>
 					<a href="#">Âm nhạc</a>
-					<div class="profile">
+					<!-- <div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
 								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
@@ -35,11 +35,11 @@
 							<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
 							<a class="on-notice" href="#">Bỏ theo dõi</a>
 						</div>
-					</div>
+					</div> -->
 				</li>
 				<li>
 					<a href="#">Công nghệ</a>
-					<div class="profile">
+					<!-- <div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
 								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
@@ -53,11 +53,11 @@
 							<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
 							<a class="on-notice" href="#">Bỏ theo dõi</a>
 						</div>
-					</div>
+					</div> -->
 				</li>
 				<li>
 					<a href="#">Du lịch</a>
-					<div class="profile">
+					<!-- <div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
 								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
@@ -71,11 +71,11 @@
 							<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
 							<a class="on-notice" href="#">Bỏ theo dõi</a>
 						</div>
-					</div>
+					</div> -->
 				</li>
 				<li>
 					<a href="#">Đời sống</a>
-					<div class="profile">
+					<!-- <div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
 								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
@@ -89,11 +89,11 @@
 							<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
 							<a class="on-notice" href="#">Bỏ theo dõi</a>
 						</div>
-					</div>
+					</div> -->
 				</li>
 				<li>
 					<a href="#">Giới tính</a>
-					<div class="profile">
+					<!-- <div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
 								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
@@ -107,11 +107,11 @@
 							<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
 							<a class="on-notice" href="#">Bỏ theo dõi</a>
 						</div>
-					</div>
+					</div> -->
 				</li>
 				<li>
 					<a href="#">Sức khỏe</a>
-					<div class="profile">
+					<!-- <div class="profile">
 						<div class="profile-content">
 							<div class="profile-title">
 								<a href="#"><img src="<?=$base_url?>/images/profile-cat.png" alt=""></a>
@@ -125,7 +125,7 @@
 							<div class="connect-track"><a href="#"><i class="nc-icon-outline users_add-29"></i> Theo dõi | 136k</a></div>
 							<a class="on-notice" href="#">Bỏ theo dõi</a>
 						</div>
-					</div>
+					</div> -->
 				</li>
 			</ul>
 		</div>
