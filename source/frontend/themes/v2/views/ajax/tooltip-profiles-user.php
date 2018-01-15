@@ -2,6 +2,12 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 ?>
+<style>
+.profile-quotes {
+    margin-left: 62px;
+	margin-top:-10px;
+}
+</style>
 <div class="ajax-qp-author">
 <div class="profile">
    <div class="profile-content">
@@ -14,6 +20,11 @@ use yii\helpers\Html;
 				<?=Html::encode($model->getUsername())?>
 			</a>
 		</div>
+		<?php if($model->quotes!=""){?>
+			<div class="profile-quotes">
+				<?=Html::encode($model->quotes)?>
+			</div>
+		<?php } ?>
       </div>
       <div class="profile-info">
         <ul>
