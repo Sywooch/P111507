@@ -726,11 +726,6 @@
         	$(this).parent().find('.qb-textarea').fadeIn();
 	    });
 
-	    $('.add-desc').on('click', function (e) {
-        	e.preventDefault();
-        	$(this).parent().find('.qb-textarea').fadeIn();
-	    });
-
 	    /*  [ Mobile Search ]
         - - - - - - - - - - - - - - - - - - - - */
 	    $('.m-search-click').on('click', function (e) {

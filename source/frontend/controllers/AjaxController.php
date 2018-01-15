@@ -494,7 +494,7 @@ class AjaxController extends FrontendController
     {
         try {
             $model = new UserModel();
-            $model->id 	= crequest()->post('id');
+            $model->id 	= \Yii::$app->user->identity->id;
             $model->profile_description = crequest()->post('desc');
             $model->setRulesUpdateProfileDescription();
             if ($model->validate()) {

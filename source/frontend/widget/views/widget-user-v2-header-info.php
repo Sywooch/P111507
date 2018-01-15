@@ -116,6 +116,17 @@ use yii\web\View;
 	margin-left: 10px;
 	display: none;
 }
+
+.pf-info div.add-desc:hover a.add-desc-edit{
+	display: inline-block;
+}
+
+.pf-info a.add-desc-edit{
+	font-size: 14px;
+	color: #777;
+	margin-left: 10px;
+	display: none;
+}
 </style>
 <div class="pf-top">
    <div class="pf-avatar">
@@ -178,6 +189,12 @@ use yii\web\View;
       </div>
 		<!--<a href="messages.html" class="show-mess">Messages</a>-->
 		<?php if($model->quotes != ''){ ?>
+			<style>
+			.add-info {
+				font-family: Times,"Times New Roman","Hiragino Kaku Gothic Pro","Meiryo",serif;
+				font-size: 19px;
+			}
+			</style>
 			<p class="add-info"><?=$model->quotes?><a href="#">Sửa</a></p>
 		<?php }else {?>
 			<p class="add-info">Biệt danh hoặc câu chân ngôn mà bạn thích?</p>
@@ -202,16 +219,23 @@ use yii\web\View;
 				</form>
 			</div>
 		</div>
-		<p class="add-desc">Viết mô tả về bản thân bạn</p>
+		
+		<?php if($model->profile_description != ''){ ?>
+			<div class="add-desc">
+				<div class="desc-content"><?=$model->profile_description?> </div> <a class="add-desc-edit" href="#">Sửa</a>
+			</div>
+		<?php }else {?>
+			<div class="add-desc">Viết một vài điều về bản thân bạn</div>
+		<?php } ?>
 		<div class="qb-textarea">
-			<textarea id="froala-editor"></textarea>
+			<textarea id="textarea-profile-description"><?=$model->profile_description?> </textarea>
 			<div class="form_buttons" id="__w2_rYxleJU_inline_editor_buttons" style="width: 100%;
 			margin-top: -20px;">
 				<div class="inline_editor_buttons" style="text-align: right;">
 					<a class="inline_editor_button inline_editor_cancel_button" 
 						href="#" id="__w2_rYxleJU_inline_editor_cancel">Cancel</a>
-					<a class="btn-accept followers" href="#" action_mousedown="InlineEditorAnswerAdd" 
-						id="bnt-update-profile-description">Update</a>
+					<a class="btn-accept followers" href="javascript:;" action_mousedown="InlineEditorAnswerAdd" 
+						id="bnt-save-profile-description">Update</a>
 				</div>
 			</div>
 		</div>
@@ -266,6 +290,20 @@ $js = <<<JS
 	        $('.ai-bg').fadeToggle();
 	        $('.ai-popup').fadeToggle();
 	    });
+		
+		
+		$('textarea#textarea-profile-description').froalaEditor({
+			heightMin: 100,
+		});
+		
+
+	    /*  [ Show Textarea ] */
+		
+	    $('.add-desc').on('click', function (e) {
+        	e.preventDefault();
+			$(".desc-content").hide();
+        	$(this).parent().find('.qb-textarea').fadeIn();
+	    });	
 		
 	Demo.init();
 JS;

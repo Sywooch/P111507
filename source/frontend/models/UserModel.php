@@ -11,7 +11,7 @@ use Yii;
 class UserModel extends BaseModel
 {
 	public $id; // User creator
-	public $desc;
+	public $profile_description;
 	public $quotes;
 	/**
      * @inheritdoc
@@ -39,8 +39,8 @@ class UserModel extends BaseModel
         $this->rules = [
             // TODO UDPATE ID ANSWER EXITS IN TALBE ANSWER
             [['id'], 'filter', 'filter' => 'trim'],
-            [['id', 'desc'], 'filter', 'filter' => 'strip_tags'],
-            [['id', 'desc'], 'required'],
+            [['id'], 'filter', 'filter' => 'strip_tags'],
+            [['id', 'profile_description'], 'required'],
         ];
     }
 	
@@ -67,7 +67,7 @@ class UserModel extends BaseModel
 	public function setProfileDescription()
 	{
 		$user = $this->getUserById();
-		$user->profile_description = $this->desc;
+		$user->profile_description = $this->profile_description;
 		if($user->save())
 		{
 			return $user;

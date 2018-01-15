@@ -210,6 +210,22 @@
 				}
 			});
 		});
+		
+		// UPDATE PROFILE DESCRIPTION
+		$('body').delegate('#bnt-save-profile-description','click',function(e)
+		{
+			var desc = $("#textarea-profile-description").val();
+			var params = {
+				desc: desc
+			};
+			handleProfileDescription(params,function(response)
+			{
+				if(!response.error)
+				{
+					location.reload();
+				}
+			});
+		});
 	});
 })(jQuery);
 // 
