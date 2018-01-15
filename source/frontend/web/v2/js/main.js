@@ -150,21 +150,7 @@
 	    });
 	    
 
-	    /*  [ Add Profile ]
-        - - - - - - - - - - - - - - - - - - - - */
-        $('.add-info').on('click', function () {
-	        $('.ai-bg').fadeToggle();
-	        $('.ai-popup').fadeToggle();
-	    });
-	    $('.ai-bg').on('click', function () {
-	        $(this).fadeToggle();
-	        $('.ai-popup').fadeToggle();
-	    });
-	    $('.ai-cancel').on('click', function (e) {
-        	e.preventDefault();
-	        $('.ai-bg').fadeToggle();
-	        $('.ai-popup').fadeToggle();
-	    });
+	    
 
 	    /*  [ Add Credential ]
         - - - - - - - - - - - - - - - - - - - - */

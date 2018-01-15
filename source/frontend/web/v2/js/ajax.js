@@ -194,6 +194,22 @@
 	    		console.log('response', response);
 	    	});
 	    });
+		
+		// UPDATE PROFILES QUOTES
+		$('body').delegate('#btn-save-quotes','click',function(e)
+		{
+			var quotes = $("#quotes").val();
+			var params = {
+				quotes: quotes
+			};
+			handleProfileQuotes(params,function(response)
+			{
+				if(!response.error)
+				{
+					location.reload();
+				}
+			});
+		});
 	});
 })(jQuery);
 // 
@@ -460,4 +476,42 @@ function handleAnswer(params, callback) {
 function tooglePopupReport() {
     $('body').find('.report-bg').fadeToggle();
     $('body').find('.report-popup').fadeToggle();
+}
+
+function handleProfileDescription(params, callback)
+{
+	appAjax(
+		'/ajax/update-profile-description',
+		'post',
+		params,
+		'json',
+		function(response)
+		{
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	)	
+}
+
+function handleProfileQuotes(params, callback)
+{
+	appAjax(
+		'/ajax/update-profile-quotes',
+		'post',
+		params,
+		'json',
+		function(response)
+		{
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	)
 }

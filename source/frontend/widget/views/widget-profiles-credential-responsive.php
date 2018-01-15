@@ -13,16 +13,16 @@
          <ul>
             <li class="widget-employment" data-device='m-profile'>
                <?php if(empty($profilesEmployment) && $primaryFlag ){?>
-               <a href="javascript:;">
-               <i class="fa fa-briefcase" aria-hidden="true"></i>
-               Thêm một nơi làm việc 
-               </a>
-               <?php } elseif(!empty($profilesEmployment)) {?>
-               <a href="javascript:;">
-               <i class="fa fa-briefcase" aria-hidden="true"></i>
-               <?=$profilesEmployment->position?> tại <?=$profilesEmployment->topics->title?>
-               </a>
-               <?php }?>
+				<a href="javascript:;">
+					<i class="fa fa-briefcase" aria-hidden="true"></i>
+					Thêm một nơi làm việc 
+				</a>
+				<?php } elseif(!empty($profilesEmployment)) {?>
+				<a href="javascript:;">
+					<i class="fa fa-briefcase" aria-hidden="true"></i>
+					<?=$profilesEmployment->position?> tại <?=$profilesEmployment->topics->title?>
+				</a>
+				<?php }?>
             </li>
             <li class="widget-education" data-device='m-profile'>
                <?php if(empty($profilesEducation)  && $primaryFlag ){?>

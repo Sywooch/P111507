@@ -107,6 +107,15 @@ use yii\web\View;
 .cr-image{
 	border-radius:0% !important;
 }
+.pf-info p.add-info:hover a{
+	display: inline-block;
+}
+.pf-info .add-info a{
+	font-size: 14px;
+	color: #777;
+	margin-left: 10px;
+	display: none;
+}
 </style>
 <div class="pf-top">
    <div class="pf-avatar">
@@ -167,27 +176,32 @@ use yii\web\View;
             <a href="#" class="btn-accept">Cập nhật</a>
          </div>
       </div>
-      <a href="messages.html" class="show-mess">Messages</a>
-      <p class="add-info">Thêm thông tin hồ sơ</p>
-      <div class="ai-bg"></div>
-      <div class="ai-popup">
-         <div class="popup-content">
-            <h3>Chỉnh sửa thông tin đăng nhập</h3>
-            <div class="desc">
-               <p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
-            </div>
-         </div>
-         <div class="popup-bottom">
-            <div class="pb-title"><i class="nc-icon-mini users_single-01"></i>Thêm thông tin hồ sơ</div>
-            <form action="#" action="POST">
-               <input type="text">
-               <div class="btn">
-                  <a href="#" class="btn-cancel ai-cancel">Hủy</a>
-                  <a href="#" class="btn-accept">Lưu</a>
-               </div>
-            </form>
-         </div>
-      </div>
+		<!--<a href="messages.html" class="show-mess">Messages</a>-->
+		<?php if($model->quotes != ''){ ?>
+			<p class="add-info"><?=$model->quotes?><a href="#">Sửa</a></p>
+		<?php }else {?>
+			<p class="add-info">Biệt danh hoặc câu chân ngôn mà bạn thích?</p>
+		<?php } ?>
+		<div class="ai-bg"></div>
+		<div class="ai-popup">
+			<div class="popup-content">
+				<h3>Chỉnh sửa thông tin đăng nhập</h3>
+				<div class="desc">
+				   <p>Thông tin xác thực cũng xuất hiện trên câu trả lời mà bạn viết.</p>
+				</div>
+			</div>
+			<div class="popup-bottom">
+				<div class="pb-title"><i class="nc-icon-mini users_single-01"></i>Thêm thông tin hồ sơ</div>
+				<form action="#" action="POST">
+					<input id="quotes" value="<?=$model->quotes?>" type="text">
+					<div class="btn">
+						<a href="#" class="btn-cancel ai-cancel">Xóa</a>
+						<a href="#" class="btn-cancel ai-cancel">Hủy</a>
+						<a href="javascript:;" id="btn-save-quotes" class="btn-accept">Lưu</a>
+					</div>
+				</form>
+			</div>
+		</div>
 		<p class="add-desc">Viết mô tả về bản thân bạn</p>
 		<div class="qb-textarea">
 			<textarea id="froala-editor"></textarea>
@@ -197,7 +211,7 @@ use yii\web\View;
 					<a class="inline_editor_button inline_editor_cancel_button" 
 						href="#" id="__w2_rYxleJU_inline_editor_cancel">Cancel</a>
 					<a class="btn-accept followers" href="#" action_mousedown="InlineEditorAnswerAdd" 
-						id="__w2_rYxleJU_inline_editor_submit">Update</a>
+						id="bnt-update-profile-description">Update</a>
 				</div>
 			</div>
 		</div>
@@ -236,6 +250,23 @@ $js = <<<JS
 	    });
 		
 	/*  [ End Edit Popup ] */
+	
+	/*  [ Add Profile ]
+        - - - - - - - - - - - - - - - - - - - - */
+        $('.add-info').on('click', function () {
+	        $('.ai-bg').fadeToggle();
+	        $('.ai-popup').fadeToggle();
+	    });
+	    $('.ai-bg').on('click', function () {
+	        $(this).fadeToggle();
+	        $('.ai-popup').fadeToggle();
+	    });
+	    $('.ai-cancel').on('click', function (e) {
+        	e.preventDefault();
+	        $('.ai-bg').fadeToggle();
+	        $('.ai-popup').fadeToggle();
+	    });
+		
 	Demo.init();
 JS;
 $this->registerJs($js, View::POS_END);

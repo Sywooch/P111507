@@ -29,35 +29,7 @@
 				</div>
 				<div class="profile-wrapper">
 					
-					<?php 
-					if(!Yii::$app->user->isGuest){	
-					if($model->id == \Yii::$app->user->identity->id){?>
-						<?=WidgetUserV2HeaderInfo::widget(["model"=>$model])?>
-					<?php }else{?>
-					<div class="pf-top">
-						<div class="pf-avatar">
-							<img src="<?php echo Html::encode($model->getAvatar()); ?>" 
-							alt="<?=Html::encode($model->getUsername())?>">
-						</div>
-						<div class="pf-info">
-							<h1><?=Html::encode($model->getUsername())?></h1>
-							<a href="#" class="btn-accept followers">Theo dõi</a>
-						</div>
-					</div><!-- .pf-top -->	
-					<?php } 
-					} else {
-					?>
-					<div class="pf-top">
-						<div class="pf-avatar">
-							<img src="<?php echo Html::encode($model->getAvatar()); ?>" 
-							alt="<?=Html::encode($model->getUsername())?>">
-						</div>
-						<div class="pf-info">
-							<h1><?=Html::encode($model->getUsername())?></h1>
-							<a href="#" class="btn-accept followers">Theo dõi</a>
-						</div>
-					</div><!-- .pf-top -->
-					<?php } ?>
+					<?=WidgetUserV2HeaderInfo::widget(["model"=>$model,'uid'=>$model->id])?>
 					
 					<div class="pf-content">
 						<div class="pf-left">

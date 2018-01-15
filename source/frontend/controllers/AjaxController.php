@@ -11,12 +11,14 @@ use frontend\models\QuestionModel;
 use frontend\models\CommentLikeModel;
 use frontend\models\CommentFollowModel;
 use frontend\models\AnswerModel;
+use frontend\models\UserModel;
 use common\models\Comments;
 use common\models\User;
 use common\models\Topics;
 use common\models\CredentialEmployment;
 use common\models\CredentialEducation;
 use common\models\CredentialLocation;
+
 /**/
 use yii\db\Expression;
 use yii\db\Query;
@@ -487,5 +489,44 @@ class AjaxController extends FrontendController
             return $this->jsonOut(true, 'fail', $e->getMessage());
         }	
 	}
+	
+	public function actionUpdateProfileDescription()
+    {
+        try {
+            $model = new UserModel();
+            $model->id 	= crequest()->post('id');
+            $model->profile_description = crequest()->post('desc');
+            $model->setRulesUpdateProfileDescription();
+            if ($model->validate()) {
+                $result = $model->setProfileDescription();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        } 
+    }
+	
+	public function actionUpdateProfileQuotes()
+    {
+		if(!Yii::$app->request->isAjax || Yii::$app->user->isGuest){
+			return $this->jsonOut(true, 'fail');
+		}
+        try {
+            $model = new UserModel();
+            $model->id 		= \Yii::$app->user->identity->id;
+            $model->quotes 	= crequest()->post('quotes');
+            $model->setRulesUpdateProfileQuotes();
+            if ($model->validate()) {
+                $result = $model->setProfileQuotes();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        } 
+    }
 	
 }
