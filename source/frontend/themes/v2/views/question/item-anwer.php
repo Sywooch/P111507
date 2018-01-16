@@ -13,7 +13,7 @@
 	<?= WidgetAuthor::widget(['model' => $model->user, 'view' => 'author-question-detail' , 'question' => $question, 'answer' => $model]) ?>
 	<div class="qp-content">
 		<div class="qp-text">
-			<?= \yii\helpers\HtmlPurifier::process(word_limit($model->answers_text, 150, '...<p><a href="javascript:void(0)" class="qp-readmore">(Xem thêm)</a></p>')) ?>
+			<?= \yii\helpers\HtmlPurifier::process(word_limit($model->answers_text, 450, '...<p><a href="javascript:void(0)" class="qp-readmore">(Xem thêm)</a></p>')) ?>
 		</div>
 		<a href="#"><img src="<?=$base_url?>/images/qp-img-01.jpg" alt=""></a>
 	</div>
