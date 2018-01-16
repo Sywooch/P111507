@@ -12,7 +12,7 @@ class m180115_020844_add_position_column_to_user_table extends Migration
      */
     public function up()
     {
-        $this->addColumn('user', 'profile_description', $this->text()->after('nickname'));
+        $this->addColumn('user', 'profile_description', $this->text()->after('quotes'));
     }
 
     /**
