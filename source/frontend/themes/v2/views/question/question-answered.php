@@ -6,6 +6,7 @@
     use frontend\widget\WidgetFormComment;
     use frontend\widget\WidgetFormAnswer;
     use frontend\widget\WidgetRightAction;
+    use frontend\widget\WidgetBelongTopic;
     use yii\widgets\ListView;
     use kop\y2sp\ScrollPager;
     $theme = $this->theme;
@@ -38,7 +39,7 @@
 		</div>
 	</div><!-- .today-question -->
 	<div class="question-basic section">
-		<?= $this->render('belong-topic') ?>
+		<?= WidgetBelongTopic::widget(['model' => $model]) ?>
 		<h3 class="qb-title"><a href="#"><?=Html::encode($model->title)?></a></h3>
 		<div class="qb-time"><span class="time-update">Cập nhật 21 giờ trước</span><a href="#">2 câu trả lời</a></div>
 		<div class="qb-action">

@@ -200,4 +200,16 @@ class Questions extends BaseModel
          }
         return true;    
     }
+
+    public function getItems()
+    {
+        return $this->hasMany(Item::className(), ['id' => 'item_id'])
+            ->viaTable('order_item', ['order_id' => 'id']);
+    }
+
+    public function getTopics()
+    {
+        return $this->hasMany(Topics::className(), ['id' => 'topic_id'])
+            ->viaTable(QuestionTopic::tableName() , ['question_id' => 'id']);
+    }
 }
