@@ -251,16 +251,6 @@ class AjaxController extends FrontendController
         }
         return json_encode($data);
     }
-
-	public function actionSearchTopicsProfiles()
-    {
-        $key = $_REQUEST['q'];
-        //$data = array();
-        if (!empty($key)) {
-            $data = Topics::getTopicsByKey(convert_vi_to_en($key));
-        }
-        return json_encode($data);
-    }
 	
 	public function actionTooltipTopic()
 	{
