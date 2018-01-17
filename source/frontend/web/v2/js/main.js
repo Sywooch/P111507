@@ -269,12 +269,12 @@
 	    /*  [ What Topic ]
         - - - - - - - - - - - - - - - - - - - - */
         $('.what-topic').on('click', function () {
-	        $('.what-topic-bg').fadeToggle();
-	        $('.what-topic-popup').fadeToggle();
+	        $('.choose-topic-bg').fadeToggle();
+	        $('.choose-topic-popup').fadeToggle();
 	    });
-	    $('.what-topic-bg').on('click', function () {
+	    $('.choose-topic-bg').on('click', function () {
 	        $(this).fadeToggle();
-	        $('.what-topic-popup').fadeToggle();
+	        $('.choose-topic-popup').fadeToggle();
 	    });
 
 	    /*  [ Request Popup ]

@@ -226,6 +226,83 @@
 				}
 			});
 		});
+		
+		// TOPIC SEARCH
+	    $('.what-topic-popup input').on('keyup', function () {
+	    	var key = $(this).val();
+	    	delay(function() {
+				searchTopic({key: key});
+		    }, 500 );
+	        $('.suggest-topic-search').fadeIn();
+	    });
+
+	    $('.what-topic-popup input').on("keypress", function(e) {
+	        if (e.keyCode == 13) {
+	             e.preventDefault();
+				searchTopic({key: $(this).val()});
+    			return false;
+	        }
+		});
+		
+		 // FOLLOW TOPIC
+		$('body').delegate('.action-follow-topic a', 'click', function (e) {
+     	    e.preventDefault();
+     	    var element = $(this);
+    		var id = $(this).attr('data-ajax-id');
+    		handleFollowTopic(id, function(response) {
+    			if (!response.error) {
+        			var numberElement = element.find('span');
+        			var count = !isNaN(parseInt(numberElement.html())) ? parseInt(numberElement.html()) : 0;
+					if (response.data === 1) {
+	        			count = count - 1;
+	        			var text = ' '+ count;
+	        			numberElement.html(text);
+					} else {
+	        			count = count + 1;
+	        			var text = ' '+ count;
+	        			numberElement.html(text);
+					}
+				} 
+    		});
+	    });
+		
+		$('body').delegate('.selector_result_topic', 'click', function(e){
+			e.preventDefault();
+			var element = $(this);
+			var id 		= $(this).attr('data-ajax-id');
+			var title 	= $(this).attr('data-ajax-title');
+			handleFollowTopic(id, function(response)
+			{
+				if(!response.error){
+					$('.suggest-topic-search').hide();
+					$('.suggest-topic-search').html('');
+					var html = '<li><a class="remove_selecter_topic" data-ajax-id="'+id+
+					'" href="javascript:void(0)"><i class="nc-icon-mini ui-1_simple-remove"></i> </a> <span>'
+					+title+'</span> </li>';
+					$('.list-choose-topic').prepend(html);
+				}
+			});
+		});
+		
+		$('body').delegate('.none_result_topic .submit_button', 'click', function(e){
+			e.preventDefault();
+			var element = $(this);
+			var key 	= $(this).parent().attr('data-ajax-title');
+			handleCreateTopic(key, function(response){
+				if(!response.error){
+					handleFollowTopic(response.id, function(responsefollow)
+					{
+						$('.suggest-topic-search').hide();
+						$('.suggest-topic-search').html('');
+						var html = '<li><a class="remove_selecter_topic" data-ajax-id="'+response.id+
+						'" href="javascript:void(0)"><i class="nc-icon-mini ui-1_simple-remove"></i> </a> <span>'
+						+response.title+'</span> </li>';
+						$('.list-choose-topic').prepend(html);
+					});
+				}
+			});
+		});
+		
 	});
 })(jQuery);
 // 
@@ -530,4 +607,94 @@ function handleProfileQuotes(params, callback)
 			}
 		}
 	)
+}
+
+/**
+ * process user follow topic
+ * params object value
+ * params object id
+ * return void
+*/
+function handleFollowTopic(id, callback) {
+	appAjax(
+		'/ajax/follow-topic',
+		'post',
+		{id: id},
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
+}
+
+
+/**
+ * process user create topic
+ * params object value
+ * params object key
+ * return void
+*/
+function handleCreateTopic(key, callback) {
+	appAjax(
+		'/ajax/create-topics',
+		'post',
+		{key: key},
+		'json',
+		function(response) {
+			callback(response);
+			if (!response.error) {
+				console.log('success');
+			} else {
+				console.log('error');
+			}
+		}
+	);
+}
+
+// HANDLE SEARCH TOPIC
+function searchTopic(params) {
+	appAjax(
+		'/ajax/search-topic',
+		'post',
+		params,
+		'json',
+		function(response) {
+			console.log(response);
+			if (!response.error){
+				
+				var htmlTopic = '<li class="none_result_topic" data-ajax-title="'+ params.key +'">'+
+				'<span>'+ params.key +'</span>'+
+				'<span class="submit_button">Thêm chủ đề</span>'+
+				'</li>';
+	
+				var html = '<div class="suggest-title">' +
+					'<p><i class="nc-icon-outline ui-1_zoom"></i>Tìm kiếm cho: '+ params.key +'</p>' +
+					'</div>' +
+						'<ul>';
+					_.each(response.data, function(item) {
+						html += getItemTopicSearch(item);
+					});
+						
+				html += '</ul>';
+				if(response.data.length > 0){
+					$('.suggest-topic-search').html(html);
+				}
+				else{
+					$('.suggest-topic-search').html(htmlTopic);
+				}
+				
+			}
+		}
+	);
+}
+
+function getItemTopicSearch(item) {
+	return '<li class="selector_result_topic" data-ajax-title="'+item.title+'" data-ajax-id="'+item.id+
+	'"><a href="javascript:;"><img class="img-header-avatar" src="'+ item.images +
+	'" alt=""><span>'+ item.title +'</span></a></li>';
 }

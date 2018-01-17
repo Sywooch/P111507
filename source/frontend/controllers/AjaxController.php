@@ -12,6 +12,7 @@ use frontend\models\CommentLikeModel;
 use frontend\models\CommentFollowModel;
 use frontend\models\AnswerModel;
 use frontend\models\UserModel;
+use frontend\models\TopicModel;
 use common\models\Comments;
 use common\models\User;
 use common\models\Topics;
@@ -243,16 +244,6 @@ class AjaxController extends FrontendController
 	}
 	
     public function actionSearchTopicsProfiles()
-    {
-        $key = $_REQUEST['q'];
-        //$data = array();
-        if (!empty($key)) {
-            $data = Topics::getTopicsByKey(convert_vi_to_en($key));
-        }
-        return json_encode($data);
-    }
-
-	public function actionSearchTopicsProfiles()
     {
         $key = $_REQUEST['q'];
         //$data = array();
@@ -537,6 +528,36 @@ class AjaxController extends FrontendController
         } catch (\Exception $e) {
             return $this->jsonOut(true, 'fail', $e->getMessage());
         } 
+    }
+	
+	public function actionFollowTopic()
+	{
+		if(!Yii::$app->request->isAjax || Yii::$app->user->isGuest){
+			return $this->jsonOut(true, 'fail');
+		}
+		try {
+            $model = new TopicModel();
+            $model->id = crequest()->post('id');
+            $model->setRulesFollow();
+            if ($model->validate()) {
+                $result = $model->follow();
+                return $this->jsonOut(false, 'success', $result);
+            } else {
+                return $this->jsonOut(true,  $model->getErrors());
+            }
+        } catch (\Exception $e) {
+            return $this->jsonOut(true, 'fail', $e->getMessage());
+        }
+	}
+	
+	public function actionSearchTopic()
+    {
+        $key = Yii::$app->request->post('key');
+        if (!empty($key)) {
+            $result = Topics::getTopicsByKey(convert_vi_to_en($key));
+            return $this->jsonOut(false, 'success', $result);
+        }
+		return $this->jsonOut(true, 'fail');
     }
 	
 }

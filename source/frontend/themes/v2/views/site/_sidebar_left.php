@@ -7,11 +7,13 @@
 		<h3 class="widget-title"><i class="nc-icon-outline files_question"></i>Câu hỏi</h3>
 		<div class="widget-content">
 			<ul>
-				<li class="active"><a href="questions.html">Tất cả câu hỏi</a></li>
-				<li><a href="top-question.html">Theo dõi</a></li>
+				<li class="active"><a href="javascript:;">Tất cả câu hỏi</a></li>
+				<li><a href="#">Câu hỏi mới</a></li>
+				<li><a href="javascript:;">Câu hỏi đang theo dõi</a></li>
+				<!--
 				<li><a href="#">Phổ biến</a></li>
-				<li><a href="#">Chưa trả lời</a></li>
 				<li><a href="bookmarked-answers.html">Đã trả lời</a></li>
+				-->
 			</ul>
 		</div>
 	</aside><!-- .widget-question -->

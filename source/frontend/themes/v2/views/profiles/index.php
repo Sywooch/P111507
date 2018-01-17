@@ -32,24 +32,7 @@
 					<?=WidgetUserV2HeaderInfo::widget(["model"=>$model,'uid'=>$model->id])?>
 					
 					<div class="pf-content">
-						<div class="pf-left">
-							<aside class="widget widget-question">
-								<h3 class="widget-title"><i class="nc-icon-outline files_question"></i>Nguồn cấp dữ liệu</h3>
-								<div class="widget-content">
-									<ul>
-										<li class="active"><a href="#">Trả lời<span>2</span></a></li>
-										<li><a href="#">Câu hỏi<span>0</span></a></li>
-										<li><a href="#">Hoạt động<span>0</span></a></li>
-										<li><a href="#">Bài viết<span>0</span></a></li>
-										<li><a href="#">Blogs<span>0</span></a></li>
-										<li><a href="#">Người theo dõi<span>0</span></a></li>
-										<li><a href="#">Đang theo dõi<span>0</span></a></li>
-										<li><a href="#">Chủ đề<span>0</span></a></li>
-										<li><a href="#">Chỉnh sửa<span>4</span></a></li>
-									</ul>
-								</div>
-							</aside><!-- .widget-question -->
-						</div><!-- .pf-left -->
+						<?=$this->render('_slidebar_left')?>
 						<div class="pf-right">
 							<div class="list-answers">
 								<div class="answers-title">
